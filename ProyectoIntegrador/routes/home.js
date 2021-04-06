@@ -5,7 +5,7 @@ let controlador = require('../controladores/controller');
 
 router.get('/', controlador.home);
 
-router.get('/login', controlador.login);
+router.get('/login', controlador.login);  
 
 router.get('/register', controlador.register);
 
@@ -20,6 +20,6 @@ module.exports = router;
 
 
 
-
+//Aprendiendo git con pili
 //var controlador = require(`../controladores/controlador`);
 //router.get('/', controlador.index);
