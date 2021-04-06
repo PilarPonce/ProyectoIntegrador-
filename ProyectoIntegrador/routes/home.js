@@ -5,7 +5,7 @@ let controlador = require('../controladores/controller');
 
 router.get('/', controlador.home);
 
-router.get('/login', controlador.login);
+router.get('/login', controlador.login);  
 
 router.get('/register', controlador.register);
 
@@ -19,7 +19,6 @@ router.get('/profile', controlador.profile);
 module.exports = router;
 
 
-
-
+//cambiando rutas 
 //var controlador = require(`../controladores/controlador`);
 //router.get('/', controlador.index);
