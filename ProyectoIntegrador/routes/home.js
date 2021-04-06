@@ -19,7 +19,6 @@ router.get('/profile', controlador.profile);
 module.exports = router;
 
 
-
-//Aprendiendo git con pili
+//cambiando rutas 
 //var controlador = require(`../controladores/controlador`);
 //router.get('/', controlador.index);
