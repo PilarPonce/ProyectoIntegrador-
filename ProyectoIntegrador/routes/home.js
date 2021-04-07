@@ -11,7 +11,7 @@ router.get('/register', controlador.register);
 
 router.get('/product', controlador.product);
 
-router.get('/search', controlador.search);
+router.get('/search', controlador.search); 
 
 router.get('/profile', controlador.profile);
 
