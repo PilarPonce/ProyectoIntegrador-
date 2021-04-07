@@ -22,6 +22,18 @@ let controlador = {
     search: (req, res, next) => {
         res.render('search-results', { title: 'search' });
     },
+
+    productadd: (req, res, next) => {
+        res.render('product-add', { title: 'productadd' });
+    },
+
+    headerlogueado: (req, res, next) => {
+        res.render('headerLogueado', { title: 'headerlogueado' });
+    },
+
+    profileedit: (req, res, next) => {
+        res.render('profile-edit', { title: 'profileedit' });
+    },
 }
 
 module.exports= controlador;

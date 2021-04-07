@@ -14,7 +14,13 @@ router.get('/product', controlador.product);
 router.get('/search', controlador.search);
 
 router.get('/profile', controlador.profile);
- 
+
+router.get('/productadd', controlador.productadd);
+
+router.get('/headerlogueado', controlador.headerlogueado);
+
+router.get('/profileedit', controlador.profileedit);
+
 
 module.exports = router;
 
