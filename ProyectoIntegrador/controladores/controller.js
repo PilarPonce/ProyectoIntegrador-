@@ -1,6 +1,9 @@
+let ropa = require(`../productos/ropa`);
+
+
 let controlador = {
     home: (req,res,next)=> {
-        res.render('home', { title: 'home' });
+        res.render('home', {ropa: ropa });
     },
 
     login: (req, res, next) => {
