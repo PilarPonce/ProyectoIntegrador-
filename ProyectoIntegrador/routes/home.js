@@ -4,7 +4,7 @@ var router = express.Router();
 let controlador = require('../controladores/controller');
 
 router.get('/', controlador.home);
-
+   
 router.get('/login', controlador.login);  
 
 router.get('/register', controlador.register);

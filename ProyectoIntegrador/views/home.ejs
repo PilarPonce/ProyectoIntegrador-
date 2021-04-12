@@ -9,8 +9,11 @@
     <link width="" rel="shortcut icon" href="./images/logo-mercado-liebre.jpg" />
     <link rel='stylesheet' href='/stylesheets/app.css' />
     <link rel='stylesheet' href='/stylesheets/bootstrap-grid.min.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/js/uikit-icons.min.js"></script>
         
-    <title> Mercado Liebre Argentina</title>
+    <title> SHE</title>
     <!-- Font Awesome Stylesheet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 </head>
@@ -22,8 +25,37 @@
     <!-- Header -->
 
     <!-- Banner -->
-    <div class="banner">
-        <img src="images/img-home-banner.jpg" alt="Banner de ofertas">
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="center: true">
+    
+        <ul class="uk-slider-items uk-grid">
+            <li class="uk-width-3-4">
+                <div class="uk-panel" >
+                    <img src="images/perfil/banner.jpeg" alt="" >
+                    <div class="uk-position-center uk-panel" >
+                    </div>
+                </div>
+            </li>
+            <li class="uk-width-3-4">
+                <div class="uk-panel">
+                    <img src="images/perfil/banner.jpeg" alt="">
+                    <div class="uk-position-center uk-panel">
+                    </div>
+                </div>
+            </li>
+        <li class="uk-width-3-4">
+            <div class="uk-panel">
+                <img src="images/perfil/banner.jpeg" alt="">
+                <div class="uk-position-center uk-panel">
+                </div>
+            </div>
+        </li>
+        </ul>
+    
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+            uk-slider-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+            uk-slider-item="next"></a>
+    
     </div>
     <!-- /Banner -->
 
