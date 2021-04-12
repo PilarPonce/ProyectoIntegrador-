@@ -23,11 +23,11 @@
     <section class="info-usuario container products-wrapper">
         <div class="row">
             <div class="img-container offset-3 col-2">
-                <img src="https://via.placeholder.com/150" alt="foto de perfil" class="foto-perfil">
+                <img src= '/images/perfil/KimKardashian.png' alt="" class="foto-perfil" >
             </div>
             <div class="data-container col-6">
                 <div class="d-flex align-items-center ">
-                    <h1 class="main-title">Nombre del usuario
+                    <h1 class="main-title">Kim Kardashian
                         <a href="http://localhost:3000/profileedit">
                             <i class="fas fa-cog"></i>
                         </a>
@@ -37,7 +37,7 @@
                 <div>
                     <ul class="">
                         <li>8 productos</li>
-                        <li>200 seguidores</li>
+                        <li>6M seguidores</li>
                         <li>300 comentarios</li>
                     </ul>
                 </div>
@@ -53,17 +53,71 @@
                 <h2 class="products-title">Mis productos</h2>
             </div>
             <!-- Show mis productos -->
+         <% for (let index = 0; index < 1; index++) {  %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
                     <a href="http://localhost:3000/product">
                         <figure class="product-box_image">
-                            <img src="images/products/default-image.png" alt="cafetera moulinex">
+                            <img src=<%=ropa.novedades[3].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
-                            <h2>Nombre del producto</h2>
-                            <p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Eaque delectus ex</p>
-                            <p>Comentarios: 12</p>
+                            <h2><%= ropa.novedades[3].nombre %></h2>
+                            <p><%=  ropa.novedades[3].descripcion%></p>
+                            <p>Comentarios: 5 </p>
+                        </article>
+                    </a>
+                </section>
+            </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <section class="product-box">
+                <a href="http://localhost:3000/product">
+                    <figure class="product-box_image">
+                        <img src=<%=ropa.novedades[1].foto %> alt="">
+                    </figure>
+                    <article class="product-box_data">
+                        <h2>
+                            <%= ropa.novedades[1].nombre %>
+                        </h2>
+                        <p>
+                            <%= ropa.novedades[1].descripcion%>
+                        </p>
+                        <p>Comentarios: 5 </p>
+                    </article>
+                </a>
+            </section>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <section class="product-box">
+                <a href="http://localhost:3000/product">
+                    <figure class="product-box_image">
+                        <img src=<%=ropa.zapatos[1].foto %> alt="">
+                    </figure>
+                    <article class="product-box_data">
+                        <h2>
+                            <%= ropa.zapatos[1].nombre %>
+                        </h2>
+                        <p>
+                            <%= ropa.zapatos[1].descripcion%>
+                        </p>
+                        <p>Comentarios: 5 </p>
+                    </article>
+                </a>
+            </section>
+        </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <section class="product-box">
+                    <a href="http://localhost:3000/product">
+                        <figure class="product-box_image">
+                            <img src=<%=ropa.remeras[2].foto %> alt="">
+                        </figure>
+                        <article class="product-box_data">
+                            <h2>
+                                <%= ropa.remeras[2].nombre %>
+                            </h2>
+                            <p>
+                                <%= ropa.remeras[2].descripcion%>
+                            </p>
+                            <p>Comentarios: 5 </p>
                         </article>
                     </a>
                 </section>
@@ -72,14 +126,16 @@
                 <section class="product-box">
                     <a href="http://localhost:3000/product">
                         <figure class="product-box_image">
-                            <img src="images/products/default-image.png" alt="cafetera moulinex">
+                            <img src=<%=ropa.vestidos[3].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
-                            <h2>Nombre del producto</h2>
-                            <p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Eaque
-                                delectus ex</p>
-                            <p>Comentarios: 12</p>
+                            <h2>
+                                <%= ropa.vestidos[3].nombre %>
+                            </h2>
+                            <p>
+                                <%= ropa.vestidos[3].descripcion%>
+                            </p>
+                            <p>Comentarios: 5 </p>
                         </article>
                     </a>
                 </section>
@@ -88,14 +144,16 @@
                 <section class="product-box">
                     <a href="http://localhost:3000/product">
                         <figure class="product-box_image">
-                            <img src="images/products/default-image.png" alt="cafetera moulinex">
+                            <img src=<%=ropa.novedades[2].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
-                            <h2>Nombre del producto</h2>
-                            <p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Eaque
-                                delectus ex</p>
-                            <p>Comentarios: 12</p>
+                            <h2>
+                                <%= ropa.novedades[2].nombre %>
+                            </h2>
+                            <p>
+                                <%= ropa.novedades[2].descripcion%>
+                            </p>
+                            <p>Comentarios: 5 </p>
                         </article>
                     </a>
                 </section>
@@ -104,14 +162,16 @@
                 <section class="product-box">
                     <a href="http://localhost:3000/product">
                         <figure class="product-box_image">
-                            <img src="images/products/default-image.png" alt="cafetera moulinex">
+                            <img src=<%=ropa.zapatos[2].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
-                            <h2>Nombre del producto</h2>
-                            <p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Eaque
-                                delectus ex</p>
-                            <p>Comentarios: 12</p>
+                            <h2>
+                                <%= ropa.zapatos[2].nombre %>
+                            </h2>
+                            <p>
+                                <%= ropa.zapatos[2].descripcion%>
+                            </p>
+                            <p>Comentarios: 5 </p>
                         </article>
                     </a>
                 </section>
@@ -120,74 +180,31 @@
                 <section class="product-box">
                     <a href="http://localhost:3000/product">
                         <figure class="product-box_image">
-                            <img src="images/products/default-image.png" alt="cafetera moulinex">
+                            <img src=<%=ropa.remeras[1].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
-                            <h2>Nombre del producto</h2>
-                            <p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Eaque
-                                delectus ex</p>
-                            <p>Comentarios: 12</p>
-                        </article>
-                    </a>
-                </section>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <section class="product-box">
-                    <a href="http://localhost:3000/product">
-                        <figure class="product-box_image">
-                            <img src="images/products/default-image.png" alt="cafetera moulinex">
-                        </figure>
-                        <article class="product-box_data">
-                            <h2>Nombre del producto</h2>
-                            <p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Eaque
-                                delectus ex</p>
-                            <p>Comentarios: 12</p>
-                        </article>
-                    </a>
-                </section>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <section class="product-box">
-                    <a href="http://localhost:3000/product">
-                        <figure class="product-box_image">
-                            <img src="images/products/default-image.png" alt="cafetera moulinex">
-                        </figure>
-                        <article class="product-box_data">
-                            <h2>Nombre del producto</h2>
-                            <p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Eaque
-                                delectus ex</p>
-                            <p>Comentarios: 12</p>
-                        </article>
-                    </a>
-                </section>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <section class="product-box">
-                    <a href="http://localhost:3000/product">
-                        <figure class="product-box_image">
-                            <img src="images/products/default-image.png" alt="cafetera moulinex">
-                        </figure>
-                        <article class="product-box_data">
-                            <h2>Nombre del producto</h2>
-                            <p>Descripción corta del producto Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Eaque
-                                delectus ex</p>
-                            <p>Comentarios: 12</p>
+                            <h2>
+                                <%= ropa.remeras[1].nombre %>
+                            </h2>
+                            <p>
+                                <%= ropa.remeras[1].descripcion%>
+                            </p>
+                            <p>Comentarios: 5 </p>
                         </article>
                     </a>
                 </section>
             </div>
         </div>
+                <%}%>
+        </div>
+
     </div>
     <!-- /Mis productos -->
 
 
 <!-- footer -->
 <%- include('./partials/footer')%>
-    <!-- /footer -->
+<!-- /footer -->
 </body>
 
 </html>

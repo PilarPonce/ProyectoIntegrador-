@@ -12,8 +12,8 @@ let ropa = {
         {usuario: "user 4", comentario : "Muestrenlo en otros colores!"},
         {usuario: "user 5", comentario : "Este catalogo es buenisimo, me encanta"}]
     },
-    {
-        id: 18,
+    { 
+        id: 18,              
         tipo: "novedad",
         nombre: "Chaleco acolchonado",
         foto: "/images/productos/18.png",
@@ -287,6 +287,7 @@ let ropa = {
         }
         return respuesta
     }
+     
 }
 
 module.exports = ropa;

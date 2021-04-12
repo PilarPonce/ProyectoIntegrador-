@@ -15,7 +15,7 @@ let controlador = {
     },
 
     profile: (req, res, next) => {
-        res.render('profile', { title: 'profile' });
+        res.render('profile', { ropa: ropa });
     },
 
     register: (req, res, next) => {
