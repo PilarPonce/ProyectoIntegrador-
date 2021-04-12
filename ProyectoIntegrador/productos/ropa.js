@@ -1,6 +1,6 @@
 let ropa = {
     novedades:[ {
-        id: 17,
+        id: 17,   
         tipo: "novedad",
         nombre: "Impermeable claro",
         foto: "/images/productos/17.png",

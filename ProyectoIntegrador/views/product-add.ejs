@@ -21,20 +21,70 @@
     <!-- Header -->
 
     <!-- Novedades -->
-    <div class="container products-wrapper">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="products-title">Agregar productos</h2>
-            </div>
-            <!-- Show the "ultimos" products -->
-            <h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá va el formulario para agregar
-                    prodcutos al catálogo. <br>
-                    Debe cumplir con los puntos de la consigna y ser coherente con la tabla de la base de datos. <br>
-                    Eliminen estás líneas y coloquen el formulario. <br>
-                    Recuerden todo lo que necesita tanto la etiqueta form como los campos input para operar
-                    correctamtente</i> <br>
-                ////////////////
-            </h2>
+<div class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="products-title">Agregar Productos</h2>
+        </div>
+        <!-- Show the "ultimos" products -->
+        <section>
+            <form class="form" action="http://localhost:3000/home" method="GET" id="form">
+                <div class="forms">
+                    <div class="completa">
+                        <label class="palabra" for="name">ID</label>
+                        <input class="inputs" type="text" name="id" id="ID">
+                        <hr>
+                        </hr>
+                    </div>
+
+                    <div class="completa">
+                        <label class="palabra" for="name">Tipo</label>
+                        <input class="inputs" type="text" name="tipo" id="tipo">
+                        <hr>
+                        </hr>
+                    </div>
+
+                    <div class="completa">
+                        <label class="palabra" for="name">Nombre</label>
+                        <input class="inputs" type="text" name="nombre" id="nombre">
+                        <hr>
+                        </hr>
+                    </div>
+
+
+                    <div class="completa">
+                        <label class="palabra" for="name">Foto</label>
+                        <input class="inputs" type="text" name="foto" id="foto">
+                        <hr>
+                        </hr>
+                    </div>
+
+
+                    <div class="completa">
+                        <label class="palabra" for="name">Descripción</label>
+                        <input class="inputs" type="text" name="descripción" id="descripción">
+                        <hr>
+                        </hr>
+
+                    <div class="completa">
+                        <label class="palabra" for="name">Extras</label>
+                        <input class="inputs" type="text" name="extras" id="extras">
+                        <hr>
+                        </hr>
+                    </div>
+
+                        <p class=" iniciar-sesion uk-margin">
+                            <a href="http://localhost:3000/product"> <button
+                                    class=" texto-boton uk-button uk-button-danger">Cargar producto</button></a>
+                        </p>
+
+                    </div>
+                    <div id="aviso"> </div>
+
+            </form>
+        </section>
+            
+            
 
 
 <!-- footer -->
