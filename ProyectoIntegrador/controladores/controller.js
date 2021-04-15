@@ -6,6 +6,44 @@ let controlador = {
         res.render('home', {ropa: ropa });
     },
 
+    porId: (req,res,next)=> {
+        let id= req.params.id;
+        let respuesta = []
+        ropa.novedades.forEach(element => {
+            if (element.id == id) {
+                respuesta.push(element) 
+            }
+        
+        });
+        ropa.jeans.forEach(element => {
+            if (element.id == id) {
+                respuesta.push(element) 
+            }
+        
+        });
+        ropa.remeras.forEach(element => {
+            if (element.id == id) {
+                respuesta.push(element) 
+            }
+        
+        });
+        ropa.zapatos.forEach(element => {
+            if (element.id == id) {
+                respuesta.push(element) 
+            }
+        
+        });
+        ropa.vestidos.forEach(element => {
+            if (element.id == id) {
+                respuesta.push(element) 
+            }
+        
+        });
+        res.render('product',{ropa: respuesta})
+
+
+    },
+
     login: (req, res, next) => {
         res.render('login', { title: 'login' });
     },

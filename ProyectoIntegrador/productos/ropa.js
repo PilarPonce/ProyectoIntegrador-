@@ -271,10 +271,21 @@ let ropa = {
 
     porId: function (id) {
         let respuesta = []
-        for (let i = 0; i < ropa.lista.length; i++) {
-            if (ropa.lista[i].id == id.toLowerCase()) {
-                respuesta.push(ropa.lista[i])
+        for (let i = 0; i < ropa.length; i++) {
+            if (ropa.novedades[i].id == id.toLowerCase()) {
+                respuesta.push(ropa.novedades[i])
+            }else if(ropa.jeans[i].id == id.toLowerCase()){
+                respuesta.push(ropa.jeans[i])
+            }else if(ropa.remeras[i].id == id.toLowerCase()){
+                respuesta.push(ropa.remeras[i])
+            }else if(ropa.zapatos[i].id == id.toLowerCase()){
+                respuesta.push(ropa.zapatos[i])
+            }else if(ropa.vestidos[i].id == id.toLowerCase()){
+                respuesta.push(ropa.vestidos[i])
+
             }
+
+            
         }
         return respuesta
     }, 
