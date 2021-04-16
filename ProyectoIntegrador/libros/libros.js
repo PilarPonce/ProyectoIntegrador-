@@ -229,26 +229,99 @@ let libros = {
         {
             id: 16,   
             tipo: "romance",
-            genero:"Novela, Horror, Ficción gótica, Literatura fantástica, Novela epistolar,",
-            nombre: "Boulevard",
-            foto: "/images/productos/romantica1.jpg",
-            autor: "Flor M. Salvador",
-            anio: 2020,
-            resumen: "Luke y Hasley no eran el prototipo de una pareja perfecta. Sin embargo, ambos le pusieron definición a lo que ellos crearon. Una historia de dos adolescentes que crean su propio boulevard ante la llovizna que hay en sus corazones, donde se entremezcla, por un lado, un azul cálido, y por el otro, un azul eléctrico, tiñéndose este por completo de un gris nostálgico. ¿Quién dijo que después de la tormenta sale el sol cuando puede haber un rayo?",
+            genero:"Novela romantica, Ficción, Distopía, Literatura fantástica",
+            nombre: "La seleccion",
+            foto: "/images/productos/romantica4.jpg",
+            autor: "Kiera Cass",
+            anio: 2012,
+            resumen: "Para treinta y cinco chicas, la Selección es una oportunidad que solo se presenta una vez en la vida. La oportunidad de escapar de la vida que les ha tocado por nacer en una determinada familia. La oportunidad de que las trasladen a un mundo de trajes preciosos y joyas que no tienen precio.",
             comentarios: [{usuario: "user 1", comentario : "Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!"},
             {usuario: "user 2", comentario : "Me encantó este libro, me lo leí en dos días. "},
             {usuario: "user 3", comentario : "Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante."},
             {usuario: "user 4", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
             {usuario: "user 5", comentario : "Este catalogo es buenisimo, me encanta"}]
-        }]
-
-
-
-
-
-
-
-
-
-
+        }],
+        terror: [
+        {
+            id: 17,   
+            tipo: "terror",
+            genero:"Novela, Horror, Thriller, Fantasía oscura",
+            nombre: "It",
+            foto: "/images/productos/terror1.jpg",
+            autor: "Stephen King",
+            anio: 1986,
+            resumen: "It (en español, «Eso») es una novela de terror publicada en 1986 por el escritor estadounidense Stephen King. Cuenta la historia de un grupo de siete niños que son aterrorizados por un malvado monstruo -al que llaman «Eso»- que es capaz de cambiar de forma, alimentándose del terror que produce en sus víctimas.",
+            comentarios: [{usuario: "user 1", comentario : "Excelente novela, como siempre, el autor nos tiene acostumbrados a la perfección en redacción!"},
+            {usuario: "user 2", comentario : "Me encantó este libro, me lo leí en dos días. "},
+            {usuario: "user 3", comentario : "Me sorprendió, pensé que sería como los otros libros de el autor, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante."},
+            {usuario: "user 4", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
+            {usuario: "user 5", comentario : "Este catalogo es buenisimo, me encanta"}]
+        },
+        {
+            id: 18,   
+            tipo: "terror",
+            genero:"Ficción gótica, Novela corta, Ciencia ficción, Misterio, Horror, Literatura fantástica, Drama, Thriller",
+            nombre: "El extraño caso del doctor Jekyll y el señor Hyde",
+            foto: "/images/productos/terror2.jpg",
+            autor: "Robert Louis Stevenson",
+            anio: 1886,
+            resumen: "En sus cuadernos, el Dr. Jekyll confiesa que en su juventud consiguió una poción que lograba transformar a una persona en uno solo de sus polos opuestos. Así, cada vez que Jekyll tomaba la poción, se metamorfoseaban en Hyde, un verdadero asesino y misántropo. Un día, Poole, el mayordomo del Dr. Jekyll, asegura que alguien ha matado a éste tras entrar en el laboratorio. En realidad, el cadáver que encuentran es el de Mr. Hyde, que se ha suicidado. Mientras, el Dr. Jekyll ha desaparecido. Publicada por primera vez en inglés en 1886 trata acerca de un abogado, Gabriel John Utterson, que investiga la extraña relación entre su viejo amigo, el Dr. Henry Jekyll, y el misántropo Edward Hyde. El libro es conocido por ser una representación vívida de la psicopatología correspondiente a un desdoblamiento de personalidad.",
+            comentarios: [{usuario: "user 1", comentario : "Excelente novela, como siempre, el autor nos tiene acostumbrados a la perfección en redacción!"},
+            {usuario: "user 2", comentario : "Me encantó este libro, me lo leí en dos días. "},
+            {usuario: "user 3", comentario : "Me sorprendió, pensé que sería como los otros libros de el autor, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante."},
+            {usuario: "user 4", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
+            {usuario: "user 5", comentario : "Este catalogo es buenisimo, me encanta"}]
+        },
+        {
+            id: 19,   
+            tipo: "terror",
+            genero:"Novela, Horror, Thriller, Fantasía oscura",
+            nombre: "Carrie",
+            foto: "/images/productos/terror3.jpg",
+            autor: "Stephen King",
+            anio: 1974,
+            resumen: "El escalofriante caso de una joven de apariencia insignificante que se transformó en un ser de poderes anormales, sembrando el terror en toda la ciudad. Con pulso mágico para mantener la tensión a lo largo de todo el libro, Stephen King narra la atormentada adolescencia de Carrie, y nos envuelve en una atmósfera sobrecogedora cuando la muchacha realiza una serie de descubrimientos hasta llegar al terrible momento de la venganza.",
+            comentarios: [{usuario: "user 1", comentario : "Excelente novela, como siempre, el autor nos tiene acostumbrados a la perfección en redacción!"},
+            {usuario: "user 2", comentario : "Me encantó este libro, me lo leí en dos días. "},
+            {usuario: "user 3", comentario : "Me sorprendió, pensé que sería como los otros libros de el autor, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante."},
+            {usuario: "user 4", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
+            {usuario: "user 5", comentario : "Este catalogo es buenisimo, me encanta"}]
+        },
+        {
+            id: 20,   
+            tipo: "terror",
+            genero:"Novela, Horror, Terror psicológico, Ficción gótica",
+            nombre: "El respolandor",
+            foto: "/images/productos/terror4.jpg",
+            autor: "Stephen King",
+            anio: 1977,
+            resumen: "Jack Torrance acepta una oferta de trabajo en un hotel de montaña que se encuentra a 65 kilómetros del pueblo más cercano. Además, las carreteras se encuentran cerradas al tráfico por las fuertes nevadas del invierno. Pronto comenzarán a manifestarse espíritus y apariciones extrañas. Es el propio hotel el que intenta controlar tanto a los vivos como a los muertos. Danny, el hijo de Jack tiene la capacidad de ver visiones sobre el pasado del hotel y de resistirse a su poder hipnótico. Es entonces cuando su padre comienza a enloquecer.",
+            comentarios: [{usuario: "user 1", comentario : "Excelente novela, como siempre, el autor nos tiene acostumbrados a la perfección en redacción!"},
+            {usuario: "user 2", comentario : "Me encantó este libro, me lo leí en dos días. "},
+            {usuario: "user 3", comentario : "Me sorprendió, pensé que sería como los otros libros de el autor, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante."},
+            {usuario: "user 4", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
+            {usuario: "user 5", comentario : "Este catalogo es buenisimo, me encanta"}]
+        }],
+        porId: function (id) {
+            let respuesta = []
+            for (let i = 0; i < ropa.length; i++) {
+                if (ropa.bestsellers[i].id == id.toLowerCase()) {
+                    respuesta.push(ropa.bestsellers[i])
+                }else if(ropa.clasicos[i].id == id.toLowerCase()){
+                    respuesta.push(ropa.clasicos[i])
+                }else if(ropa.ficcion[i].id == id.toLowerCase()){
+                    respuesta.push(ropa.ficcion[i])
+                }else if(ropa.romances[i].id == id.toLowerCase()){
+                    respuesta.push(ropa.romances[i])
+                }else if(ropa.terror[i].id == id.toLowerCase()){
+                    respuesta.push(ropa.terror[i])
+    
+                }
+    
+                
+            }
+            return respuesta
+        }
 }
+
+module.exports = libros;

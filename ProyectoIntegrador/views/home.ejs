@@ -67,7 +67,7 @@
                 <h2 class="products-title">Best Sellers 2020</h2>
             </div>
             <!-- best sellers -->
-            <% ropa.novedades.forEach(element => { %>
+            <% libros.bestsellers.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
                     <a href="http://localhost:3000/product/:id">
@@ -76,8 +76,8 @@
                         </figure>
                         <article class="product-box_data">
                             <h2><%= element.nombre %></h2>
-                            <p> <%= element.descripcion %> </p>
-                            <p>Comentarios: 12</p>
+                            <p> <%= element.autor %> </p>
+                            <p>Comentarios: 5</p>
                         </article>
                     </a>
                 </section>
@@ -92,9 +92,9 @@
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
-                <h2 class="products-title">Jeans</h2>
+                <h2 class="products-title">Clásicos de siempre</h2>
             </div>
-            <% ropa.jeans.forEach(element => { %>
+            <% libros.clasicos.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
                 <a href="http://localhost:3000/product">
@@ -103,8 +103,8 @@
                         </figure>
                         <article class="product-box_data">
                             <h2> <%= element.nombre %> </h2>
-                            <p> <%= element.descripcion %> </p>
-                            <p>Comentarios: 12</p>
+                            <p> <%= element.autor %> </p>
+                            <p>Comentarios: 5</p>
                         </article>
                     </a>
                 </section>
@@ -119,10 +119,10 @@
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
-                <h2 class="products-title">Remeras</h2>
+                <h2 class="products-title">Novelas románticas</h2>
             </div>
             <!-- Show the "ultimos" products -->
-            <% ropa.remeras.forEach(element => { %>
+            <% libros.romances.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
                 <a href="http://localhost:3000/product">
@@ -131,8 +131,8 @@
                         </figure>
                         <article class="product-box_data">
                             <h2> <%= element.nombre %> </h2>
-                            <p>  <%= element.descripcion %> </p>
-                            <p>Comentarios: 12</p>
+                            <p>  <%= element.autor %> </p>
+                            <p>Comentarios: 5</p>
                         </article>
                     </a>
                 </section>
@@ -147,10 +147,10 @@
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
-                <h2 class="products-title">Zapatos</h2>
+                <h2 class="products-title">Ficción</h2>
             </div>
             <!-- Show the "ultimos" products -->
-            <% ropa.zapatos.forEach(element => { %>
+            <% libros.ficcion.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
                 <a href="http://localhost:3000/product">
@@ -159,8 +159,8 @@
                         </figure>
                         <article class="product-box_data">
                             <h2> <%= element.nombre %> </h2>
-                            <p> <%= element.descripcion %> </p>
-                            <p>Comentarios: 12</p>
+                            <p> <%= element.autor %> </p>
+                            <p>Comentarios: 5</p>
                         </article>
                     </a>
                 </section>
@@ -174,10 +174,10 @@
 <div class="container products-wrapper">
     <div class="row">
         <div class="col-12">
-            <h2 class="products-title">Vestidos</h2>
+            <h2 class="products-title">Terror y thriller</h2>
         </div>
         <!-- Show the "ultimos" products -->
-        <% ropa.vestidos.forEach(element => { %>
+        <% libros.terror.forEach(element => { %>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
             <a href="http://localhost:3000/product">
@@ -186,7 +186,7 @@
                     </figure>
                     <article class="product-box_data">
                         <h2>  <%= element.nombre %> </h2>
-                        <p><%= element.descripcion %></p>
+                        <p><%= element.autor %></p>
                         <p>Comentarios: 12</p>
                     </article>
                 </a>

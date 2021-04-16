@@ -1,45 +1,45 @@
-let ropa = require(`../productos/ropa`);
+let libros = require(`../libros/libros`);
 
 
 let controlador = {
     home: (req,res,next)=> {
-        res.render('home', {ropa: ropa });
+        res.render('home', {libros: libros });
     },
 
     porId: (req,res,next)=> {
         let id= req.params.id;
         let respuesta = []
-        ropa.novedades.forEach(element => {
+        libros.bestsellers.forEach(element => {
             if (element.id == id) {
                 respuesta.push(element) 
             }
         
         });
-        ropa.jeans.forEach(element => {
+        libros.clasicos.forEach(element => {
             if (element.id == id) {
                 respuesta.push(element) 
             }
         
         });
-        ropa.remeras.forEach(element => {
+        libros.ficcion.forEach(element => {
             if (element.id == id) {
                 respuesta.push(element) 
             }
         
         });
-        ropa.zapatos.forEach(element => {
+        libros.romances.forEach(element => {
             if (element.id == id) {
                 respuesta.push(element) 
             }
         
         });
-        ropa.vestidos.forEach(element => {
+        libros.terror.forEach(element => {
             if (element.id == id) {
                 respuesta.push(element) 
             }
         
         });
-        res.render('product',{ropa: respuesta})
+        res.render('product',{libros: respuesta})
 
 
     },
