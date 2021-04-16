@@ -36,7 +36,7 @@
                 </div>
                 <div>
                     <ul class="">
-                        <li>8 productos</li>
+                        <li>8 libros</li>
                         <li>6M seguidores</li>
                         <li>300 comentarios</li>
                     </ul>
@@ -50,7 +50,7 @@
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
-                <h2 class="products-title">Mis productos</h2>
+                <h2 class="products-title">Libros favoritos</h2>
             </div>
             <!-- Show mis productos -->
          <% for (let index = 0; index < 1; index++) {  %>
@@ -58,11 +58,11 @@
                 <section class="product-box">
                     <a href="http://localhost:3000/product">
                         <figure class="product-box_image">
-                            <img src=<%=ropa.novedades[3].foto %> alt="">
+                            <img src=<%=libros.bestsellers[3].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
-                            <h2><%= ropa.novedades[3].nombre %></h2>
-                            <p><%=  ropa.novedades[3].descripcion%></p>
+                            <h2><%= libros.bestsellers[3].nombre %></h2>
+                            <p><%=  libros.bestsellers[3].autor%></p>
                             <p>Comentarios: 5 </p>
                         </article>
                     </a>
@@ -72,14 +72,14 @@
             <section class="product-box">
                 <a href="http://localhost:3000/product">
                     <figure class="product-box_image">
-                        <img src=<%=ropa.novedades[1].foto %> alt="">
+                        <img src=<%=libros.bestsellers[1].foto %> alt="">
                     </figure>
                     <article class="product-box_data">
                         <h2>
-                            <%= ropa.novedades[1].nombre %>
+                            <%= libros.bestsellers[1].nombre %>
                         </h2>
                         <p>
-                            <%= ropa.novedades[1].descripcion%>
+                            <%= libros.bestsellers[1].autor%>
                         </p>
                         <p>Comentarios: 5 </p>
                     </article>
@@ -90,14 +90,14 @@
             <section class="product-box">
                 <a href="http://localhost:3000/product">
                     <figure class="product-box_image">
-                        <img src=<%=ropa.zapatos[1].foto %> alt="">
+                        <img src=<%=libros.romances[1].foto %> alt="">
                     </figure>
                     <article class="product-box_data">
                         <h2>
-                            <%= ropa.zapatos[1].nombre %>
+                            <%= libros.romances[1].nombre %>
                         </h2>
                         <p>
-                            <%= ropa.zapatos[1].descripcion%>
+                            <%= libros.romances[1].autor%>
                         </p>
                         <p>Comentarios: 5 </p>
                     </article>
@@ -108,14 +108,14 @@
                 <section class="product-box">
                     <a href="http://localhost:3000/product">
                         <figure class="product-box_image">
-                            <img src=<%=ropa.remeras[2].foto %> alt="">
+                            <img src=<%=libros.terror[2].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
                             <h2>
-                                <%= ropa.remeras[2].nombre %>
+                                <%= libros.terror[2].nombre %>
                             </h2>
                             <p>
-                                <%= ropa.remeras[2].descripcion%>
+                                <%= libros.terror[2].autor%>
                             </p>
                             <p>Comentarios: 5 </p>
                         </article>
@@ -126,14 +126,14 @@
                 <section class="product-box">
                     <a href="http://localhost:3000/product">
                         <figure class="product-box_image">
-                            <img src=<%=ropa.vestidos[3].foto %> alt="">
+                            <img src=<%=libros.clasicos[3].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
                             <h2>
-                                <%= ropa.vestidos[3].nombre %>
+                                <%= libros.clasicos[3].nombre %>
                             </h2>
                             <p>
-                                <%= ropa.vestidos[3].descripcion%>
+                                <%= libros.clasicos[3].autor%>
                             </p>
                             <p>Comentarios: 5 </p>
                         </article>
@@ -144,14 +144,14 @@
                 <section class="product-box">
                     <a href="http://localhost:3000/product">
                         <figure class="product-box_image">
-                            <img src=<%=ropa.novedades[2].foto %> alt="">
+                            <img src=<%=libros.bestsellers[2].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
                             <h2>
-                                <%= ropa.novedades[2].nombre %>
+                                <%= libros.bestsellers[2].nombre %>
                             </h2>
                             <p>
-                                <%= ropa.novedades[2].descripcion%>
+                                <%= libros.bestsellers[2].autor%>
                             </p>
                             <p>Comentarios: 5 </p>
                         </article>
@@ -162,14 +162,14 @@
                 <section class="product-box">
                     <a href="http://localhost:3000/product">
                         <figure class="product-box_image">
-                            <img src=<%=ropa.zapatos[2].foto %> alt="">
+                            <img src=<%=libros.romances[2].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
                             <h2>
-                                <%= ropa.zapatos[2].nombre %>
+                                <%= libros.romances[2].nombre %>
                             </h2>
                             <p>
-                                <%= ropa.zapatos[2].descripcion%>
+                                <%= libros.romances[2].autor%>
                             </p>
                             <p>Comentarios: 5 </p>
                         </article>
@@ -180,14 +180,14 @@
                 <section class="product-box">
                     <a href="http://localhost:3000/product">
                         <figure class="product-box_image">
-                            <img src=<%=ropa.remeras[1].foto %> alt="">
+                            <img src=<%=libros.terror[1].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
                             <h2>
-                                <%= ropa.remeras[1].nombre %>
+                                <%= libros.terror[1].nombre %>
                             </h2>
                             <p>
-                                <%= ropa.remeras[1].descripcion%>
+                                <%= libros.terror[1].autor%>
                             </p>
                             <p>Comentarios: 5 </p>
                         </article>

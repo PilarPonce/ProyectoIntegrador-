@@ -53,7 +53,7 @@ let controlador = {
     },
 
     profile: (req, res, next) => {
-        res.render('profile', { ropa: ropa });
+        res.render('profile', { libros: libros });
     },
 
     register: (req, res, next) => {
