@@ -8,7 +8,7 @@
   --dark-blue: #03264C;
   --light-blue: #1259c3;
   --gray: #666666;
-  --light-gray: #ebebeb;
+  --light-gray: #E6F9FD;
   --green: #39b54a;
   --base-font-family: 'Roboto', sans-serif
 }
@@ -116,6 +116,21 @@ hr {
 .tipografia1{
   font-family: 'Lora', serif;
   font-size: 18px;
+  text-decoration: none;
+  color: #E6F9FD;
+}
+
+.listaHeader {
+  list-style: none;
+  display: flex;
+}
+
+.listaHeader ul li a{
+  justify-content: space-between;
+}
+
+.ingresa {
+  margin-left: 20px;
 }
 
 
