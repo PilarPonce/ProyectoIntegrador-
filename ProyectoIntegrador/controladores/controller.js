@@ -8,40 +8,35 @@ let controlador = {
 
     porId: (req,res,next)=> {
         let id= req.params.id;
-        let respuesta = []
         libros.bestsellers.forEach(element => {
             if (element.id == id) {
-                respuesta.push(element) 
+                res.render('product', { libro: element })
             }
         
         });
         libros.clasicos.forEach(element => {
             if (element.id == id) {
-                respuesta.push(element) 
+                res.render('product', { libro: element })
             }
         
         });
         libros.ficcion.forEach(element => {
             if (element.id == id) {
-                respuesta.push(element) 
+                res.render('product', { libro: element })
             }
         
         });
         libros.romances.forEach(element => {
             if (element.id == id) {
-                respuesta.push(element) 
+                res.render('product', { libro: element })
             }
         
         });
         libros.terror.forEach(element => {
             if (element.id == id) {
-                respuesta.push(element) 
+                res.render('product', { libro: element })
             }
-        
         });
-        res.render('product',{libro: respuesta})
-
-
     },
 
     login: (req, res, next) => {
