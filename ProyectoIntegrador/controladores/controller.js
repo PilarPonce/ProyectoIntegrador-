@@ -39,7 +39,7 @@ let controlador = {
             }
         
         });
-        res.render('product',{libros: respuesta})
+        res.render('product',{libro: respuesta})
 
 
     },

@@ -70,7 +70,7 @@
             <% libros.bestsellers.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                    <a href="http://localhost:3000/product/:id">
+                    <a href="/product/<%= element.id %>">
                         <figure class="product-box_image">
                             <img src= <%= element.foto %>  alt="">
                         </figure>
@@ -97,7 +97,7 @@
             <% libros.clasicos.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                <a href="http://localhost:3000/product">
+                <a href="/product/<%= element.id %>">
                         <figure class="product-box_image">
                             <img src= <%= element.foto %> alt="cafetera moulinex">
                         </figure>
@@ -125,7 +125,7 @@
             <% libros.romances.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                <a href="http://localhost:3000/product">
+                <a href="/product/<%= element.id %>">
                         <figure class="product-box_image">
                             <img src= <%= element.foto %> alt="cafetera moulinex">
                         </figure>
@@ -153,7 +153,7 @@
             <% libros.ficcion.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                <a href="http://localhost:3000/product">
+                <a href="/product/<%= element.id %>">
                         <figure class="product-box_image">
                             <img src= <%= element.foto %> alt="cafetera moulinex">
                         </figure>
@@ -180,7 +180,7 @@
         <% libros.terror.forEach(element => { %>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-            <a href="http://localhost:3000/product">
+            <a href="/product/<%= element.id %>">
                     <figure class="product-box_image">
                         <img src= <%= element.foto %> alt="cafetera moulinex">
                     </figure>

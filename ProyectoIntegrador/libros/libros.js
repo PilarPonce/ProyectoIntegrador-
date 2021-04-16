@@ -302,7 +302,7 @@ let libros = {
             {usuario: "user 4", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
             {usuario: "user 5", comentario : "Este catalogo es buenisimo, me encanta"}]
         }],
-        porId: function (id) {
+        /*porId: function (id) {
             let respuesta = []
             for (let i = 0; i < ropa.length; i++) {
                 if (ropa.bestsellers[i].id == id.toLowerCase()) {
@@ -317,11 +317,9 @@ let libros = {
                     respuesta.push(ropa.terror[i])
     
                 }
-    
-                
             }
             return respuesta
-        }
+        }*/
 }
 
 module.exports = libros;
