@@ -1,8 +1,8 @@
 let libros = {
     bestsellers:[ {
-        id: 1,   
+        id: 1,         
         tipo: "bestseller",
-        genero: "thriller",
+        genero: "Thriller",
         nombre: "La chica de nieve",
         foto: "/images/productos/bestseller1.jpg",         
         autor: "Javier Castillo",
@@ -17,7 +17,7 @@ let libros = {
     {
         id: 2,   
         tipo: "bestseller",
-        genero:"romance",
+        genero:"Romance",
         nombre: "Un cuento perfecto",
         foto: "/images/productos/bestseller2.jpg",
         autor: "Elísabet Benavent",
@@ -183,7 +183,7 @@ let libros = {
         romances: [
         {
             id: 13,   
-            tipo: "romance",
+            tipo: "Romance",
             genero:"Novela romantica",
             nombre: "Boulevard",
             foto: "/images/productos/romantica1.jpg",
@@ -198,7 +198,7 @@ let libros = {
         },
         {
             id: 14,   
-            tipo: "romance",
+            tipo: "Romance",
             genero:"Novela romantica, literatura juvenil",
             nombre: "Dimelo bajito",
             foto: "/images/productos/romantica2.jpg",
@@ -213,7 +213,7 @@ let libros = {
         },
         {
             id: 15,   
-            tipo: "romance",
+            tipo: "Romance",
             genero:"Novela romantica, psicologia",
             nombre: "Uno siempre cambia al amor de su vida",
             foto: "/images/productos/romantica3.jpg",
@@ -228,7 +228,7 @@ let libros = {
         },
         {
             id: 16,   
-            tipo: "romance",
+            tipo: "Romance",
             genero:"Novela romantica, Ficción, Distopía, Literatura fantástica",
             nombre: "La seleccion",
             foto: "/images/productos/romantica4.jpg",
@@ -302,24 +302,6 @@ let libros = {
             {usuario: "Kris Jenner", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
             {usuario: "Kourtney Kardashian", comentario : "Este catalogo es buenisimo, me encanta"}]
         }],
-        /*porId: function (id) {
-            let respuesta = []
-            for (let i = 0; i < ropa.length; i++) {
-                if (ropa.bestsellers[i].id == id.toLowerCase()) {
-                    respuesta.push(ropa.bestsellers[i])
-                }else if(ropa.clasicos[i].id == id.toLowerCase()){
-                    respuesta.push(ropa.clasicos[i])
-                }else if(ropa.ficcion[i].id == id.toLowerCase()){
-                    respuesta.push(ropa.ficcion[i])
-                }else if(ropa.romances[i].id == id.toLowerCase()){
-                    respuesta.push(ropa.romances[i])
-                }else if(ropa.terror[i].id == id.toLowerCase()){
-                    respuesta.push(ropa.terror[i])
-    
-                }
-            }
-            return respuesta
-        }*/
 }
 
 module.exports = libros;
