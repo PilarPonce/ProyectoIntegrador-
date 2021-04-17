@@ -252,10 +252,12 @@ hr {
   overflow: hidden;
   transition: 300ms;
   margin: 20px 0;
+  
 }
 
 .product-box a {
   display: block;
+  
 }
 
 .product-box_image {
@@ -268,12 +270,14 @@ hr {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  
 }
 
 .product-box_data h2 {
   font-size: 2.4em;
   font-weight: 300;
   margin: 0;
+  
 }
 
 .product-box_data span {
@@ -281,6 +285,7 @@ hr {
   font-weight: 300;
   color: var(--green);
   margin: 0 0 0 10px;
+  
 }
 
 .product-box_data p {
@@ -291,6 +296,7 @@ hr {
   height: 0;
   transition: 300ms;
   overflow: hidden;
+  
 }
 
 .product-box_data i {
@@ -309,29 +315,166 @@ hr {
   justify-content: center;
   align-items: center;
   transition: 300ms;
+  
 }
 
 .noproducts {
-  text-align: center
+  text-align: center;
+  
 }
 
 .product-box:hover {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  
 }
 
 .product-box:hover p {
   height: 36px;
   margin-top: 15px;
+  
 }
 
 .product-box:hover i {
   transform: rotate(360deg);
   box-shadow: 0 0 5px var(--green);
+  
 }
 
 .todoTexto{
   font-family: 'PT Serif', serif;
+  
+  
 }
+
+/*login*/
+
+.registrate{
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--gray);
+  font-family: 'PT Serif', serif;
+  margin-left: 460px;
+}
+
+
+.formulario1{
+  background-color: var(--yellow);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-left: 300px;
+}
+
+.form{
+  height: 53rem ;
+}
+
+.forms{
+  width: 30rem;
+  text-align: center;
+  height: 46rem;
+  background: white;
+  padding: 40px 0;
+  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  margin: 25px;
+}
+
+.forms .completa{
+  position: relative;
+  margin: 0px ;
+  
+}
+
+
+.inputs{
+  background: none;
+  font-size: 20px;
+  padding: 10px 10px 10px 5px;
+  width: 100%;
+  border: none;
+  margin-top: 24px;
+  
+  
+  
+}
+
+.inputs:focus{ 
+  outline: none;/*Para que no me marque alredor del imput en negro cuando me paro ahi*/
+  color:rgb(1, 22, 39);
+}
+
+.texto-boton{
+  margin-top: 50px;
+}
+.boton:focus{
+  outline: none;
+}
+
+.titulo{
+  text-align: center;
+  font-weight: 700;
+  color:  rgb(1, 22, 39);
+  font-size: 30px;
+  
+}
+
+.sesion .forms .completa .palabra{
+  
+  font-size: 20px;
+  position: absolute;
+  left: 5px;
+  
+  
+  
+}
+.errores{
+  color: rgb(1, 22, 39);
+  font-size: 19px;
+  
+}
+
+.palabra{
+  font-size: 20px;
+  color: var(--gray);
+  font-family: 'PT Serif', serif;
+}
+
+/*Para que cuando input esté en focus, su hermano "palabra" que es label, como a palabra le di 10, cuando toque el imput, este label va a quedar 4 pixeles arriba del imput*/
+
+/*.inputs:focus~.palabra,
+.inputs:valid~.palabra{
+  top: -14px;
+  font-size: 16px;
+  color:  rgb(1, 22, 39); 
+}
+*/
+
+
+.aviso{
+  width: 200px;
+  text-align: center;
+  margin: auto;
+  color:  rgb(1, 22, 39) ;
+  font-size: 15px;
+}
+
+.boton{
+
+  background: rgb(1, 22, 39);
+  border: none;
+  padding-top: 0%;
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+  color: #fff;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+
 
 /*====== Footer ======*/
 
