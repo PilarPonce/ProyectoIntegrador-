@@ -65,14 +65,33 @@ hr {
 
 
 /*====== Main Header ======*/
+
+.entero{
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.col-71{
+  margin-top: 45px;
+}
 .main-header {
-  padding: 15px 0;
+  
   background-color: var(--yellow);
+  
+  
+}
+.logofoto1{
+  width: 130px;
+  height: 130px;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
 .logofoto{
   width: 130px;
   height: 130px;
+  margin-top: 10px;
 }
 
 /*.main-header_home-link,
@@ -81,10 +100,13 @@ hr {
 }*/
 
 .main-header_credit-link {
-  font-size: 1.5em;
   margin-top: 20px;
   text-align: center;
   display: flex;
+  font-family: 'Roboto Slab', serif;;
+  font-size: 18px;
+  text-decoration: none;
+  color: #E6F9FD;
 }
 
 
@@ -151,11 +173,18 @@ hr {
 }
 
 .main-navbar {
-  margin-top: 20px;
-  display: none;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
 }
 
-.left-navbar,
+.main-header_credit-link{
+  margin-left: 60px;
+}
+
+.left-navbar{
+  
+}
 .right-navbar {
   font-size: 1.5em;
 }
@@ -164,7 +193,10 @@ hr {
   background: transparent;
   border: 0px;
   cursor: pointer;
-  font-size: 1em;
+  font-family: 'Roboto Slab', serif;;
+  font-size: 18px;
+  text-decoration: none;
+  color: #E6F9FD;
 }
 
 .logout:hover{
