@@ -452,6 +452,42 @@ hr {
   margin-left: 480px;
 }
 
+/*productadd*/
+
+.formulario3{
+  background-color: var(--yellow);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-left: 250px;
+}
+
+.form3{
+  height: 85rem ;
+  
+}
+
+.forms3{
+  width: 60rem;
+  text-align: center;
+  height: rem;
+  background: white;
+  padding: 40px 0;
+  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  margin: 25px;
+  
+}
+
+.agregar{
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--gray);
+  font-family: 'PT Serif', serif;
+  margin-left: 410px;
+}
+
+
 
 /*====== Footer ======*/
 
