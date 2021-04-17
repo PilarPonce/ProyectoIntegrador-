@@ -346,7 +346,7 @@ hr {
   
 }
 
-/*login*/
+/*registrate*/
 
 .registrate{
   font-size: 40px;
@@ -355,6 +355,7 @@ hr {
   font-family: 'PT Serif', serif;
   margin-left: 460px;
 }
+
 
 
 .formulario1{
@@ -404,76 +405,52 @@ hr {
   color:rgb(1, 22, 39);
 }
 
-.texto-boton{
-  margin-top: 50px;
-}
-.boton:focus{
-  outline: none;
-}
-
-.titulo{
-  text-align: center;
-  font-weight: 700;
-  color:  rgb(1, 22, 39);
-  font-size: 30px;
-  
-}
-
-.sesion .forms .completa .palabra{
-  
-  font-size: 20px;
-  position: absolute;
-  left: 5px;
-  
-  
-  
-}
-.errores{
-  color: rgb(1, 22, 39);
-  font-size: 19px;
-  
-}
-
 .palabra{
   font-size: 20px;
   color: var(--gray);
   font-family: 'PT Serif', serif;
 }
 
-/*Para que cuando input esté en focus, su hermano "palabra" que es label, como a palabra le di 10, cuando toque el imput, este label va a quedar 4 pixeles arriba del imput*/
 
-/*.inputs:focus~.palabra,
-.inputs:valid~.palabra{
-  top: -14px;
-  font-size: 16px;
-  color:  rgb(1, 22, 39); 
-}
-*/
-
-
-.aviso{
-  width: 200px;
-  text-align: center;
-  margin: auto;
-  color:  rgb(1, 22, 39) ;
-  font-size: 15px;
-}
-
-.boton{
+.boton1{
 
   background: rgb(1, 22, 39);
   border: none;
   padding-top: 0%;
-  display: block;
-  width: 80%;
+  width: 150px;
   margin: 10px auto;
   color: #fff;
   height: 40px;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
   border-radius: 15px;
+  margin-top: 30px;
+  font-family: 'PT Serif', serif;
 }
 
+/*login*/
+.form2{
+  height: 28rem ;
+}
+
+.forms2{
+  width: 30rem;
+  text-align: center;
+  height: 20rem;
+  background: white;
+  padding: 40px 0;
+  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  margin: 25px;
+}
+
+.iniciarsesion{
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--gray);
+  font-family: 'PT Serif', serif;
+  margin-left: 480px;
+}
 
 
 /*====== Footer ======*/
