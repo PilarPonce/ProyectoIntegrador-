@@ -70,6 +70,11 @@ hr {
   background-color: var(--yellow);
 }
 
+.logofoto{
+  width: 130px;
+  height: 130px;
+}
+
 /*.main-header_home-link,
 .main-header_credit-link {
   display: block;
