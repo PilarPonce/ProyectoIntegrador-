@@ -56,21 +56,21 @@
          <% for (let index = 0; index < 1; index++) {  %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                    <a href="http://localhost:3000/product">
+                    <a href="http://localhost:3000/product/4">
                         <figure class="product-box_image">
                             <img src=<%=libros.bestsellers[3].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
                             <h2><%= libros.bestsellers[3].nombre %></h2>
                             <p><%=  libros.bestsellers[3].autor%></p>
-                            <p>Comentarios: 5 </p>
+                            <p class="todoTexto"><%= libros.bestsellers[3].genero %></p>
                         </article>
                     </a>
                 </section>
             </div>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="http://localhost:3000/product">
+                <a href="http://localhost:3000/product/2"></a>
                     <figure class="product-box_image">
                         <img src=<%=libros.bestsellers[1].foto %> alt="">
                     </figure>
@@ -81,14 +81,14 @@
                         <p>
                             <%= libros.bestsellers[1].autor%>
                         </p>
-                        <p>Comentarios: 5 </p>
+                        <p class="todoTexto"><%= libros.bestsellers[1].genero %></p>
                     </article>
                 </a>
             </section>
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="http://localhost:3000/product">
+                <a href="http://localhost:3000/product/14">
                     <figure class="product-box_image">
                         <img src=<%=libros.romances[1].foto %> alt="">
                     </figure>
@@ -99,14 +99,14 @@
                         <p>
                             <%= libros.romances[1].autor%>
                         </p>
-                        <p>Comentarios: 5 </p>
+                        <p class="todoTexto"><%= libros.romances[1].genero %></p>
                     </article>
                 </a>
             </section>
         </div>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                    <a href="http://localhost:3000/product">
+                    <a href="http://localhost:3000/product/19">
                         <figure class="product-box_image">
                             <img src=<%=libros.terror[2].foto %> alt="">
                         </figure>
@@ -117,14 +117,14 @@
                             <p>
                                 <%= libros.terror[2].autor%>
                             </p>
-                            <p>Comentarios: 5 </p>
+                            <p class="todoTexto"><%= libros.terror[2].genero %></p>
                         </article>
                     </a>
                 </section>
             </div>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                    <a href="http://localhost:3000/product">
+                    <a href="http://localhost:3000/product/8">
                         <figure class="product-box_image">
                             <img src=<%=libros.clasicos[3].foto %> alt="">
                         </figure>
@@ -135,14 +135,14 @@
                             <p>
                                 <%= libros.clasicos[3].autor%>
                             </p>
-                            <p>Comentarios: 5 </p>
+                            <p class="todoTexto"><%= libros.clasicos[3].genero %></p>
                         </article>
                     </a>
                 </section>
             </div>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                    <a href="http://localhost:3000/product">
+                    <a href="http://localhost:3000/product/3">
                         <figure class="product-box_image">
                             <img src=<%=libros.bestsellers[2].foto %> alt="">
                         </figure>
@@ -153,14 +153,14 @@
                             <p>
                                 <%= libros.bestsellers[2].autor%>
                             </p>
-                            <p>Comentarios: 5 </p>
+                            <p class="todoTexto"><%= libros.bestsellers[2].genero %></p>
                         </article>
                     </a>
                 </section>
             </div>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                    <a href="http://localhost:3000/product">
+                    <a href="http://localhost:3000/product/15">
                         <figure class="product-box_image">
                             <img src=<%=libros.romances[2].foto %> alt="">
                         </figure>
@@ -171,14 +171,14 @@
                             <p>
                                 <%= libros.romances[2].autor%>
                             </p>
-                            <p>Comentarios: 5 </p>
+                            <p class="todoTexto"><%= libros.romances[2].genero %></p>
                         </article>
                     </a>
                 </section>
             </div>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                    <a href="http://localhost:3000/product">
+                    <a href="http://localhost:3000/product/18"></a>
                         <figure class="product-box_image">
                             <img src=<%=libros.terror[1].foto %> alt="">
                         </figure>
@@ -189,7 +189,7 @@
                             <p>
                                 <%= libros.terror[1].autor%>
                             </p>
-                            <p>Comentarios: 5 </p>
+                            <p class="todoTexto"><%= libros.terror[1].genero %></p>
                         </article>
                     </a>
                 </section>
