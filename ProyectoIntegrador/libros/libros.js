@@ -105,7 +105,7 @@ let libros = {
             {usuario: "Kourtney Kardashian", comentario : "Este catalogo es buenisimo, me encanta"}]
         },
         { 
-            id: 8,   
+            id: 8,    
             tipo: "clasicos",
             genero:"Novela historica",
             nombre: "Los miserables",
