@@ -104,7 +104,7 @@ let libros = {
             {usuario: "Kris Jenner", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
             {usuario: "Kourtney Kardashian", comentario : "Este catalogo es buenisimo, me encanta"}]
         },
-        {
+        { 
             id: 8,   
             tipo: "clasicos",
             genero:"Novela historica",
@@ -256,7 +256,7 @@ let libros = {
             {usuario: "Kendall Jenner", comentario : "Me sorprendió, pensé que sería como los otros libros de el autor, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante."},
             {usuario: "Kris Jenner", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
             {usuario: "Kourtney Kardashian", comentario : "Este catalogo es buenisimo, me encanta"}]
-        },
+        }, 
         {
             id: 18,   
             tipo: "terror",

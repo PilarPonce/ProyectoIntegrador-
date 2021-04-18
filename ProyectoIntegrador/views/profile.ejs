@@ -70,24 +70,6 @@
             </div>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
-                <a href="http://localhost:3000/product/2"></a>
-                    <figure class="product-box_image">
-                        <img src=<%=libros.bestsellers[1].foto %> alt="">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2>
-                            <%= libros.bestsellers[1].nombre %>
-                        </h2>
-                        <p>
-                            <%= libros.bestsellers[1].autor%>
-                        </p>
-                        <p class="todoTexto"><%= libros.bestsellers[1].genero %></p>
-                    </article>
-                </a>
-            </section>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
                 <a href="http://localhost:3000/product/14">
                     <figure class="product-box_image">
                         <img src=<%=libros.romances[1].foto %> alt="">
@@ -100,6 +82,24 @@
                             <%= libros.romances[1].autor%>
                         </p>
                         <p class="todoTexto"><%= libros.romances[1].genero %></p>
+                    </article>
+                </a>
+            </section>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <section class="product-box">
+                <a href="/product/<%= libros.romances[0].autor%>">
+                    <figure class="product-box_image">
+                        <img src=<%=libros.romances[0].foto %> alt="">
+                    </figure>
+                    <article class="product-box_data">
+                        <h2>
+                            <%= libros.romances[0].nombre %>
+                        </h2>
+                        <p>
+                            <%= libros.romances[0].autor%>
+                        </p>
+                        <p class="todoTexto"><%= libros.romances[0].genero %></p>
                     </article>
                 </a>
             </section>
@@ -178,18 +178,14 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
-                    <a href="http://localhost:3000/product/18"></a>
+                    <a href="/product/<%= libros.bestsellers[0].id %>">
                         <figure class="product-box_image">
-                            <img src=<%=libros.terror[1].foto %> alt="">
+                            <img src=<%=libros.bestsellers[0].foto %> alt="">
                         </figure>
                         <article class="product-box_data">
-                            <h2>
-                                <%= libros.terror[1].nombre %>
-                            </h2>
-                            <p>
-                                <%= libros.terror[1].autor%>
-                            </p>
-                            <p class="todoTexto"><%= libros.terror[1].genero %></p>
+                            <h2><%= libros.bestsellers[0].nombre %></h2>
+                            <p><%=  libros.bestsellers[0].autor%></p>
+                            <p class="todoTexto"><%= libros.bestsellers[0].genero %></p>
                         </article>
                     </a>
                 </section>
