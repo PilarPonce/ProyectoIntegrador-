@@ -37,7 +37,7 @@
                     <section class="comments">
                         <% libro.comentarios.forEach(element=> { %>
                         <article>
-                            <img src="https://via.placeholder.com/35" alt="">
+                            <img src= <%= element.fotoUsuario %> alt="">
                             <div class="data">
                                 <p class="user">
                                     <strong> <a href="http://localhost:3000/profile"> <%= element.usuario %>:  </a> </strong>
