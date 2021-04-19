@@ -119,7 +119,7 @@ let libros = {
             {usuario: "Kris Jenner", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
             {usuario: "Kourtney Kardashian", comentario : "Este catalogo es buenisimo, me encanta"}]
         }],
-        ficcion: [
+        ficcion: [ 
         {
             id: 9,   
             tipo: "ficcion",
