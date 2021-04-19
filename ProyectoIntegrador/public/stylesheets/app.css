@@ -407,8 +407,6 @@ hr {
   margin-left: 460px;
 }
 
-
-
 .formulario1{
   background-color: var(--yellow);
   text-align: center;
@@ -446,9 +444,6 @@ hr {
   width: 100%;
   border: none;
   margin-top: 24px;
-  
-  
-  
 }
 
 .inputs:focus{ 
@@ -509,13 +504,15 @@ hr {
   background-color: var(--yellow);
   text-align: center;
   display: flex;
-  justify-content: center;
-  margin-left: 250px;
+  justify-content: center !important;  
+  margin-right: 350px;
+  margin-left: 80px;
 }
 
+
+
 .form3{
-  height: 85rem ;
-  
+  height: 85rem ; 
 }
 
 .forms3{
