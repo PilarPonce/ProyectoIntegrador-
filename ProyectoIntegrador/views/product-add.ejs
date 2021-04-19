@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-<!-- Include Head -->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,15 +18,15 @@
     <%- include('./partials/headerLogueado')%>
     <!-- Header -->
 
-    <!-- Novedades -->
 <div class="container products-wrapper">
     <div class="row">
         <div class="col-12">
             <h2 class="agregar">Agregar Productos</h2>
         </div>
-        <!-- Show the "ultimos" products -->
+        <!-- Form de agregar productos -->
         <section class= "formulario3">
             <form class="form3" action="http://localhost:3000/" method="GET" id="form">     
+
                 <div class="forms3">
                     <div class="completa">
                         <label class="palabra" for="name">ID</label>
@@ -65,6 +63,7 @@
                         <input class="inputs" type="text" name="descripción" id="descripción">
                         <hr>
                         </hr>
+                    </div>
 
                     <div class="completa">
                         <label class="palabra" for="name">Descripción</label>
@@ -73,22 +72,18 @@
                         </hr>
                     </div>
 
-                
-                             <button class="boton1" type="submit">Cargar producto</button>
-                        
-                
+                    <div>
+                        <button class="boton1" type="submit">Cargar producto</button>
+                    </div>
+                       
                 </div>
     
             </form>
         </section>
-        
-            
-            
 
-
-<!-- footer -->
-<%- include('./partials/footer')%>
-<!-- footer -->
+ 
 </body>
-
+    <!-- footer -->
+    <%- include('./partials/footer')%>
+        <!-- /footer -->
 </html>

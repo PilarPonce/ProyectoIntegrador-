@@ -20,19 +20,23 @@
     <%- include('./partials/header')%>
     <!-- /Header -->
 
-    <!-- product detail -->
+    <!-- detalle del producto -->
     <div class="container products-wrapper">
+
         <div class="informacion">
             <div><h2 class="products-title tipografia2" > <%= libro.nombre %> </h2></div>
             <div><h3 class="products-autor tipografia3"> Autor: <%= libro.autor %></h3></div>
         </div>
+        
         <div class="product-detail">
             <div class="row">
+
                 <article class="col-12 col-lg-8 product-detail-info">
                     <img src= <%= libro.foto %> alt="" class="product-detail-img">
                     <h3 class="genero tipografia3">Género: <%= libro.genero%></h3>
                     <p class="product-detail-description tipografia3" id="resumenes"> <%= libro.resumen %> </p>
                 </article>
+
                 <div class="col-12 col-lg-4">
                     <section class="comments">
                         <% libro.comentarios.forEach(element=> { %>
@@ -47,16 +51,18 @@
                         </article>
                         <% }) %>
                     </section>
+
                     <form class="form" action="" method="POST">
                         <input class="form-input" type="text" value="" placeholder="Agregar comentario">
                         <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
                     </form>
+
                     <hr>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /product detail -->
+    <!-- detalle del producto -->
 
     <!-- footer -->
     <%- include('./partials/footer')%>
