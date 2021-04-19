@@ -23,15 +23,15 @@
     <!-- product detail -->
     <div class="container products-wrapper">
         <div class="informacion">
-            <div><h2 class="products-title" > <%= libro.nombre %> </h2></div>
-            <div><h3 class="products-autor"> Autor: <%= libro.autor %></h3></div>
+            <div><h2 class="products-title tipografia2" > <%= libro.nombre %> </h2></div>
+            <div><h3 class="products-autor tipografia3"> Autor: <%= libro.autor %></h3></div>
         </div>
         <div class="product-detail">
             <div class="row">
                 <article class="col-12 col-lg-8 product-detail-info">
                     <img src= <%= libro.foto %> alt="" class="product-detail-img">
-                    <h3>Genero: <%= libro.genero%></h3>
-                    <p class="product-detail-description"> <%= libro.resumen %> </p>
+                    <h3 class="genero tipografia3">Genero: <%= libro.genero%></h3>
+                    <p class="product-detail-description tipografia3" id="resumenes"> <%= libro.resumen %> </p>
                 </article>
                 <div class="col-12 col-lg-4">
                     <section class="comments">
@@ -40,8 +40,8 @@
                             <img src= <%= element.fotoUsuario %> alt="">
                             <div class="data">
                                 <p class="user">
-                                    <strong> <a href="http://localhost:3000/profile"> <%= element.usuario %>:  </a> </strong>
-                                    <p><%= element.comentario%></p>
+                                    <strong> <a href="http://localhost:3000/profile" class="tipografia3"> <%= element.usuario %>:  </a> </strong>
+                                    <p class="tipografia3"><%= element.comentario%></p>
                                 </p>
                             </div>
                         </article>

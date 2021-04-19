@@ -1,6 +1,6 @@
 let libros = {
     bestsellers:[ {
-        id: 1,           
+        id: 1,                     
         tipo: "bestseller",
         genero: "Thriller",
         nombre: "La chica de nieve",
