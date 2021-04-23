@@ -14,7 +14,7 @@ router.get('/register', controlador.register);
 router.get('/search', controlador.search); 
  
 router.get('/profile', controlador.profile);
-
+   
 router.get('/productadd', controlador.productadd);
 
 router.get('/headerlogueado', controlador.headerlogueado);

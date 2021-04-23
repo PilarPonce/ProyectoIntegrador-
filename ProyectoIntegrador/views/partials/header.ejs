@@ -24,10 +24,10 @@
             </div>
 
             <div class="col-7 col-md-6" id="buscador">
-                <form action="search-results.html" method="GET" class="search-form">
+                <form action="http://localhost:3000/searchresults" method="GET" class="search-form">
                     <input type="text" name="search" placeholder="Busca libros, autores y más..."
                         class="search-form_input">
-                <a href="http://localhost:3000/search-results">  <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button> </a>
+                <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button> 
                 </form>
             </div>
             <ul class="listaHeader">
@@ -38,10 +38,12 @@
                 <li class="ingresa">
                     <a href="http://localhost:3000/login" class="tipografia1 creaIngresa">Ingresá <i class="fas fa-sign-in-alt"></i></a>
                 </li>
+                
             </ul>
+            
         </div>
-        <button class="btn-toggle-navbar">
-            <i class="fas fa-bars"></i>
-        </button>
+        <li class="col-7 col-md-6 listaHeader">
+            <a href="http://localhost:3000/" class="tipografia1 creaIngresa">Todos los productos</a>
+        </li>
     </div>
 </header>

@@ -1,8 +1,8 @@
 let libros = {
     bestsellers:[ {
-        id: 1,                     
+        id: 1,                              
         tipo: "bestseller",
-        genero: "Thriller",
+        genero: "Thriller",  
         nombre: "La chica de nieve",
         foto: "/images/productos/bestseller1.jpg",         
         autor: "Javier Castillo",
@@ -135,7 +135,7 @@ let libros = {
             {usuario: "Kris Jenner", fotoUsuario: "/images/usuarios/Kris.jpg", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
             {usuario: "Kourtney Kardashian", fotoUsuario: "/images/usuarios/Kourtney.jpg", comentario : "Este catalogo es buenisimo, me encanta"}]
         },
-        {
+        {   
             id: 10,   
             tipo: "ficcion",
             genero:"Romance contemporáneo, Ficción urbana",
