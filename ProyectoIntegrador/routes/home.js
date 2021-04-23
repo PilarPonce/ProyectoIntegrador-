@@ -21,6 +21,8 @@ router.get('/headerlogueado', controlador.headerlogueado);
 
 router.get('/profileedit', controlador.profileedit);
 
+router.get (`/searchresults`, controlador.searchresults)
+
 
 module.exports = router;
 

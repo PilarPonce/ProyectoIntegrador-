@@ -70,6 +70,9 @@ let controlador = {
     profileedit: (req, res, next) => {
         res.render('profile-edit', { title: 'profileedit' });
     },
+    searchresults: (req,res,next) => {
+        res.render (`search-results`, {title: `searchresults`})
+    }
 }
 
 module.exports= controlador;
