@@ -134,7 +134,9 @@ hr {
   color: #E6F9FD;
 }
 
-
+.libroyproductos{
+  display: flex;
+}
 
 .search-form {
   position: relative;
@@ -520,7 +522,6 @@ hr {
 }
 
 
-
 .form3{
   height: 85rem ; 
 }
@@ -545,7 +546,42 @@ hr {
   margin-left: 410px;
 }
 
+/*profileedit*/
 
+.formulario4{
+  background-color: var(--yellow);
+  text-align: center;
+  display: flex;
+  justify-content: center !important;  
+  margin-right: 350px;
+  margin-left: 250px;
+}
+
+
+
+.form4{
+  height: 58rem ; 
+}
+
+.forms4{
+  width: 40rem;
+  text-align: center;
+  height: rem;
+  background: white;
+  padding: 40px 0;
+  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  margin: 25px;
+  
+}
+
+.editatuperfil{
+  font-size: 40px;
+  font-weight: 400;
+  color: var(--gray);
+  font-family: 'PT Serif', serif;
+  margin-left: 450px;
+}
 
 /*====== Footer ======*/
 
