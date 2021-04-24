@@ -3,7 +3,7 @@ var router = express.Router();
           
 let controlador = require('../controladores/controller');
 
-router.get('/', controlador.home);
+router.get('/', controlador.home);      
 
 router.get('/product/:id', controlador.porId);
     
@@ -25,8 +25,3 @@ router.get (`/searchresults`, controlador.searchresults)
 
 
 module.exports = router;
-
-
-//cambiando rutas 
-//var controlador = require(`../controladores/controlador`);
-//router.get('/', controlador.index);
