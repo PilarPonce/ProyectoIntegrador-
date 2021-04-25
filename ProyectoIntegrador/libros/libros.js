@@ -29,7 +29,7 @@ let libros = {
         {usuario: "Kris Jenner", fotoUsuario: "/images/usuarios/Kris.jpg", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
         {usuario: "Kourtney Kardashian", fotoUsuario: "/images/usuarios/Kourtney.jpg", comentario : "Este catalogo es buenisimo, me encanta"}]
     },
-    {
+    {   
         id: 3,   
         tipo: "bestseller",
         genero:"Policial, thriller, suspenso",

@@ -308,13 +308,11 @@ hr {
   border-radius: 5px;
   overflow: hidden;
   transition: 300ms;
-  margin: 20px 0;
-  
+  margin: 20px 0; 
 }
 
 .product-box a {
   display: block;
-  
 }
 
 .product-box_image {

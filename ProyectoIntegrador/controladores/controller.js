@@ -41,11 +41,11 @@ let controlador = {
     },
 
     login: (req, res, next) => {
-        res.render('login', { title: 'login' });
+        res.render('login');
     },
 
     product: (req, res, next) => {
-        res.render('product', { title: 'product' });
+        res.render('product');
     },
 
     profile: (req, res, next) => {
@@ -53,26 +53,22 @@ let controlador = {
     },
 
     register: (req, res, next) => {
-        res.render('register', { title: 'register' });
+        res.render('register');
     },
 
     search: (req, res, next) => {
-        res.render('search-results', { title: 'search' });
+        res.render('search-results');
     },
 
     productadd: (req, res, next) => {
-        res.render('product-add', { title: 'productadd' });
-    },
-
-    headerlogueado: (req, res, next) => {
-        res.render('headerLogueado', { title: 'headerlogueado' });
+        res.render('product-add');
     },
 
     profileedit: (req, res, next) => {
-        res.render('profile-edit', { title: 'profileedit' });
+        res.render('profile-edit');
     },
     searchresults: (req,res,next) => {
-        res.render (`search-results`, {title: `searchresults`})
+        res.render (`search-results`)
     }
 }
 

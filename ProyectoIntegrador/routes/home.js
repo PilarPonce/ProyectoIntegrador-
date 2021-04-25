@@ -5,7 +5,7 @@ let controlador = require('../controladores/controller');
 
 router.get('/', controlador.home);      
 
-router.get('/product/:id', controlador.porId);
+router.get('/product/:id', controlador.porId); 
     
 router.get('/login', controlador.login);  
   
@@ -16,8 +16,6 @@ router.get('/search', controlador.search);
 router.get('/profile', controlador.profile);
    
 router.get('/productadd', controlador.productadd);
-
-router.get('/headerlogueado', controlador.headerlogueado);
 
 router.get('/profileedit', controlador.profileedit);
 
