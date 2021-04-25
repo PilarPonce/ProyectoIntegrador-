@@ -8,6 +8,7 @@ let controlador = {
 
     porId: (req,res,next)=> {
         let id= req.params.id;
+        
         libros.bestsellers.forEach(element => {
             if (element.id == id) {
                 res.render('product', { libro: element })
