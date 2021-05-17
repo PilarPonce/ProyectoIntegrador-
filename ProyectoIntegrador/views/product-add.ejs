@@ -13,59 +13,66 @@
         <div class="col-12">
             <h2 class="agregar">Agregar Productos</h2>
         </div>
-    <form action="/añadir" method="post">
-        Nombre: <input type="text" name="titulo">
-        Autor: <input type="text" name="titulo">
-        Foto: <input type="text" name="titulo">
-        Género: <input type="text" name="titulo">
-        Descripción: <input type="text" name="titulo">
-        Año de publicación: <input type="text" name="titulo">
-        Fecha de publicación: <input type="text" name="titulo">
+    <form action="/productadd" method="post">
+        Nombre: <input type="text" name="nombre">
+        Autor: <input type="text" name="autor">
+        Foto: <input type="text" name="foto">
+        Género: <input type="text" name="genero">
+        Resumen: <input type="text" name="resumen">
+        Año de publicación: <input type="number" name="publicacion">
+        Fecha actual: <input type="date" name="fecha">
         <input type="submit">
     </form>
 
         <!-- Form de agregar productos 
         <section class= "formulario3">
             <form class="form3" action="/" method="GET" id="form">    
-
-                        <input class="inputs" type="text" name="id" id="ID">
+                        <label class="palabra" for="nombre">Nombre:</label>
+                        <input class="inputs" type="text" name="nombre" id="ID">
                         <hr>
                         </hr> 
                     </div>
 
                     <div class="completa">
-                        <label class="palabra" for="name">Nombre</label>
-                        <input class="inputs" type="text" name="tipo" id="tipo">
+                        <label class="palabra" for="autor">Autor:</label>
+                        <input class="inputs" type="text" name="autor" id="tipo">
                         <hr>
                         </hr>
                     </div>
 
                     <div class="completa">
-                        <label class="palabra" for="name">Autor</label>
-                        <input class="inputs" type="text" name="nombre" id="nombre">
-                        <hr>
-                        </hr>
-                    </div>
-
-
-                    <div class="completa">
-                        <label class="palabra" for="name">Foto</label>
-                        <input class="inputs" type="text" name="foto" id="foto">
+                        <label class="palabra" for="foto">Foto:</label>
+                        <input class="inputs" type="text" name="foto" id="nombre">
                         <hr>
                         </hr>
                     </div>
 
 
                     <div class="completa">
-                        <label class="palabra" for="name">Género</label>
-                        <input class="inputs" type="text" name="descripción" id="descripción">
+                        <label class="palabra" for="genero">Genero:</label>
+                        <input class="inputs" type="text" name="genero" id="foto">
+                        <hr>
+                        </hr>
+                    </div>
+
+
+                    <div class="completa">
+                        <label class="palabra" for="resumen">Resumen:</label>
+                        <input class="inputs" type="text" name="resumen" id="descripción">
                         <hr>
                         </hr>
                     </div>
 
                     <div class="completa">
-                        <label class="palabra" for="name">Descripción</label>
-                        <input class="inputs" type="text" name="extras" id="extras">
+                        <label class="palabra" for="publi">Año de publicacion:</label>
+                        <input class="inputs" type="number" name="publi" id="extras">
+                        <hr>
+                        </hr>
+                    </div>
+
+                    <div class="completa">
+                        <label class="palabra" for="fecha">Fecha actual</label>
+                        <input class="inputs" type="date" name="fecha" id="extras">
                         <hr>
                         </hr>
                     </div>

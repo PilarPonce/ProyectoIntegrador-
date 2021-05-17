@@ -61,6 +61,19 @@ let controladorProducto = {
 
         
     },
+    crear: (req, res) => {
+        db.Producto.create({ 
+            nombre: req.body.nombre,
+            autor: req.body.autor,
+            foto: req.body.foto,
+            genero: req.body.genero,
+            resumen: req.body.resumen,
+            publicacion: req.body.publi,
+            fecha: req.body.fecha
+        }).then(libroCreado => {
+            res.redirect('/product/' + libroCreado.id);   
+        });
+    },
 
     }
 

@@ -13,7 +13,7 @@ let libros = {
         {usuario: "Kendall Jenner", fotoUsuario: "/images/usuarios/Kendall.jpg", comentario : "Me sorprendió, pensé que sería como los otros libros de Javier Castillo, pero éste está mejor desarrollado, es menos predecible que otros que he leído de éste autor, me gustó bastante."},
         {usuario: "Kris Jenner", fotoUsuario: "/images/usuarios/Kris.jpg", comentario : " Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo. "},
         {usuario: "Kourtney Kardashian", fotoUsuario: "/images/usuarios/Kourtney.jpg", comentario : "Este catalogo es buenisimo, me encanta"}]
-    },
+    },  
     {
         id: 2,   
         tipo: "bestseller",
