@@ -38,38 +38,10 @@ let controlador = {
                 res.render('product', { libro: element })
             }
         });
-    },
-
-    login: (req, res, next) => {
-        res.render('login');
-    },
-
-    product: (req, res, next) => {
-        res.render('product');
-    },
-
-    profile: (req, res, next) => {
-        res.render('profile', { libros: libros });
-    },
-
-    register: (req, res, next) => {
-        res.render('register');
-    },
-
-    search: (req, res, next) => {
-        res.render('search-results');
-    },
-
-    productadd: (req, res, next) => {
-        res.render('product-add');
-    },
-
-    profileedit: (req, res, next) => {
-        res.render('profile-edit');
-    },
-    searchresults: (req,res,next) => {
-        res.render (`search-results`)
+    }, 
+        productadd: (req, res, next) => {
+            res.render('product-add');
+        }
     }
-}
 
-module.exports= controlador;
+module.exports = controlador

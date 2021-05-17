@@ -13,7 +13,7 @@
     <div class="container products-wrapper">
 
         <div class="informacion">
-            <div class="editar"><h2 class="products-title tipografia2" > <%= libro.nombre %> </h2> <a href="http://localhost:3000/productadd"><h3 class=" botoneditar tipografia2"> Editar</h3></div> </a>
+            <div class="editar"><h2 class="products-title tipografia2" > <%= libro.nombre %> </h2> <a href="/productadd"><h3 class=" botoneditar tipografia2"> Editar</h3></div> </a>
             <div><h3 class="products-autor tipografia3"> Autor: <%= libro.autor %></h3></div>
         </div>
         
@@ -33,7 +33,7 @@
                             <img src= <%= element.fotoUsuario %> alt="">
                             <div class="data">
                                 <p class="user">
-                                    <strong> <a href="http://localhost:3000/profile" class="tipografia3"> <%= element.usuario %>:  </a> </strong>
+                                    <strong> <a href="/profile" class="tipografia3"> <%= element.usuario %>:  </a> </strong>
                                     <p class="tipografia3"><%= element.comentario%></p>
                                 </p>
                             </div>
@@ -41,7 +41,7 @@
                         <% }) %>
                     </section>
 
-                    <form class="form" action="http://localhost:3000/register" method="GET">
+                    <form class="form" action="/register" method="GET">
                         <input class="form-input" type="text" value="" placeholder="Agregar comentario">
                         <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
                     </form>
