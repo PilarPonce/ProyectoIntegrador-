@@ -40,7 +40,7 @@ let controladorProducto = {
                 res.render('product', { libro: element })
             }
         });
-    }, 
+    },   
         productadd: (req, res, next) => {
             res.render('product-add');
         }, 
@@ -53,7 +53,13 @@ let controladorProducto = {
         }
         db.Producto.findAll(filtro).then(resultado => {
             res.render('searchresults', { libro: resultado });
+        })
+        
+        .catch(function (error) {
+                console.log(error);
         });
+
+        
     },
 
     }
