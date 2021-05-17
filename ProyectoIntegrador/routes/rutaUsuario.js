@@ -11,5 +11,5 @@ router.get('/profile', controladorUsuario.profile);
 
 router.get('/profileedit', controladorUsuario.profileedit);
 
-  
+    
 module.exports = router;
