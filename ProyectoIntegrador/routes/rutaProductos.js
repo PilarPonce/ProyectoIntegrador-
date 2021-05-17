@@ -10,6 +10,8 @@ router.get('/product/:id', controladorProducto.porId);
 
 router.get('/productadd', controladorProducto.productadd);
 
+router.get('/searchresults', controladorProducto.buscador);
+
 
 
 module.exports = router;

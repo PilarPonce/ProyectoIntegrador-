@@ -1,6 +1,6 @@
 let libros = require(`../libros/libros`);
 
-let controlador = {
+let controladorUsuario = {
     home: (req, res, next) => {
         res.render('home', { libros: libros });
     },
@@ -19,11 +19,6 @@ let controlador = {
     register: (req, res, next) => {
         res.render('register');
     },
-
-    search: (req, res, next) => {
-        res.render('search-results');
-    },
-
     profileedit: (req, res, next) => {
         res.render('profile-edit');
     },
@@ -32,4 +27,4 @@ let controlador = {
     }
 }
 
-module.exports = controlador;
+module.exports = controladorUsuario;
