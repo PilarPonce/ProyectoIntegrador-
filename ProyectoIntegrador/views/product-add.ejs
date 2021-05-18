@@ -13,16 +13,18 @@
         <div class="col-12">
             <h2 class="agregar">Agregar Productos</h2>
         </div>
-    <form action="/productadd" method="post">
-        Nombre: <input type="text" name="nombre">
-        Autor: <input type="text" name="autor">
-        Foto: <input type="text" name="foto">
-        Género: <input type="text" name="genero">
-        Resumen: <input type="text" name="resumen">
-        Año de publicación: <input type="number" name="publicacion">
-        Fecha actual: <input type="date" name="fecha">
-        <input type="submit">
+   
+    <form class="form3" action="/productadd" method="post" id="form">
+        <label class="palabra" >  Nombre: <input class="inputs" type="text" name="nombre"> </label>
+        <label class="palabra">  Autor: <input class="inputs"type="text" name="autor"></label>
+        <label class="palabra">  Foto: <input class="inputs"type="text" name="foto"></label>
+        <label class="palabra">  Género: <input class="inputs" type="text" name="genero"></label>
+        <label class="palabra">  Resumen: <input class="inputs" type="text" name="resumen"></label>
+        <label class="palabra">  Año de publicación: <input class="inputs" type="number" name="publicacion"></label>
+        <label class="palabra">  Fecha actual: <input class="inputs" type="date" name="fecha"></label>
+        <label class="palabra"> <button class="boton1" type="submit">Cargar producto</button>
     </form>
+    </div>
 
         <!-- Form de agregar productos 
         <section class= "formulario3">

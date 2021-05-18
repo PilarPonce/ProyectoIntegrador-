@@ -22,10 +22,8 @@ module.exports = (sequelize, dataTypes) => {
         nacimiento: {
             type: dataTypes.DATE
         }
-       
     },
-        {
-            tableName: "usuarios",
+        {   tableName: "usuarios",
             timestamps: false
         });
 
