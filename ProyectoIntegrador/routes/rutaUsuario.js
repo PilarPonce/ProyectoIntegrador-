@@ -3,7 +3,9 @@ var router = express.Router();
           
 let controladorUsuario = require('../controladores/controllerUsuario');
 
-router.get('/login', controladorUsuario.login);  
+router.get('/login', controladorUsuario.login); 
+
+router.post('/login', controladorUsuario.loginUsuario);  
 
 router.get('/register', controladorUsuario.register);    
 
@@ -15,5 +17,4 @@ router.get('/profileedit', controladorUsuario.profileedit);
 
 
 
-    
 module.exports = router;

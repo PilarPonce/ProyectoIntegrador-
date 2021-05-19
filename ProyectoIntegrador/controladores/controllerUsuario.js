@@ -47,6 +47,30 @@ let controladorUsuario = {
 
     },
 
+    loginUsuario: (req, res) => {
+        const filtro = {
+            where: {
+                nombre: req.body.nombre
+            }
+        }
+        db.Usuario.findOne(filtro).then(usuario => {
+            if(bcrypt.compareSync(req.body.contraseña, usuario.contraseña)){
+                req.session.usuario = usuario.nombre;
+
+                if(req.body.recordarme){
+                    res.cookie('idUsuario', usuario.id, { maxAge: 1000 * 60 * 5 });
+                }
+            }
+            res.redirect('/');
+        })
+        
+        .catch(function (error) {
+            console.log(error);
+    });
+    },
+
+        
+
 }
 
 module.exports = controladorUsuario;
