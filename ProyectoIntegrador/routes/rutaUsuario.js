@@ -7,9 +7,13 @@ router.get('/login', controladorUsuario.login);
 
 router.get('/register', controladorUsuario.register);    
 
-router.get('/profile', controladorUsuario.profile);
+router.post('/register', controladorUsuario.registrarUsuario);
+
+router.get('/profile', controladorUsuario.profile); 
 
 router.get('/profileedit', controladorUsuario.profileedit);
+
+
 
     
 module.exports = router;

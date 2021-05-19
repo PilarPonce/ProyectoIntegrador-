@@ -18,6 +18,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const session = require('express-session');
+
+app.use(session( {
+  secret: "Luz Martina y Pilar",
+	resave: false,
+	saveUninitialized: true
+}));
+
+
+
 
 app.use (`/`, userRouter); // use home
 
