@@ -37,7 +37,7 @@ app.use(function(req, res, next) {
   }}
 );
 
-/*app.use(function(req, res, next) {
+app.use(function(req, res, next) {
   if(req.session.usuario){
     res.locals = {
       logueado: true
@@ -47,9 +47,8 @@ app.use(function(req, res, next) {
       logueado: false
     }
   }
-
 	return next();
-});*/
+});
 
 app.use (`/`, userRouter); // use home
 
