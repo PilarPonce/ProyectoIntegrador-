@@ -27,9 +27,9 @@ app.use(session( {
 }));
 
 app.use(function(req, res, next) {
-  if(req.cookies.userId && !req.session.usuario) {
-    db.Usuario.findByPk(req.cookies.userId).then(resultado => {
-      req.session.usuario = resultado.name;
+  if(req.cookies.idUsuario && !req.session.usuario) {
+    db.Usuario.findByPk(req.cookies.idUsuario).then(resultado => {
+      req.session.usuario = resultado.nombre;
       return next();
     });
   } else {
