@@ -48,7 +48,7 @@ let controladorUsuario = {
     },
 
     loginUsuario: (req, res) => {
-        const filtro = {
+        const filtro = {  
             where: {
                 nombre: req.body.nombre
             }
@@ -68,9 +68,6 @@ let controladorUsuario = {
             console.log(error);
     });
     },
-
-        
-
 }
 
 module.exports = controladorUsuario;
