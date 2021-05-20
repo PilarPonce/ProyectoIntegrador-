@@ -10,7 +10,7 @@ let controladorUsuario = {
         res.render('home', { libros: libros });
     },
     login: (req, res, next) => {
-        res.render('login');
+        res.render('login', { });
     },
 
     product: (req, res, next) => {
@@ -22,7 +22,7 @@ let controladorUsuario = {
     },
 
     register: (req, res, next) => {
-        res.render('register');
+        res.render('register', { });
     },
     profileedit: (req, res, next) => {
         res.render('profile-edit');
@@ -30,6 +30,7 @@ let controladorUsuario = {
     searchresults: (req, res, next) => {
         res.render(`search-results`)
     },
+
 
     registrarUsuario: (req, res) => {
 
@@ -61,7 +62,7 @@ let controladorUsuario = {
                 req.session.id = usuario.id;
 
                 if(req.body.recordarme){
-                    res.cookie('idUsuario', usuario.id, { maxAge: 1000 * 60 * 5 });
+                    res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });
                 }
             }
             res.redirect('/');
@@ -71,6 +72,11 @@ let controladorUsuario = {
             console.log(error);
     });
     },
+    //logout: (req, res) => {
+      //  req.session.destroy();
+        //res.clearCookie('userId');
+       // res.redirect('/');
+    //}
 }
 
 module.exports = controladorUsuario;

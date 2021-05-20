@@ -41,7 +41,7 @@ app.use(function(req, res, next) {
   if(req.session.usuario){
     res.locals = {
       logueado: true
-    }
+    }    
   } else {
     res.locals = {
       logueado: false
