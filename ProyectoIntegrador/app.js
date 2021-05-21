@@ -38,6 +38,7 @@ app.use(function(req, res, next) {
 );
 
 app.use(function(req, res, next) {
+  console.log(req.session.usuario);
   if(req.session.usuario){
     res.locals = {
       logueado: true
@@ -49,6 +50,7 @@ app.use(function(req, res, next) {
   }
 	return next();
 });
+
 
 app.use (`/`, userRouter); // use home
 

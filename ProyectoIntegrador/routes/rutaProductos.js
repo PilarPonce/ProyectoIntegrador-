@@ -4,7 +4,7 @@ var router = express.Router();
 let controladorProducto = require('../controladores/controllerProducto');
 
 
-router.get('/', controladorProducto.home);
+router.get('/', controladorProducto.home);  
 
 router.get('/product/:id', controladorProducto.porId);
 

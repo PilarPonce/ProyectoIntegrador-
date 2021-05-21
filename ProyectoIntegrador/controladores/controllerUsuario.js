@@ -65,6 +65,9 @@ let controladorUsuario = {
                     res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });
                 }
             }
+            else {
+                console.log(`contraseñaErronea`);
+            }
             res.redirect('/');
         })
         
