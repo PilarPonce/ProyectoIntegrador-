@@ -14,6 +14,12 @@
 .tipografia3{
   font-family: 'Quicksand', sans-serif;
 }
+.cerrarSesion form input{
+  background-color: #233d4d;
+  border:white;
+  font-size: large;
+  color: white;
+}
 
 .editar {
   display: flex;
