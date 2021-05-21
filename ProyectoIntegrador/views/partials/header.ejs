@@ -11,8 +11,6 @@
             </div>
 
             <div class="col-7 col-md-6" id="buscador">
-            
-            
                 <form action="/searchresults" method="GET" class="search-form">
                     <input type="text" name="search" placeholder="Busca libros, autores y más..."
                         class="search-form_input">
@@ -20,16 +18,14 @@
                 </form> 
             </div>
 
-            
             <ul class="listaHeader">
                 <li>
-                    <a href="/register" class="tipografia1 creaIngresa">Creá tu cuenta <%=logueado%> <i class="far fa-address-card"></i>
+                    <a href="/register" class="tipografia1 creaIngresa">Creá tu cuenta <i class="far fa-address-card"></i>
                     </a>
                 </li>
                 <li class="ingresa">
                     <a href="/login" class="tipografia1 creaIngresa">Ingresá <i class="fas fa-sign-in-alt"></i></a>
                 </li>
-                
             </ul>
             
         </div>
@@ -56,13 +52,13 @@
     
             <ul class="right-navbar">
                 <li>
-                    <a class="tipografia1 creaIngresa" href="/profile"> Kim Kardashian <i class="fas fa-user"></i>
+                    <a class="tipografia1 creaIngresa" href="/profile"> <%=  %> <i class="fas fa-user"></i>
                     </a>
                 </li>
-                <li>
-                    <a class="logout" href="/">
-                        Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-                    </a>
+                <li class="tipografia1 creaIngresa">
+                    <form action="/logout">
+                        <input type="submit" value="Exit">
+                    </form>
                 </li>
             </ul>
         </div>

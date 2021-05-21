@@ -21,10 +21,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 const session = require('express-session');
 
 app.use(session( {
-  secret: "Luz Martina y Pilar",
+  secret: "sistema de login de usuarios",
 	resave: false,
 	saveUninitialized: true
 }));
+
+const db = require('./database/models');
 
 app.use(function(req, res, next) {
   if(req.cookies.idUsuario && !req.session.usuario) {
@@ -37,22 +39,21 @@ app.use(function(req, res, next) {
   }}
 );
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   console.log(req.session.usuario);
-  if(req.session.usuario){
+  if (req.session.usuario) {
     res.locals = {
       logueado: true
-    }    
+    }
   } else {
     res.locals = {
       logueado: false
     }
   }
-	return next();
+  return next();
 });
 
-
-app.use (`/`, userRouter); // use home
+app.use (`/`, userRouter); 
 
 app.use(`/`, productRouter);
 // catch 404 and forward to error handler

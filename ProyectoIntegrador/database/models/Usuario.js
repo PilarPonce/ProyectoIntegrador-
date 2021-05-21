@@ -8,19 +8,24 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER
         },
         nombre: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            field:"nombre"
         },
         celular: {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER,
+            field:"celular"
         },
         mail: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            field:"mail"
         },
         contraseña: {
-            type: dataTypes.STRING
+            type: dataTypes.STRING,
+            field:"contraseña"
         },
         nacimiento: {
-            type: dataTypes.DATE
+            type: dataTypes.DATE,
+            field:"nacimiento"
         }
     },
         {   tableName: "usuarios",

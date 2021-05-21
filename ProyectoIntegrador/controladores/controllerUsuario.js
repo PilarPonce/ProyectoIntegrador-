@@ -31,9 +31,16 @@ let controladorUsuario = {
         res.render(`search-results`)
     },
 
+    home: (req, res) => {
+        // Validar si la sesion tiene un usuario cargado (si el usuario hizo login)
+        if (req.session.usuario) {
+            res.render('index', { usuario: req.session.usuario });
+        } else {
+            res.render('index', { usuario: "anonimo" });
+        }
+    },
 
     registrarUsuario: (req, res) => {
-
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
         
         db.Usuario.create({
@@ -45,7 +52,6 @@ let controladorUsuario = {
         }).then(usuario => {
             res.redirect('/');
         });
-
     },
 
     loginUsuario: (req, res) => {
@@ -53,7 +59,7 @@ let controladorUsuario = {
             where: {
                 nombre: req.body.nombre
             }
-        }
+        }  
         db.Usuario.findOne(filtro).then(usuario => {
             console.log(req.body.contraseña);
             console.log(usuario.contraseña);
@@ -75,11 +81,11 @@ let controladorUsuario = {
             console.log(error);
     });
     },
-    //logout: (req, res) => {
-      //  req.session.destroy();
-        //res.clearCookie('userId');
-       // res.redirect('/');
-    //}
+    logout: (req, res, next) => {
+        req.session.destroy();
+        res.clearCookie('usuarios_id');
+        res.redirect('/');
+    }
 }
 
 module.exports = controladorUsuario;
