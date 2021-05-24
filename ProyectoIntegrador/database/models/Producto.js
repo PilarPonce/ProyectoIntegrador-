@@ -28,7 +28,7 @@ module.exports = (sequelize, dataTypes) => {
         resumen: {
             type: dataTypes.STRING
         },
-        usuarios_id: { //nos salta error con la FK cuando agregamos el producto
+        usuarios_id: { 
             foreignKey: true,
             type: dataTypes.INTEGER,
         }
