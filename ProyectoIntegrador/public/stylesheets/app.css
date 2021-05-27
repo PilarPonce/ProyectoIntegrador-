@@ -36,6 +36,24 @@
   margin-top: 10px;
   font-family: 'PT Serif', serif;
 }
+.botonAgregarProducto{
+  
+  display: flex;
+  justify-content: center;
+  background: rgb(1, 22, 39);
+  border: none;
+  padding-top: 0%;
+  width: 200px;
+  margin: 10px auto;
+  color: #fff;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 15px;
+  margin-top: 42px;
+  font-family: 'PT Serif', serif;
+}
+
 
 .recordarme{
   justify-content: center;
@@ -465,8 +483,22 @@ hr {
   margin-left: 300px;
 }
 
+.agregarProducto{
+  background-color: var(--yellow);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-left: 300px;
+  margin-top: 40px;
+ 
+}
+
+#fecha{
+  display: flex;
+  margin-top: -10px;
+}
 .form{
-  height: 53rem ;
+  height: 58rem ;
 }
 
 .forms{
@@ -545,6 +577,9 @@ hr {
   margin-left: 80px;
 }
 
+.agregarProducto{
+  height: 51rem;
+}
 
 .form3{
   height: 85rem ; 
