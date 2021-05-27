@@ -43,11 +43,13 @@ app.use(function (req, res, next) {
   console.log(req.session.usuario);
   if (req.session.usuario) {
     res.locals = {
-      logueado: true
+      logueado: true,
+      nombreUsuario: req.session.usuario
     }
   } else {
     res.locals = {
-      logueado: false
+      logueado: false,
+      nombreUsuario: 'anonimo'
     }
   }
   return next();

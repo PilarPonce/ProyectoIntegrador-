@@ -61,8 +61,10 @@ let controladorUsuario = {
             }
         }  
         db.Usuario.findOne(filtro).then(usuario => {
+            console.log(usuario.nombre);
             console.log(req.body.contraseña);
             console.log(usuario.contraseña);
+
             if(bcrypt.compareSync(req.body.contraseña, usuario.contraseña)){
                 req.session.usuario = usuario.nombre;
                 req.session.id = usuario.id;
@@ -73,6 +75,7 @@ let controladorUsuario = {
             }
             else {
                 console.log(`contraseñaErronea`);
+
             }
             res.redirect('/');
         })
