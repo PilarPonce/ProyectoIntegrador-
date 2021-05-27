@@ -15,7 +15,7 @@
         <div class="informacion">
             <div class="editar"><h2 class="products-title tipografia2" > <%= libro.nombre %> </h2> <a href="/productadd"><h3 class=" botoneditar tipografia2"> Editar</h3></div> </a>
             <form action="/borrar" method="POST">
-                <input type="hidden" name="id" value="<%= libreria.id %>"> 
+                <input type="hidden" name="id" value="<%= libro.id %>"> 
                 <input type="submit" value="Borrar">
               </form>
             <div><h3 class="products-autor tipografia3"> Autor: <%= libro.autor %></h3></div>
