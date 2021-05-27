@@ -12,7 +12,9 @@ router.get('/productadd', controladorProducto.productadd);
 
 router.get('/searchresults', controladorProducto.buscador);
 
-router.post('/productadd', controladorProducto.crear)
+router.post('/productadd', controladorProducto.crear);
+
+router.post('/borrar', controladorProducto.borrar)
 
 
 

@@ -76,6 +76,17 @@ let controladorProducto = {
         });
     },
 
+    borrar: (req, res)=> {
+        db.Producto.destroy({
+            where:{
+                id: req.body.id
+            }
+        })
+        .then(()=>{
+            res.redirect('/');
+        });
+    }
+
     }
 
 module.exports = controladorProducto;
