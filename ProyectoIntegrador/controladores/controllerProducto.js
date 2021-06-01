@@ -56,7 +56,7 @@ let controladorProducto = {
             where: {
                 nombre: { [Op.like]: '%' + req.query.search + '%' }
             }
-        }
+        }  
         db.Producto.findAll(filtro).then(resultado => {
             res.render('searchresults', { libro: resultado });
         })
