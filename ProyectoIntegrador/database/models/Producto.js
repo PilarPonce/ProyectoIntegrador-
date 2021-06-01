@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const libreria = sequelize.define('Producto', {
+    const Producto = sequelize.define('Producto', {
 
         id: {
             autoIncrement: true,
@@ -50,6 +50,6 @@ module.exports = (sequelize, dataTypes) => {
             });
         };
 
-    return libreria;
+    return Producto;
 }
 

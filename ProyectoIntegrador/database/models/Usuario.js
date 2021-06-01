@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const persona = sequelize.define('Usuario', {
+    const Usuario = sequelize.define('Usuario', {
 
         id: {
             autoIncrement: true,
@@ -45,6 +45,6 @@ module.exports = (sequelize, dataTypes) => {
             });
         };
 
-    return persona;
+    return Usuario;
 }
 

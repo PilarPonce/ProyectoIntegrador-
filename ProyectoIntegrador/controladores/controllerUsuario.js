@@ -51,6 +51,11 @@ let controladorUsuario = {
             nacimiento: req.body.nacimiento
         }).then(usuario => {
             res.redirect('/');
+        })
+        .catch((error) => {
+            console.log("Error de conexion: " + error.message);
+
+            res.render('error', {error: "Error de conexion: " + error.message});
         });
     },
 
@@ -79,10 +84,11 @@ let controladorUsuario = {
             }
             res.redirect('/');
         })
-        
-        .catch(function (error) {
-            console.log(error);
-    });
+        .catch((error) => {
+            console.log("Error de conexion: " + error.message);
+
+            res.render('error', {error: "Error de conexion: " + error.message});
+        });
     },
     logout: (req, res, next) => {
         req.session.destroy();

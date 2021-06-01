@@ -4,11 +4,17 @@ const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 let controladorProducto = {
-    home: (req,res,next)=> {
-        res.render('home', {libros: libros });
-    },
+        home: (req,res,next)=> {
+            res.render('home', {libros: libros });
+        },
 
-    porId: (req,res,next)=> {
+        porId: (req,res,next)=> {
+        /*
+         db.Producto.findByPk(req.params.id).then(resultado => {
+            res.render('product', {libro: resultado});
+        });
+        */
+
         let id= req.params.id;
 
         libros.bestsellers.forEach(element => {
@@ -40,7 +46,7 @@ let controladorProducto = {
                 res.render('product', { libro: element })
             }
         });
-    },   
+        },   
         productadd: (req, res, next) => {
             res.render('product-add');
         }, 
@@ -55,40 +61,49 @@ let controladorProducto = {
             res.render('searchresults', { libro: resultado });
         })
         
-        .catch(function (error) {
-                console.log(error);
-        });
+        .catch((error) => {
+            console.log("Error de conexion: " + error.message);
 
+            res.render('error', {error: "Error de conexion: " + error.message});
+        });
         
-    },
-    crear: (req, res) => {
-        db.Producto.create({ 
-            nombre: req.body.nombre,
-            autor: req.body.autor,
-            foto: req.body.foto,
-            genero: req.body.genero,
-            resumen: req.body.resumen,
-            publicacion: req.body.publi,
-            fecha: req.body.fecha,
-            usuarios_id: req.body.id //se ve mientra el usuario este logueado
-        }).then(libroCreado => {
-            res.redirect('/product/' + libroCreado.id);   
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
-    },
+        },
 
-    borrar: (req, res)=> {
-        db.Producto.destroy({
-            where:{
-                id: req.body.id
-            }
-        })
-        .then(()=>{
-            res.redirect('/');
-        });
-    }
+        crear: (req, res) => {
+            db.Producto.create({ 
+                nombre: req.body.nombre,
+                autor: req.body.autor,
+                foto: req.body.foto,
+                genero: req.body.genero,
+                resumen: req.body.resumen,
+                publicacion: req.body.publi,
+                fecha: req.body.fecha,
+                usuarios_id: req.body.id //se ve mientra el usuario este logueado
+            }).then(libroCreado => {
+                res.redirect('/product/' + libroCreado.id);   
+            })
+            .catch((error) => {
+                console.log("Error de conexion: " + error.message);
+    
+                res.render('error', {error: "Error de conexion: " + error.message});
+            });
+        },
+
+        borrar: (req, res)=> {
+            db.Producto.destroy({
+                where:{
+                    id: req.body.id
+                }
+            })
+            .then(()=>{
+                res.redirect('/');
+            })
+            .catch((error) => {
+                console.log("Error de conexion: " + error.message);
+    
+                res.render('error', {error: "Error de conexion: " + error.message});
+            });
+        }
 
     }
 

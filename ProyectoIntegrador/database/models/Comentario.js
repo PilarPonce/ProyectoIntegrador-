@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
 
-    const opinion = sequelize.define('Comentario', {
+    const Comentario = sequelize.define('Comentario', {
 
         id: {
             autoIncrement: true,
@@ -36,6 +36,6 @@ module.exports = (sequelize, dataTypes) => {
             });
         };
 
-    return opinion;
+    return Comentario;
 }
 
