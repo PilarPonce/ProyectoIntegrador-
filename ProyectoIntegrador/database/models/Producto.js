@@ -29,7 +29,6 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
         usuarios_id: { 
-            foreignKey: true,
             type: dataTypes.INTEGER,
         }
     },
@@ -37,6 +36,20 @@ module.exports = (sequelize, dataTypes) => {
             tableName: "productos",
             timestamps: false
         });
+
+        Producto.associate = (db) => {
+            Producto.belongsTo(db.Usuario, {
+                as: 'usuario',
+                foreignKey: 'usuario_id'
+            });
+        };
+
+        Producto.associate = (db) => {
+            Producto.hasMany(db.Comentario, {
+                as: 'comentarios',
+                foreignKey: 'productos_id'
+            });
+        };
 
     return libreria;
 }

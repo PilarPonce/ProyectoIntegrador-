@@ -44,12 +44,14 @@ app.use(function (req, res, next) {
   if (req.session.usuario) {
     res.locals = {
       logueado: true,
-      nombreUsuario: req.session.usuario
+      nombreUsuario: req.session.usuario,
+      idUsuario:  req.session.id
     }
   } else {
     res.locals = {
       logueado: false,
-      nombreUsuario: 'anonimo'
+      nombreUsuario: 'anonimo',
+      idUsuario: 'no id'
     }
   }
   return next();
