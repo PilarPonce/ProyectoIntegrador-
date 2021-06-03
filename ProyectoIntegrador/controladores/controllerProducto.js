@@ -21,7 +21,7 @@ let controladorProducto = {
                 
                 filtro ={
                     where: {
-                        genero: {[Op.like]:'% Ficción %'}
+                        genero:'Terror'
                     },
         
                     limit: 4,
@@ -31,7 +31,7 @@ let controladorProducto = {
                     
                 filtro ={
                     where: {
-                        genero: {[Op.like]:'% Novela román %'}
+                        genero:'Romance'
                     },
         
                     limit: 4,
@@ -41,7 +41,7 @@ let controladorProducto = {
 
                 filtro ={
                     where: {
-                        genero: {[Op.like]:'% Thriller %'}
+                        genero:'Thriller'
                     },
             
                     limit: 4,
@@ -52,7 +52,7 @@ let controladorProducto = {
 
                 filtro ={
                     where: {
-                        genero: {[Op.like]:'% Fant %'}
+                        genero:'Fantasía'
                     },
                            
                     limit: 4,
