@@ -69,10 +69,11 @@ let controladorUsuario = {
             console.log(usuario.nombre);
             console.log(req.body.contraseña);
             console.log(usuario.contraseña);
+            console.log(usuario.id);
 
             if(bcrypt.compareSync(req.body.contraseña, usuario.contraseña)){
                 req.session.usuario = usuario.nombre;
-                req.session.id = usuario.id;
+                req.session.idUsuario = usuario.id;
 
                 if(req.body.recordarme){
                     res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });

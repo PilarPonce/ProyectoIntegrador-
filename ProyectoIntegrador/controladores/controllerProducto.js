@@ -4,9 +4,70 @@ const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 let controladorProducto = {
-        home: (req,res,next)=> {
+        /*home1: (req,res,next)=> {
             res.render('home', {libros: libros });
-        },
+        },*/
+
+        home: (req,res,next)=> {
+            
+            let filtro = { 
+                order: [ 
+                        ['createdAt', 'DESC'],
+                      ],
+                limit: 4,
+                }
+
+            db.Producto.findAll(filtro).then(resultado => {
+                
+                filtro ={
+                    where: {
+                        genero: {[Op.like]:'% Ficción %'}
+                    },
+        
+                    limit: 4,
+                }
+
+            db.Producto.findAll(filtro).then(resultado2 => { 
+                    
+                filtro ={
+                    where: {
+                        genero: {[Op.like]:'% Novela román %'}
+                    },
+        
+                    limit: 4,
+                }
+
+            db.Producto.findAll(filtro).then(resultado3 => {
+
+                filtro ={
+                    where: {
+                        genero: {[Op.like]:'% Thriller %'}
+                    },
+            
+                    limit: 4,
+                }
+
+                        
+            db.Producto.findAll(filtro).then(resultado4 => {
+
+                filtro ={
+                    where: {
+                        genero: {[Op.like]:'% Fant %'}
+                    },
+                           
+                    limit: 4,
+                }
+
+            db.Producto.findAll(filtro).then(resultado5 => {
+
+        res.render('home', {libros: resultado, libros2: resultado2, libros3: resultado3, libros4: resultado4, libros5: resultado5 });
+            });
+            });
+            });
+            });
+            });
+            
+           },
 
         porId: (req,res,next)=> {
         /*
@@ -78,7 +139,7 @@ let controladorProducto = {
                 resumen: req.body.resumen,
                 publicacion: req.body.publi,
                 fecha: req.body.fecha,
-                usuarios_id: req.body.id //se ve mientra el usuario este logueado
+                usuarios_id: req.session.idUsuario //se ve mientra el usuario este logueado
             }).then(libroCreado => {
                 res.redirect('/product/' + libroCreado.id);   
             })

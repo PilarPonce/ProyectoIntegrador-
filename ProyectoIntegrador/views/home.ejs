@@ -49,10 +49,10 @@
         
         <div class="row">
             <div class="col-12">
-                <h2 class="products-title tipografia2">Best Sellers 2020</h2>
+                <h2 class="products-title tipografia2">Novedades</h2>
             </div>
             <!-- best sellers -->
-            <% libros.bestsellers.forEach(element => { %>
+            <% libros.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
                     <a href="/product/<%= element.id %>">
@@ -84,9 +84,9 @@
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
-                <h2 class="products-title tipografia2">Clásicos de siempre</h2>
+                <h2 class="products-title tipografia2">Ficción</h2>
             </div>
-            <% libros.clasicos.forEach(element => { %>
+            <% libros2.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
                 <a href="/product/<%= element.id %>">
@@ -111,10 +111,10 @@
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
-                <h2 class="products-title tipografia2">Novelas románticas</h2>
+                <h2 class="products-title tipografia2">Romance</h2>
             </div>
             <!-- Show the "ultimos" products -->
-            <% libros.romances.forEach(element => { %>
+            <% libros3.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
                 <a href="/product/<%= element.id %>">
@@ -139,10 +139,10 @@
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
-                <h2 class="products-title tipografia2">Ficción</h2>
+                <h2 class="products-title tipografia2">Thriller</h2>
             </div>
             <!-- Show the "ultimos" products -->
-            <% libros.ficcion.forEach(element => { %>
+            <% libros4.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
                 <a href="/product/<%= element.id %>">
@@ -166,10 +166,10 @@
 <div class="container products-wrapper">
     <div class="row">
         <div class="col-12">
-            <h2 class="products-title tipografia2">Terror y thriller</h2>
+            <h2 class="products-title tipografia2">Fantasia</h2>
         </div>
         <!-- Show the "ultimos" products -->
-        <% libros.terror.forEach(element => { %>
+        <% libros5.forEach(element => { %>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
             <a href="/product/<%= element.id %>">
