@@ -135,7 +135,7 @@ let controladorProducto = {
                 nombre: req.body.nombre,
                 autor: req.body.autor,
                 foto: req.body.foto,
-                genero: req.body.genero,
+                genero: req.body.genero.value, //creo que se pone asi para ingresar al select
                 resumen: req.body.resumen,
                 publicacion: req.body.publi,
                 usuarios_id: req.session.idUsuario //se ve mientra el usuario este logueado
