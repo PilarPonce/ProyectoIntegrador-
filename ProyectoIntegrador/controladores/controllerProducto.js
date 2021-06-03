@@ -138,7 +138,6 @@ let controladorProducto = {
                 genero: req.body.genero,
                 resumen: req.body.resumen,
                 publicacion: req.body.publi,
-                fecha: req.body.fecha,
                 usuarios_id: req.session.idUsuario //se ve mientra el usuario este logueado
             }).then(libroCreado => {
                 res.redirect('/product/' + libroCreado.id);   
