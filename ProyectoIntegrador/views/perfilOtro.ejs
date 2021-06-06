@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!-- Head -->
+    <%- include('./partials/headLogueado')%>
+    <!-- Head -->
+<body>
+    <!-- Header -->
+    <%- include('./partials/header')%>
+    <!-- /Header -->
+
+    <!-- Datos del usuario -->
+    <section class="info-usuario container products-wrapper">
+        <div class="row">
+            <div class="img-container offset-3 col-2">
+                <img src= '/images/perfil/KimKardashian.png' alt="" class="foto-perfil" >
+            </div>
+            <div class="data-container col-6">
+                <div class="d-flex align-items-center ">
+                    <h1 class="main-title"> <%=  usuario.nombre %>
+                        <a href="/profileedit">
+                            <i class="fas fa-cog"></i>
+                        </a>
+                    </h1>
+                <div class="editar">
+                    <a class="btn mt-3 ml-4" href="https://www.instagram.com/kimkardashian/">SEGUIR</a>
+                    <a href="/profileedit">
+                        <h3 class=" botoneditar tipografia2"> Editar</h3>
+                    </a>
+                </div>    
+                </div>
+                <div>
+                    <ul class="">
+                        <li>8 libros</li>
+                        <li>300 comentarios</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /Datos del usuario -->
+
+    
+    </div>
+    <!-- /Mis productos -->
+
+
+<!-- footer -->
+<%- include('./partials/footer')%>
+<!-- /footer -->
+</body>
+
+</html>

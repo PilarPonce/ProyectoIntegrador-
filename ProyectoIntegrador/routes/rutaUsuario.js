@@ -17,6 +17,7 @@ router.get('/profileedit', controladorUsuario.profileedit);
 
 router.get('/logout', controladorUsuario.logout);
 
+router.get('/perfilOtro/:id', controladorUsuario.porId);
 
 
 

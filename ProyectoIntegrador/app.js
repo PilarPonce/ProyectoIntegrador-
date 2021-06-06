@@ -6,7 +6,6 @@ var logger = require('morgan');
 
 var userRouter = require (`./routes/rutaUsuario`); // require modulo home
 var productRouter = require(`./routes/rutaProductos`);
-var comentRouter = require(`./routes/rutaComentarios`);
 var app = express(); //funcion express
 
 // view engine setup
@@ -62,8 +61,6 @@ app.use(function (req, res, next) {
 app.use (`/`, userRouter); 
 
 app.use(`/`, productRouter);
-
-app.use(`/`, comentRouter);
 
 
 // catch 404 and forward to error handler

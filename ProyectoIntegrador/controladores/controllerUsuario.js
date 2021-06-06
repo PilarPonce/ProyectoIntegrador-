@@ -29,6 +29,20 @@ let controladorUsuario = {
         res.render(`search-results`)
     },
 
+    porId: (req,res,next)=> {
+
+     db.Usuario.findByPk(req.params.id).then(resultado => {
+        console.log(resultado.toJSON());
+        res.render('perfilOtro', {usuario: resultado});
+    })
+    .catch((error) => {
+        console.log("Error de conexion: " + error.message);
+
+        res.render('error', { error: "Error de conexion: " + error.message });
+    })
+    },   
+      
+
     registrarUsuario: (req, res) => {
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
         

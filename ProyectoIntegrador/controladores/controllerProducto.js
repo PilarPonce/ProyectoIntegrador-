@@ -73,12 +73,14 @@ let controladorProducto = {
 
             const filtro = {    
                 include: [
-                    {association: 'comentarios', include: 'usuario'}
+                    {association: 'comentarios', include: 'usuario'},
+                    
                 ]
             }
         
          db.Producto.findByPk(req.params.id, filtro).then(resultado => {
             console.log(resultado.toJSON());
+            console.log(resultado.comentarios[0].usuario.toJSON());
             res.render('product', {libro: resultado});
         })
         .catch((error) => {
