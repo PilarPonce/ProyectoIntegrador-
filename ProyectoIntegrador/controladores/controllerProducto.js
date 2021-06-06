@@ -70,64 +70,44 @@ let controladorProducto = {
            },
 
         porId: (req,res,next)=> {
-        /*
+        
          db.Producto.findByPk(req.params.id).then(resultado => {
             res.render('product', {libro: resultado});
-        });
-        */
+        })
+        .catch((error) => {
+            console.log("Error de conexion: " + error.message);
 
-        let id= req.params.id;
-
-        libros.bestsellers.forEach(element => {
-            if (element.id == id) {
-                res.render('product', { libro: element })
-            }
-        
-        });
-        libros.clasicos.forEach(element => {
-            if (element.id == id) {
-                res.render('product', { libro: element })
-            }
-        
-        });
-        libros.ficcion.forEach(element => {
-            if (element.id == id) {
-                res.render('product', { libro: element })
-            }
-        
-        });
-        libros.romances.forEach(element => {
-            if (element.id == id) {
-                res.render('product', { libro: element })
-            }
-        
-        });
-        libros.terror.forEach(element => {
-            if (element.id == id) {
-                res.render('product', { libro: element })
-            }
-        });
+            res.render('error', { error: "Error de conexion: " + error.message });
+        })
         },   
+          
         productadd: (req, res, next) => {
             res.render('product-add');
         }, 
         
         buscador: (req, res) => {
-        const filtro = {
+        let filtro = {
             where: {
-                nombre: { [Op.like]: '%' + req.query.search + '%' }
+                nombre: { [Op.like]: '%' + req.query.search + '%' }, 
             }
         }  
         db.Producto.findAll(filtro).then(resultado => {
-            res.render('searchresults', { libro: resultado });
+            let filtro = {
+                where: {
+                    resumen: { [Op.like]: '%' + req.query.search + '%' },
+                }
+            }
+            db.Producto.findAll(filtro).then(resultado2 => {
+            res.render('searchresults', { libro: resultado, libro2:resultado2 });
+            
         })
-        
+    
         .catch((error) => {
             console.log("Error de conexion: " + error.message);
 
             res.render('error', {error: "Error de conexion: " + error.message});
         });
-        
+        });
         },
 
         crear: (req, res) => {
@@ -135,7 +115,7 @@ let controladorProducto = {
                 nombre: req.body.nombre,
                 autor: req.body.autor,
                 foto: req.body.foto,
-                genero: req.body.genero.value, //creo que se pone asi para ingresar al select
+                genero: req.body.genero, //creo que se pone asi para ingresar al select
                 resumen: req.body.resumen,
                 publicacion: req.body.publi,
                 usuarios_id: req.session.idUsuario //se ve mientra el usuario este logueado
@@ -163,8 +143,28 @@ let controladorProducto = {
     
                 res.render('error', {error: "Error de conexion: " + error.message});
             });
-        }
+        },
 
+
+        
+        comentario: (req,res)  => {
+        let id= req.params.id;
+        let filtro = {
+            where: [
+                    { productos_id: id}
+            ]} 
+            
+            db.Comentario.findAll(filtro).then(resultado => {
+                res.render ('product', {comentarios: resultado})
+                
+        })
+            .catch((error) => {
+                console.log("Error de conexion: " + error.message);
+
+                res.render('error', { error: "Error de conexion: " + error.message });
+                });
     }
-
-module.exports = controladorProducto;
+        
+    }
+    
+    module.exports = controladorProducto;

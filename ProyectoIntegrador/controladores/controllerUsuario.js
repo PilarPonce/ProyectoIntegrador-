@@ -29,15 +29,6 @@ let controladorUsuario = {
         res.render(`search-results`)
     },
 
-    home: (req, res) => {
-        // Validar si la sesion tiene un usuario cargado (si el usuario hizo login)
-        if (req.session.usuario) {
-            res.render('index', { usuario: req.session.usuario });
-        } else {
-            res.render('index', { usuario: "anonimo" });
-        }
-    },
-
     registrarUsuario: (req, res) => {
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
         
