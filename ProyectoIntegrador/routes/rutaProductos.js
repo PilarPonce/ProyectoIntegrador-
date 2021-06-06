@@ -3,7 +3,6 @@ var router = express.Router();
 
 let controladorProducto = require('../controladores/controllerProducto');
 
-
 router.get('/', controladorProducto.home);  
 
 router.get('/product/:id', controladorProducto.porId);
@@ -14,8 +13,7 @@ router.get('/searchresults', controladorProducto.buscador);
 
 router.post('/productadd', controladorProducto.crear);
 
-router.post('/borrar', controladorProducto.borrar)
-
+router.post('/borrar', controladorProducto.borrar);
 
 
 module.exports = router;
