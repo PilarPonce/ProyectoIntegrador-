@@ -49,7 +49,7 @@ let controladorUsuario = {
     },
 
     loginUsuario: (req, res) => {
-        const filtro = {  
+        let filtro = {  
             where: {
                 nombre: req.body.nombre
             }
@@ -60,6 +60,7 @@ let controladorUsuario = {
             console.log(usuario.contraseña);
             console.log(usuario.id);
 
+         
             if(bcrypt.compareSync(req.body.contraseña, usuario.contraseña)){
                 req.session.usuario = usuario.nombre;
                 req.session.idUsuario = usuario.id;
