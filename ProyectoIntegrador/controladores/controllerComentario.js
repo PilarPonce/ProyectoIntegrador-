@@ -22,6 +22,19 @@ let controladorComentario = {
                 res.render('error', { error: "Error de conexion: " + error.message });
             });
     }
+
+    //intento mediante association xq el id del producto es una FK en el modelo
+    /*comentario: (req, res) =>{
+        let filtro = {
+            include : [
+                {association: "producto"}
+            ]
+        }
+        db.Comentario.findAll(filtro).then(resultado => {
+            res.render('product', { comentarios: resultado })
+
+        })
+    }*/
 }
 
 module.exports = controladorComentario
