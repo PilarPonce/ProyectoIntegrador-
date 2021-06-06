@@ -32,13 +32,13 @@
 
                 <div class="col-12 col-lg-4">
                     <section class="comments">
-                        <% comentarios.forEach(element=> { %>
+                        <% libro.comentarios.forEach(element=> { %>
                             <article>
                                 <img src=<%=element.fotoUsuario %> alt="">
                                 <div class="data">
                                     <p class="user">
                                         <strong> <a href="/profile" class="tipografia3">
-                                                <%= element.usuario_id %>:
+                                                <%= element.usuario.nombre %>
                                             </a> </strong>
                                     <p class="tipografia3">
                                         <%= element.texto%>

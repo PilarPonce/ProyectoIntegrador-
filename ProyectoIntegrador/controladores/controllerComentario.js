@@ -4,7 +4,7 @@ const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 let controladorComentario = {
-    comentario: (req, res) => {
+    /*comentario: (req, res) => {
         let id = req.params.id;
         let filtro = {
             where: [
@@ -21,7 +21,7 @@ let controladorComentario = {
 
                 res.render('error', { error: "Error de conexion: " + error.message });
             });
-    }
+    }*/
 
     //intento mediante association xq el id del producto es una FK en el modelo
     /*comentario: (req, res) =>{

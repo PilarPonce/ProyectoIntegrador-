@@ -70,8 +70,15 @@ let controladorProducto = {
            },
 
         porId: (req,res,next)=> {
+
+            const filtro = {    
+                include: [
+                    {association: 'comentarios', include: 'usuario'}
+                ]
+            }
         
-         db.Producto.findByPk(req.params.id).then(resultado => {
+         db.Producto.findByPk(req.params.id, filtro).then(resultado => {
+            console.log(resultado.toJSON());
             res.render('product', {libro: resultado});
         })
         .catch((error) => {

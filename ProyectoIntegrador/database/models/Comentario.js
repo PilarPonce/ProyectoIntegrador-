@@ -13,7 +13,7 @@ module.exports = (sequelize, dataTypes) => {
         texto: {
             type: dataTypes.STRING
         },
-        usuario_id:{
+        usuarios_id:{
             type: dataTypes.INTEGER
         },
         productos_id:{
@@ -32,7 +32,7 @@ module.exports = (sequelize, dataTypes) => {
     
             Comentario.belongsTo(db.Usuario, {
                 as: 'usuario',
-                foreignKey: 'usuario_id'
+                foreignKey: 'usuarios_id'
             });
         };
 
