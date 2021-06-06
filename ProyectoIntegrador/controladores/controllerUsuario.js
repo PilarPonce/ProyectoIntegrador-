@@ -6,9 +6,7 @@ const Op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs');
 
 let controladorUsuario = {
-    home: (req, res, next) => {
-        res.render('home', { libros: libros });
-    },
+    
     login: (req, res, next) => {
         res.render('login', { });
     },
