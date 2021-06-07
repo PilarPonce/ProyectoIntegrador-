@@ -41,9 +41,7 @@
 
 </div>
 
-    <!-- /Banner -->
-
-    <!-- BEST SELLERS -->
+<!-- /Banner -->
     
     <div class="container products-wrapper">
         
@@ -51,7 +49,6 @@
             <div class="col-12">
                 <h2 class="products-title tipografia2">Novedades</h2>
             </div>
-            <!-- best sellers -->
             <% libros.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
@@ -77,10 +74,7 @@
             <% }) %>
         
     </div>
-    <!-- / BEST SELLERS  -->
-
-
-    <!-- CLASICOS  -->
+  
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
@@ -104,16 +98,13 @@
             <% }) %>
         </div>          
     </div>
-    <!-- CLASICOS  -->
-
-
-    <!--ROMANTICOS-->
+ 
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
                 <h2 class="products-title tipografia2">Romance</h2>
             </div>
-            <!-- Show the "ultimos" products -->
+    
             <% libros3.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
@@ -132,16 +123,15 @@
             <% }) %>
         </div>
     </div>
-<!-- ROMANTICOS -->
 
 
-<!-- FICCION -->
+
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
                 <h2 class="products-title tipografia2">Thriller</h2>
             </div>
-            <!-- Show the "ultimos" products -->
+            
             <% libros4.forEach(element => { %>
             <div class="col-12 col-sm-6 col-lg-3">
                 <section class="product-box">
@@ -160,15 +150,13 @@
             <% }) %>
         </div>
     </div>
-<!-- FICCION -->
 
-<!-- TERROR -->
 <div class="container products-wrapper">
     <div class="row">
         <div class="col-12">
             <h2 class="products-title tipografia2">Fantasia</h2>
         </div>
-        <!-- Show the "ultimos" products -->
+      
         <% libros5.forEach(element => { %>
         <div class="col-12 col-sm-6 col-lg-3">
             <section class="product-box">
@@ -188,11 +176,6 @@
   
     </div>
 </div>
-
-<!-- TERROR -->
-
-
-
 
 <!-- Footer -->
 <%- include('./partials/footer')%>

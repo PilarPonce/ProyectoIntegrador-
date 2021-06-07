@@ -14,7 +14,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING
         },
         anio: {
-            type: dataTypes.INTEGER
+            type: dataTypes.INTEGER,
         },
         autor: {
             type: dataTypes.STRING

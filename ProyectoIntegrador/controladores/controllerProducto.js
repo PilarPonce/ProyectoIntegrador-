@@ -16,7 +16,6 @@ let controladorProducto = {
                       ],
                 limit: 4,
                 }
-
             db.Producto.findAll(filtro).then(resultado => {
                 
                 filtro ={
@@ -26,7 +25,6 @@ let controladorProducto = {
         
                     limit: 4,
                 }
-
             db.Producto.findAll(filtro).then(resultado2 => { 
                     
                 filtro ={
@@ -36,7 +34,6 @@ let controladorProducto = {
         
                     limit: 4,
                 }
-
             db.Producto.findAll(filtro).then(resultado3 => {
 
                 filtro ={
@@ -45,9 +42,7 @@ let controladorProducto = {
                     },
             
                     limit: 4,
-                }
-
-                        
+                }        
             db.Producto.findAll(filtro).then(resultado4 => {
 
                 filtro ={
@@ -57,7 +52,6 @@ let controladorProducto = {
                            
                     limit: 4,
                 }
-
             db.Producto.findAll(filtro).then(resultado5 => {
 
         res.render('home', {libros: resultado, libros2: resultado2, libros3: resultado3, libros4: resultado4, libros5: resultado5 });
@@ -70,8 +64,7 @@ let controladorProducto = {
            },
 
         porId: (req,res,next)=> {
-
-            const filtro = {    
+            let filtro = {    
                 include: [
                     {association: 'comentarios', include: 'usuario'},
                     
@@ -89,11 +82,9 @@ let controladorProducto = {
             res.render('error', { error: "Error de conexion: " + error.message });
         })
         },   
-          
-        productadd: (req, res, next) => {
-            res.render('product-add');
-        }, 
-        
+
+//BUSCADOR
+    
         buscador: (req, res) => {
         let filtro = {
             where: {
@@ -119,14 +110,19 @@ let controladorProducto = {
         });
         },
 
+//AGREGAR PRODUCTO
+    productadd: (req, res, next) => {
+        res.render('product-add');
+    },
+
         crear: (req, res) => {
             db.Producto.create({ 
                 nombre: req.body.nombre,
                 autor: req.body.autor,
-                foto: req.body.foto,
-                genero: req.body.genero, //creo que se pone asi para ingresar al select
+                url: req.body.foto,
+                genero: req.body.genero, 
                 resumen: req.body.resumen,
-                publicacion: req.body.publi,
+                anio: req.body.publi,
                 usuarios_id: req.session.idUsuario //se ve mientra el usuario este logueado
             }).then(libroCreado => {
                 res.redirect('/product/' + libroCreado.id);   
@@ -138,7 +134,7 @@ let controladorProducto = {
             });
         },
 
-//BORRAR        
+//BORRAR PRODUCTO     
 
         borrar: (req, res)=> {
             db.Producto.destroy({
