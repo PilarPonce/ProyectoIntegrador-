@@ -73,7 +73,6 @@ let controladorProducto = {
         
          db.Producto.findByPk(req.params.id, filtro).then(resultado => {
             console.log(resultado.toJSON());
-            console.log(resultado.comentarios[0].usuario.toJSON());
             res.render('product', {libro: resultado});
         })
         .catch((error) => {
@@ -122,10 +121,10 @@ let controladorProducto = {
                 foto: req.body.foto,
                 genero: req.body.genero, 
                 resumen: req.body.resumen,
-                anio: req.body.publi,
+                anio: req.body.anio,
                 usuarios_id: req.session.idUsuario //se ve mientra el usuario este logueado
             }).then(libroCreado => {
-                res.redirect('/product/' + libroCreado.id);   
+                res.redirect('/product/' + libroCreado.id, {libro: libroCreado});   
             })
             .catch((error) => {
                 console.log("Error de conexion: " + error.message);
@@ -150,7 +149,22 @@ let controladorProducto = {
     
                 res.render('error', {error: "Error de conexion: " + error.message});
             });
-        }   
+        },   
+
+        todos: (req, res)=> {
+
+            let filtro = { 
+                order: [ 
+                        ['nombre', 'ASC'],
+                      ]
+                }
+
+            db.Producto.findAll(filtro).then(resultado => {
+            
+                res.render('todos', {libros: resultado});
+
+            }); 
+            } 
     }
     
     module.exports = controladorProducto;

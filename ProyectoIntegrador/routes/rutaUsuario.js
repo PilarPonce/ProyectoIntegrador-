@@ -3,13 +3,32 @@ var router = express.Router();
           
 let controladorUsuario = require('../controladores/controllerUsuario');
 
+const multer = require('multer');
+const path = require('path');
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      console.log("probando")
+      let rutaDirectorio = 'public/images/usuarios';
+      cb(null, rutaDirectorio);
+    },
+    filename: (req, file, cb) => {
+      let fotodePerfil = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
+      cb(null, fotodePerfil);
+    }
+  }); 
+  
+  const upload = multer({
+    storage: storage
+  });  
+
 router.get('/login', controladorUsuario.login); 
 
 router.post('/login', controladorUsuario.loginUsuario);  
 
 router.get('/register', controladorUsuario.register);    
 
-router.post('/register', controladorUsuario.registrarUsuario);
+router.post('/register', upload.single('fotoPerfil'), controladorUsuario.registrarUsuario);
 
 router.get('/profile', controladorUsuario.profile); 
 

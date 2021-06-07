@@ -23,13 +23,15 @@
         
         <div class="product-detail">
             <div class="row">
-
+ 
                 <article class="col-12 col-lg-8 product-detail-info">
                     <img src= <%= libro.foto %> alt="" class="product-detail-img">
                     <h3 class="genero tipografia3">Género: <%= libro.genero%></h3>
                     <p class="product-detail-description tipografia3" id="resumenes"> <%= libro.resumen %> </p>
                 </article>
-
+                <% if (libro.comentarios == undefined || libro.comentarios == 0 ) { %>
+                    <h2 class="tipografia2" >No hay comentarios aún</h2>
+                <% }else{ %>
                 <div class="col-12 col-lg-4">
                     <section class="comments">
                         <% libro.comentarios.forEach(element=> { %>
@@ -48,6 +50,7 @@
                             </article>
                             <% }) %>
                     </section>
+
         
                     <form class="form" action="/register" method="GET">
                         <input class="form-input" type="text" value="" placeholder="Agregar comentario">
@@ -55,6 +58,7 @@
                     </form>
 
                 </div>
+                <% } %>
             </div>
         </div>
     </div>

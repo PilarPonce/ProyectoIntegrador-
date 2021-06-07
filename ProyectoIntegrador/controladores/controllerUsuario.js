@@ -44,12 +44,15 @@ let controladorUsuario = {
       
 
     registrarUsuario: (req, res) => {
+
+        console.log("antes de registrar")
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
         
         db.Usuario.create({
             nombre: req.body.nombre,
             celular: req.body.celular,
             mail: req.body.mail,
+            fotoPerfil: '/images/usuarios/'  + req.file.filename,
             contraseña: contraseñaEncriptada,
             nacimiento: req.body.nacimiento
         }).then(usuario => {
@@ -74,7 +77,7 @@ let controladorUsuario = {
             console.log(usuario.contraseña);
             console.log(usuario.id);
 
-         
+          
             if(bcrypt.compareSync(req.body.contraseña, usuario.contraseña)){
                 req.session.usuario = usuario.nombre;
                 req.session.idUsuario = usuario.id;
