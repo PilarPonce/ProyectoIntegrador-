@@ -3,6 +3,7 @@ id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 nombre VARCHAR (50) NOT NULL,
 celular INT NOT NULL,
 mail VARCHAR (50) NOT NULL,
+fotoPerfil VARCHAR (200) NOT NULL,
 contraseña VARCHAR (500) NOT NULL,
 nacimiento  DATE NOT NULL,
 createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -13,7 +14,7 @@ updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 CREATE TABLE productos (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
 nombre VARCHAR (50) NOT NULL,
-url VARCHAR (200) NOT NULL,
+foto VARCHAR (200) NOT NULL,
 anio INT NOT NULL,
 autor VARCHAR (50) NOT NULL,
 genero VARCHAR (50) NOT NULL,
@@ -40,17 +41,17 @@ FOREIGN KEY (usuarios_id) REFERENCES usuarios (id)
 
 
 INSERT INTO usuarios
-VALUES (DEFAULT, 'KourtneyK',  155327835,  'kourt.kardashian@gmail.com', 'librosfan', '1999-04-09', DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'KourtneyK',  155327835,  'kourt.kardashian@gmail.com', '/images/usuarios/Kourtney.jpg',  'librosfan', '1999-04-09', DEFAULT, DEFAULT);
 INSERT INTO usuarios
-VALUES (DEFAULT, 'KylieJ',  155123435,  'kyliejenner@gmail.com', 'amoloslibros', '1997-08-06' , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'KylieJ',  155123435,  'kyliejenner@gmail.com', '/images/usuarios/Kylie.jpg', 'amoloslibros', '1997-08-06' , DEFAULT, DEFAULT);
 INSERT INTO usuarios
-VALUES (DEFAULT, 'KhloeK',  155320987,  'khloe.kardashian@gmail.com', 'libros1234', '1992-05-02' , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'KhloeK',  155320987,  'khloe.kardashian@gmail.com', '/images/usuarios/Khloe.jpg', 'libros1234', '1992-05-02' , DEFAULT, DEFAULT);
 INSERT INTO usuarios
-VALUES (DEFAULT, 'KendallJ',  155876545,  'kendalljenner@gmail.com', 'clublectura', '1999-07-10' , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'KendallJ',  155876545,  'kendalljenner@gmail.com', '/images/usuarios/Kendall.jpg', 'clublectura', '1999-07-10' , DEFAULT, DEFAULT);
 INSERT INTO usuarios
-VALUES (DEFAULT, 'KrissJ',  155367485,  'krissjenner@gmail.com', 'libros9876', '1977-07-12' , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'KrissJ',  155367485,  'krissjenner@gmail.com', '/images/usuarios/Kris.jpg', 'libros9876', '1977-07-12' , DEFAULT, DEFAULT);
 
-SELECT id, nombre, celular, mail, contraseña, nacimiento
+SELECT id, nombre, celular, mail, fotoPerfil, contraseña, nacimiento
 FROM usuarios;
 
 INSERT INTO productos
@@ -100,7 +101,7 @@ VALUES (DEFAULT, 'Harry Potter y la piedra filosofal', '/images/productos/fantas
 
 
 
-SELECT id, nombre, url, anio, autor, genero, resumen, usuarios_id
+SELECT id, nombre, foto, anio, autor, genero, resumen, usuarios_id
 FROM productos;
 
 

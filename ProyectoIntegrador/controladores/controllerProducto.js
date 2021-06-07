@@ -119,7 +119,7 @@ let controladorProducto = {
             db.Producto.create({ 
                 nombre: req.body.nombre,
                 autor: req.body.autor,
-                url: req.body.foto,
+                foto: req.body.foto,
                 genero: req.body.genero, 
                 resumen: req.body.resumen,
                 anio: req.body.publi,

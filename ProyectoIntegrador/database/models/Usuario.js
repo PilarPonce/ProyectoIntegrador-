@@ -19,6 +19,9 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             field:"mail"
         },
+        fotoPerfil: {
+            type: dataTypes.STRING,
+        },
         contraseña: {
             type: dataTypes.STRING,
             field:"contraseña"

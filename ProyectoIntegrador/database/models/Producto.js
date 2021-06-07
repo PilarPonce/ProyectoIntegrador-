@@ -10,7 +10,7 @@ module.exports = (sequelize, dataTypes) => {
         nombre: {
             type: dataTypes.STRING
         },
-        url: {
+        foto: {
             type: dataTypes.STRING
         },
         anio: {
