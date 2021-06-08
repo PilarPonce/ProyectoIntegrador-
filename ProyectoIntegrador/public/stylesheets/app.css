@@ -149,6 +149,11 @@ hr {
   margin-left: 75px;
 }
 
+#buscador2{
+  margin-left: 75px;
+  margin-top: 50px;
+}
+
 .entero{
   display: flex;
   justify-content: space-between;
