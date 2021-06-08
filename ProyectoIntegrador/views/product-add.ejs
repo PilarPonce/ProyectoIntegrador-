@@ -14,14 +14,13 @@
         </div>
    
     <section class="agregarProducto">
-        <form class="forms" action="/productadd" method="post" id="form">
+        <form class="forms" action="/productadd" method="post" id="form" enctype = 'multipart/form-data'>
             <label class="palabra" >  Nombre: <input class="inputs" type="text" name="nombre"> </label>
             <label class="palabra">  Autor: <input class="inputs"type="text" name="autor"></label>
-            <label class="palabra">  Foto: <input class="inputs"type="text" name="foto"></label>
-            <!--<div class="completa">
+            <div class="completa">
                 <label class="palabra" for="foto">Foto:</label>
                 <input class="inputs" type="file" name="foto" id="foto">
-            </div> -->
+            </div> 
             <label class="palabra">  Género: <input class="inputs" type="text" name="genero"></label> 
             <label class="palabra">  Resumen: <input class="inputs" type="text" name="resumen"></label>
             <label class="palabra">  Año de publicación: <input class="inputs" type="number" name="anio"></label>

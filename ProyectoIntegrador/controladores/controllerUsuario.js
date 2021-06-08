@@ -52,7 +52,7 @@ let controladorUsuario = {
             nombre: req.body.nombre,
             celular: req.body.celular,
             mail: req.body.mail,
-            fotoPerfil: '/images/usuarios/'  + req.file.filename,
+            fotoPerfil: req.file.filename,
             contraseña: contraseñaEncriptada,
             nacimiento: req.body.nacimiento
         }).then(usuario => {
@@ -81,6 +81,7 @@ let controladorUsuario = {
             if(bcrypt.compareSync(req.body.contraseña, usuario.contraseña)){
                 req.session.usuario = usuario.nombre;
                 req.session.idUsuario = usuario.id;
+                req.session.foto = usuario.fotoPerfil; 
 
                 if(req.body.recordarme){
                     res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });

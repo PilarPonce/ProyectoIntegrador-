@@ -120,13 +120,13 @@ let controladorProducto = {
         db.Producto.create({ 
             nombre: req.body.nombre,
             autor: req.body.autor,
-            foto: req.body.foto, /*'/images/productos/' + req.file.filename,*/
+            foto: req.file.filename,
             genero: req.body.genero, 
             resumen: req.body.resumen,
             anio: req.body.anio,
             usuarios_id: req.session.idUsuario //se ve mientra el usuario este logueado
         }).then(libroCreado => {
-            res.redirect('/product/' + libroCreado.id, {libro: libroCreado});   
+            res.redirect('/product/' + libroCreado.id);   
         })
         .catch((error) => {
             console.log("Error de conexion: " + error.message);

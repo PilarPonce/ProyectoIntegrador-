@@ -46,7 +46,8 @@ app.use(function (req, res, next) {
     res.locals = {
       logueado: true,
       nombreUsuario: req.session.usuario,
-      idUsuario:  req.session.idUsuario
+      idUsuario:  req.session.idUsuario, 
+      fotoUsuario: req.session.foto
     }
   } else {
     res.locals = {
