@@ -66,9 +66,11 @@ let controladorProducto = {
         porId: (req,res,next)=> {
             let filtro = {    
                 include: [
-                    {association: 'comentarios', include: 'usuario'},
-                    
-                ]
+                    {association: 'comentarios', include: 'usuario'},    
+                ],
+                order: [ 
+                    ['createdAt', 'DESC'],
+                  ]
             }
         
          db.Producto.findByPk(req.params.id, filtro).then(resultado => {
@@ -150,6 +152,8 @@ let controladorProducto = {
                 res.render('error', {error: "Error de conexion: " + error.message});
             });
         },   
+
+
 
         todos: (req, res)=> {
 
