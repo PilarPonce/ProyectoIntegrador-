@@ -7,9 +7,6 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             type: dataTypes.INTEGER
         },
-        fecha: {
-            type: dataTypes.DATE
-        },
         texto: {
             type: dataTypes.STRING
         },

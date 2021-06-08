@@ -116,24 +116,24 @@ let controladorProducto = {
         res.render('product-add');
     },
 
-        crear: (req, res) => {
-            db.Producto.create({ 
-                nombre: req.body.nombre,
-                autor: req.body.autor,
-                foto: req.body.foto,
-                genero: req.body.genero, 
-                resumen: req.body.resumen,
-                anio: req.body.anio,
-                usuarios_id: req.session.idUsuario //se ve mientra el usuario este logueado
-            }).then(libroCreado => {
-                res.redirect('/product/' + libroCreado.id, {libro: libroCreado});   
-            })
-            .catch((error) => {
-                console.log("Error de conexion: " + error.message);
-    
-                res.render('error', {error: "Error de conexion: " + error.message});
-            });
-        },
+    crear: (req, res) => {
+        db.Producto.create({ 
+            nombre: req.body.nombre,
+            autor: req.body.autor,
+            foto: req.body.foto,
+            genero: req.body.genero, 
+            resumen: req.body.resumen,
+            anio: req.body.anio,
+            usuarios_id: req.session.idUsuario //se ve mientra el usuario este logueado
+        }).then(libroCreado => {
+            res.redirect('/product/' + libroCreado.id, {libro: libroCreado});   
+        })
+        .catch((error) => {
+            console.log("Error de conexion: " + error.message);
+
+            res.render('error', {error: "Error de conexion: " + error.message});
+        });
+    },
 
 //BORRAR PRODUCTO     
 
@@ -153,8 +153,26 @@ let controladorProducto = {
             });
         },   
 
+//AGREGAR COMENTARIO
+        /*crearcoment:  (req, res)=> {
+            db.Comentario.create({ 
+                texto: req.body.texto,
+                usuarios_id: req.session.idUsuario,
+                productos_id: res.session.libro
+            }).then(comentarioNuevo => {
+                res.redirect();   
+            })
+            .catch((error) => {
+                console.log("Error de conexion: " + error.message);
+    
+                res.render('error', {error: "Error de conexion: " + error.message});
+            });
+        },*/
+
+        //Hay que hacer un associate con el libro al que le estoy creando el comentario, pero no se como hacerlo con un create
 
 
+//PAGINA DE TODOS
         todos: (req, res)=> {
 
             let filtro = { 

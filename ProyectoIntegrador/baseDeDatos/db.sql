@@ -29,7 +29,6 @@ FOREIGN KEY (usuarios_id) REFERENCES usuarios (id)
 
 CREATE TABLE comentarios (
 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-fecha DATE NOT NULL,
 texto VARCHAR (500) NOT NULL,
 usuarios_id INT UNSIGNED NOT NULL,
 productos_id INT UNSIGNED NOT NULL,
@@ -106,254 +105,254 @@ FROM productos;
 
 
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 1 , DEFAULT, DEFAULT);
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 1 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 1 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 1 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 1 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 1 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 1 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 1 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 1 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 1 , DEFAULT, DEFAULT);
 
 
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 2 , DEFAULT, DEFAULT);
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 2 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 2 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 2 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 2, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 2, DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 2 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 2 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 2 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 2 , DEFAULT, DEFAULT);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 3 , DEFAULT, DEFAULT);
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 3 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 3 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 3 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 3 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 3 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 3 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 3 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 3 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 3 , DEFAULT, DEFAULT);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 4 , DEFAULT, DEFAULT);
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 4 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 4 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 4 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 4 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 4 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 4 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 4 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 4 , DEFAULT, DEFAULT);
-
-
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 5 , DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 5 , DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 5 , DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 5 , DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 5 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 4 , DEFAULT, DEFAULT);
 
 
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 6 , DEFAULT, DEFAULT);
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 5 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 6 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 5 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 6 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 5 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 6 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 5 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 6 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 5 , DEFAULT, DEFAULT);
 
 
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 7 , DEFAULT, DEFAULT);
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 6 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 7 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 6 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 7 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 6 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 7 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 6 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 7 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 6 , DEFAULT, DEFAULT);
 
 
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 8 , DEFAULT, DEFAULT);
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 7 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 8 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 7 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 8 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 7 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 8 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 7 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 8 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 7 , DEFAULT, DEFAULT);
 
 
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 9 , DEFAULT, DEFAULT);
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 8 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 9 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 8 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 9 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 8 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 9 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 8 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 9 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 8 , DEFAULT, DEFAULT);
 
 
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 10 , DEFAULT, DEFAULT);
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 9 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 10 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 9 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 10 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 9 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 10 , DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 9 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 10 , DEFAULT, DEFAULT);
-
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 11, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 11, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 11, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 11, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 11, DEFAULT, DEFAULT);
-
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 12, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 12, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 12, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 12, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 12, DEFAULT, DEFAULT);
-
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 13, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 13, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 13, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 13, DEFAULT,DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 13,DEFAULT, DEFAULT);
-
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 14, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 14, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 14, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 14, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 14, DEFAULT, DEFAULT);
-
-INSERT INTO comentarios
-VALUES (DEFAULT, '2020-05-12', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 15, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2020-05-03', 'Me encantó este libro, me lo leí en dos días.', 2, 15, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2020-11-10', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 15, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2020-05-03', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 15, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2020-02-01', 'Este catalogo es buenisimo, me encanta', 5, 15, DEFAULT, DEFAULT);
-
-INSERT INTO comentarios
-VALUES (DEFAULT, '2019-06-05', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 16, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2019-02-08', 'Me encantó este libro, me lo leí en dos días.', 2, 16, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2019-05-07', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 16, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2019-03-04', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 16, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2019-12-12', 'Este catalogo es buenisimo, me encanta', 5, 16, DEFAULT, DEFAULT);
-
-INSERT INTO comentarios
-VALUES (DEFAULT, '2018-01-12', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 17, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2018-02-02', 'Me encantó este libro, me lo leí en dos días.', 2, 17, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2018-10-04', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 17, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2018-12-11', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 17, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2018-01-05', 'Este catalogo es buenisimo, me encanta', 5, 17, DEFAULT, DEFAULT);
-
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 18, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 18, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 18, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 18, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 18, DEFAULT, DEFAULT);
-
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 19, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 19, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 19, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 19, DEFAULT, DEFAULT);
-INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 19, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 9 , DEFAULT, DEFAULT);
 
 
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 20, DEFAULT, DEFAULT);
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 10 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 20, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 10 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 20, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 10 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 20, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 10 , DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 20, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 10 , DEFAULT, DEFAULT);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 21, DEFAULT, DEFAULT);
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 11, DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 21, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 11, DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 21, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 11, DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 21, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 11, DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 21, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 11, DEFAULT, DEFAULT);
 
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-04-06', 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 22, DEFAULT, DEFAULT);
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 12, DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-05-06', 'Me encantó este libro, me lo leí en dos días.', 2, 22, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 12, DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-07-09', 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 22, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 12, DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 22, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 12, DEFAULT, DEFAULT);
 INSERT INTO comentarios
-VALUES (DEFAULT, '2021-09-08', 'Este catalogo es buenisimo, me encanta', 5, 22, DEFAULT, DEFAULT);
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 12, DEFAULT, DEFAULT);
+
+INSERT INTO comentarios
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 13, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 13, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 13, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 13, DEFAULT,DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 13,DEFAULT, DEFAULT);
+
+INSERT INTO comentarios
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 14, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 14, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 14, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 14, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 14, DEFAULT, DEFAULT);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 15, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 15, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 15, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 15, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 15, DEFAULT, DEFAULT);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 16, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 16, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 16, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 16, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT,  'Este catalogo es buenisimo, me encanta', 5, 16, DEFAULT, DEFAULT);
+
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 17, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 17, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 17, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 17, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 17, DEFAULT, DEFAULT);
+
+INSERT INTO comentarios
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 18, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 18, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 18, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 18, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 18, DEFAULT, DEFAULT);
+
+INSERT INTO comentarios
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 19, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 19, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 19, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 19, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 19, DEFAULT, DEFAULT);
+
+
+INSERT INTO comentarios
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 20, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 20, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 20, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 20, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 20, DEFAULT, DEFAULT);
+
+INSERT INTO comentarios
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 21, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 21, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 21, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 21, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 21, DEFAULT, DEFAULT);
+
+INSERT INTO comentarios
+VALUES (DEFAULT,  'Excelente novela, como siempre, la autora nos tiene acostumbrados a la perfección en redacción!', 1, 22, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me encantó este libro, me lo leí en dos días.', 2, 22, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Me sorprendió, pensé que sería como los otros libros de la autora, pero éste está mejor desarrollado, es menos predecible que otros que he leído de ella, me gustó bastante.', 3, 22, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 22, DEFAULT, DEFAULT);
+INSERT INTO comentarios
+VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 22, DEFAULT, DEFAULT);
 
 
 SELECT id, fecha, texto, usuarios_id, productos_id
