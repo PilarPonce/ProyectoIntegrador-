@@ -120,7 +120,7 @@ let controladorProducto = {
         db.Producto.create({ 
             nombre: req.body.nombre,
             autor: req.body.autor,
-            foto: req.body.foto,
+            foto: '/images/productos/' + req.file.filename,
             genero: req.body.genero, 
             resumen: req.body.resumen,
             anio: req.body.anio,
