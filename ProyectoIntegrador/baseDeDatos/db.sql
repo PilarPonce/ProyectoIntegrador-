@@ -355,5 +355,5 @@ INSERT INTO comentarios
 VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 22, DEFAULT, DEFAULT);
 
 
-SELECT id, fecha, texto, usuarios_id, productos_id
+SELECT id, texto, usuarios_id, productos_id
 FROM comentarios;
