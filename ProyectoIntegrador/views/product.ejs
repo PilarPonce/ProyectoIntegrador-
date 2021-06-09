@@ -27,7 +27,7 @@
             <div class="row">
  
                 <article class="col-12 col-lg-8 product-detail-info">
-                    <img src= <%= libro.foto %> alt="" class="product-detail-img">
+                    <img src= '/images/productos/<%= libro.foto %>' alt="" class="product-detail-img">
                     <h3 class="genero tipografia3">Género: <%= libro.genero%></h3>
                     <p class="product-detail-description tipografia3" id="resumenes"> <%= libro.resumen %> </p>
                 </article>
@@ -38,7 +38,7 @@
                     <section class="comments">
                         <% libro.comentarios.forEach(element=> { %>
                             <article>
-                                <img src=<%=element.usuario.fotoPerfil %> alt="">
+                                <img src= '/images/usuarios/<%=element.usuario.fotoPerfil %>' alt="">
                                 <div class="data">
                                     <p class="user">
                                         <strong> 
