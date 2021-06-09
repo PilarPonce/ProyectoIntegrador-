@@ -30,13 +30,11 @@ router.get('/register', controladorUsuario.register);
 
 router.post('/register', upload.single('fotoPerfil'), controladorUsuario.registrarUsuario);
 
-router.get('/profile', controladorUsuario.profile); 
-
 router.get('/profileedit', controladorUsuario.profileedit);
 
 router.get('/logout', controladorUsuario.logout);
 
-router.get('/perfilOtro/:id', controladorUsuario.porId);
+router.get('/profile/:id', controladorUsuario.perfil);
 
 
 

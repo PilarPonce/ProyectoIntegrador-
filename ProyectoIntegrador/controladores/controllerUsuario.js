@@ -15,10 +15,6 @@ let controladorUsuario = {
         res.render('product');
     },
 
-    profile: (req, res, next) => {
-        res.render('profile', { libros: libros });
-    },
-
     register: (req, res, next) => {
         res.render('register', { });
     },
@@ -29,11 +25,13 @@ let controladorUsuario = {
         res.render(`search-results`)
     },
 
-    porId: (req,res,next)=> {
+
+//PERFIL 
+    perfil: (req,res,next)=> {
 
      db.Usuario.findByPk(req.params.id).then(resultado => {
-        console.log(resultado.toJSON());
-        res.render('perfilOtro', {usuario: resultado});
+        //console.log(resultado.toJSON());
+        res.render('profile', {usuario: resultado});
     })
     .catch((error) => {
         console.log("Error de conexion: " + error.message);
@@ -43,6 +41,7 @@ let controladorUsuario = {
     },   
       
 
+//REGISTRAR USUARIO
     registrarUsuario: (req, res) => {
 
         //console.log("antes de registrar")
@@ -106,6 +105,8 @@ let controladorUsuario = {
        
     },
 
+
+//LOG IN
     loginUsuario: (req, res) => {
         let filtro = {  
             where: {
@@ -140,6 +141,8 @@ let controladorUsuario = {
             res.render('error', {error: "Error de conexion: " + error.message});
         });
     },
+
+//LOG OUT
     logout: (req, res, next) => {
         req.session.destroy();
         res.clearCookie('usuarios_id');

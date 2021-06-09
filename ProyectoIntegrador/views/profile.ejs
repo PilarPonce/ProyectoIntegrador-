@@ -12,11 +12,11 @@
     <section class="info-usuario container products-wrapper">
         <div class="row">
             <div class="img-container offset-3 col-2">
-                <img src= '/images/usuarios/<%= fotoUsuario %>' alt="" class="foto-perfil" > <!-- hecho -->
+                <img src= '/images/usuarios/<%= usuario.fotoPerfil %>' alt="" class="foto-perfil" > <!-- hecho -->
             </div>
             <div class="data-container col-6"> 
                 <div class="d-flex align-items-center ">
-                    <h1 class="main-title"> <%=  nombreUsuario %>
+                    <h1 class="main-title"> <%=  usuario.nombre %>
                         <a href="/profileedit">
                             <i class="fas fa-cog"></i>
                         </a>
@@ -43,159 +43,9 @@
     <div class="container products-wrapper">
         <div class="row">
             <div class="col-12">
-                <h2 class="products-title tipografia2">Libros favoritos</h2>
+                <h2 class="products-title tipografia2">Mis libros</h2>
             </div>
-            <!-- Show mis productos -->
-         <% for (let index = 0; index < 1; index++) {  %>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <section class="product-box">
-                    <a href="/product/<%= libros.bestsellers[3].id %>">
-                        <figure class="product-box_image">
-                            <img src=<%=libros.bestsellers[3].foto %> alt="portada">
-                        </figure>
-                        <article class="product-box_data">
-                            <h2 class="tipografia1">
-                                <%= libros.bestsellers[3].nombre %>
-                            </h2>
-                            <p class="tipografia1">
-                                <%=  libros.bestsellers[3].autor%>
-                            </p>
-                            <p class="tipografia1"><%= libros.bestsellers[3].genero %></p>
-                            <style type="text/css">
-                                a:link,
-                                a:visited,
-                                a:active {
-                                    text-decoration: none;
-                                }
-                            </style>
-                        </article>
-                    </a>
-                </section>
-            </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
-                <a href="/product/<%= libros.romances[1].id %>">
-                    <figure class="product-box_image">
-                        <img src=<%=libros.romances[1].foto %> alt="portada">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2 class="tipografia1">
-                            <%= libros.romances[1].nombre %>
-                        </h2>
-                        <p class="tipografia1">
-                            <%= libros.romances[1].autor%>
-                        </p>
-                        <p class="tipografia1"><%= libros.romances[1].genero %></p>
-                    </article>
-                </a>
-            </section>
-        </div>
-        <div class="col-12 col-sm-6 col-lg-3">
-            <section class="product-box">
-                <a href="/product/<%= libros.romances[0].id%>">
-                    <figure class="product-box_image">
-                        <img src=<%=libros.romances[0].foto %> alt="portada">
-                    </figure>
-                    <article class="product-box_data">
-                        <h2 class="tipografia1">
-                            <%= libros.romances[0].nombre %>
-                        </h2>
-                        <p class="tipografia1">
-                            <%= libros.romances[0].autor%>
-                        </p>
-                        <p class="tipografia1"><%= libros.romances[0].genero %></p>
-                    </article>
-                </a>
-            </section>
-        </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <section class="product-box">
-                    <a href="/product/<%= libros.terror[2].id%>">
-                        <figure class="product-box_image">
-                            <img src=<%=libros.terror[2].foto %> alt="portada">
-                        </figure>
-                        <article class="product-box_data">
-                            <h2 class="tipografia1">
-                                <%= libros.terror[2].nombre %>
-                            </h2>
-                            <p class="tipografia1">
-                                <%= libros.terror[2].autor%>
-                            </p>
-                            <p class="tipografia1"><%= libros.terror[2].genero %></p>
-                        </article>
-                    </a>
-                </section>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <section class="product-box">
-                    <a href="/product/<%= libros.clasicos[3].id%>">
-                        <figure class="product-box_image">
-                            <img src=<%=libros.clasicos[3].foto %> alt="">
-                        </figure>
-                        <article class="product-box_data">
-                            <h2 class="tipografia1">
-                                <%= libros.clasicos[3].nombre %>
-                            </h2>
-                            <p class="tipografia1">
-                                <%= libros.clasicos[3].autor%>
-                            </p>
-                            <p class="tipografia1"><%= libros.clasicos[3].genero %></p>
-                        </article>
-                    </a>
-                </section>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <section class="product-box">
-                    <a href="/product/<%= libros.bestsellers[2].id%>">
-                        <figure class="product-box_image">
-                            <img src=<%=libros.bestsellers[2].foto %> alt="portada">
-                        </figure>
-                        <article class="product-box_data">
-                            <h2 class="tipografia1">
-                                <%= libros.bestsellers[2].nombre %>
-                            </h2>
-                            <p class="tipografia1">
-                                <%= libros.bestsellers[2].autor%>
-                            </p>
-                            <p class="tipografia1"><%= libros.bestsellers[2].genero %></p>
-                        </article>
-                    </a>
-                </section>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <section class="product-box">
-                    <a href="/product/<%= libros.romances[2].id %>">
-                        <figure class="product-box_image">
-                            <img src=<%=libros.romances[2].foto %> alt="portada">
-                        </figure>
-                        <article class="product-box_data">
-                            <h2 class="tipografia1">
-                                <%= libros.romances[2].nombre %>
-                            </h2>
-                            <p class="tipografia1">
-                                <%= libros.romances[2].autor%>
-                            </p>
-                            <p class="tipografia1"><%= libros.romances[2].genero %></p>
-                        </article>
-                    </a>
-                </section>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-3">
-                <section class="product-box">
-                    <a href="/product/<%= libros.bestsellers[0].id %>">
-                        <figure class="product-box_image">
-                            <img src=<%=libros.bestsellers[0].foto %> alt="portada">
-                        </figure>
-                        <article class="product-box_data">
-                            <h2 class="tipografia1"><%= libros.bestsellers[0].nombre %></h2>
-                            <p class="tipografia1"><%=  libros.bestsellers[0].autor%></p>
-                            <p class="tipografia1"><%= libros.bestsellers[0].genero %></p>
-                        </article>
-                    </a>
-                </section>
-            </div>
-        </div>
-                <%}%>
+            
         </div>
 
     </div>

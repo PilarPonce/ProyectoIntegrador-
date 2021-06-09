@@ -33,15 +33,15 @@ let controladorProducto = {
                     },
         
                     limit: 4,
-                }
+                }  
             db.Producto.findAll(filtro).then(resultado3 => {
 
                 filtro ={
                     where: {
                         genero:'Thriller'
-                    },
+                    },  
             
-                    limit: 4,
+                    limit: 4,  
                 }        
             db.Producto.findAll(filtro).then(resultado4 => {
 
@@ -63,6 +63,7 @@ let controladorProducto = {
             
            },
 
+//DETALLE 
         porId: (req,res,next)=> {
             let filtro = {    
                 include: [
@@ -75,6 +76,7 @@ let controladorProducto = {
         
          db.Producto.findByPk(req.params.id, filtro).then(resultado => {
             console.log(resultado.toJSON());
+            //console.log(resultado.comentarios[3].usuario.id);
             res.render('product', {libro: resultado});
         })
         .catch((error) => {
