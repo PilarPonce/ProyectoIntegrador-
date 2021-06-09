@@ -29,8 +29,14 @@ let controladorUsuario = {
 //PERFIL 
     perfil: (req,res,next)=> {
 
+        /*let filtro = {
+            include: [
+                {association: 'productos'},    
+            ]
+        }*/ //cuando lo hago me dice que no hay una association con ese alias en Usuario, pero si hay
+
      db.Usuario.findByPk(req.params.id).then(resultado => {
-        //console.log(resultado.toJSON());
+        console.log(resultado.toJSON());
         res.render('profile', {usuario: resultado});
     })
     .catch((error) => {
