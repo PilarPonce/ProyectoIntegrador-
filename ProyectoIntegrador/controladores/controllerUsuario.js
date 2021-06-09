@@ -145,9 +145,10 @@ let controladorUsuario = {
 
 //VALIDACION LOGIN
 
-validacionLogin : (req,res,next) => {
-    let errors = {}
-}
+validacionLogin : (req,res) => {
+    
+   
+},
 
 
 //LOG OUT
