@@ -75,8 +75,6 @@ let controladorProducto = {
             }
         
          db.Producto.findByPk(req.params.id, filtro).then(resultado => {
-            console.log(resultado.toJSON());
-            //console.log(resultado.comentarios[3].usuario.id);
             res.render('product', {libro: resultado});
         })
         .catch((error) => {
