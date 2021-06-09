@@ -45,24 +45,65 @@ let controladorUsuario = {
 
     registrarUsuario: (req, res) => {
 
-        console.log("antes de registrar")
+        //console.log("antes de registrar")
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
-        
-        db.Usuario.create({
-            nombre: req.body.nombre,
-            celular: req.body.celular,
-            mail: req.body.mail,
-            fotoPerfil: req.file.filename,
-            contraseña: contraseñaEncriptada,
-            nacimiento: req.body.nacimiento
-        }).then(usuario => {
-            res.redirect('/');
-        })
-        .catch((error) => {
-            console.log("Error de conexion: " + error.message);
+        let errors = {}
 
-            res.render('error', {error: "Error de conexion: " + error.message});
-        });
+        //aunque muestre el error y las validaciones y no se creen los perfiles se suben las fotos de perfil de los usuarios
+        //no funciona el register x las validaciones
+
+        if (req.body.nombre == "") {
+            errors.message = "El nombre de usuario es obligatorio"; //lo valida bien
+            res.locals.errors = errors;
+            res.render('register');
+        } else if (req.body.mail == "") {
+            errors.message = "El email es obligatorio"; //cuando lo mando vacio dice q no hay fecha de nacimiento
+            res.locals.errors = errors;
+            res.render('register');
+        } else if (req.body.nacimiento = null) {
+            errors.message = "La fecha de nacimiento es obligatoria"; //cuando lo mando vacio dice que el email es obligatorio
+            res.locals.errors = errors;
+            res.render('register');
+        } else if (req.body.contraseña == "") {
+            errors.message = "La contraseña es obligatorio"; //cuando la mando vacia dice que no hay email
+            res.locals.errors = errors;
+            res.render('register');
+        } else {
+            db.Usuario.findOne({
+                where: [{mail: req.body.mail}]
+            })
+            .then(resultado => {
+                if (resultado != undefined) {
+                    errors.message = "Ya existe un usuario con ese email";
+                    res.locals.errors = errors;
+                } else {
+                    db.Usuario.findOne({
+                        where: [{nombre: req.body.nombre}]
+                    })
+                    .then(resultado => {
+                        if (resultado != undefined) {
+                            errors.message = "Ya existe un usuario con este nombre";
+                            res.locals.errors = errors;
+                        } else {
+                            db.Usuario.create({
+                                nombre: req.body.nombre,
+                                celular: req.body.celular,
+                                mail: req.body.mail,
+                                fotoPerfil: req.file.filename,
+                                contraseña: contraseñaEncriptada,
+                                nacimiento: req.body.nacimiento
+                            }).then(usuario => {
+                                res.redirect('/login');
+                            })
+                            .catch((error) => {
+                                console.log("Error de conexion: " + error.message);
+                    
+                                res.render('error', {error: "Error de conexion: " + error.message});
+                            });
+                }    })   }
+            })
+        }        
+       
     },
 
     loginUsuario: (req, res) => {
@@ -72,10 +113,10 @@ let controladorUsuario = {
             }
         }  
         db.Usuario.findOne(filtro).then(usuario => {
-            console.log(usuario.nombre);
-            console.log(req.body.contraseña);
-            console.log(usuario.contraseña);
-            console.log(usuario.id);
+            //console.log(usuario.nombre);
+            //console.log(req.body.contraseña);
+            //console.log(usuario.contraseña);
+            //console.log(usuario.id);
 
           
             if(bcrypt.compareSync(req.body.contraseña, usuario.contraseña)){

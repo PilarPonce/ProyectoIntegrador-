@@ -480,6 +480,15 @@ hr {
   margin-left: 460px;
 }
 
+.mensajeError{
+  font-size: 20px;
+  color: white;
+}
+
+.error{
+  margin-top: 30px;
+}
+
 .formulario1{
   background-color: var(--yellow);
   text-align: center;
@@ -503,13 +512,13 @@ hr {
   margin-top: -10px;
 }
 .form{
-  height: 58rem ;
+  height: 65rem ;
 }
 
 .forms{
   width: 30rem;
   text-align: center;
-  height: 46rem;
+  height: 55rem;
   background: white;
   padding: 40px 0;
   box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.8);

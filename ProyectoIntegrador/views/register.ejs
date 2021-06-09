@@ -19,7 +19,7 @@
                 <form class="form" action="/register" method="POST" id="form" enctype = "multipart/form-data">     
                     <div class="forms">
                         <div class="completa">
-                            <label class="palabra" for="nombre">Nombre</label>
+                            <label class="palabra" for="nombre">Nombre de usuario</label>
                             <input class="inputs" type="text" name="nombre" id="name">
                             <hr>
                             </hr>
@@ -59,6 +59,13 @@
                             <hr>
                             </hr>
                         </div>
+
+                        <div class="error">
+                            <% if(locals.errors){ %>
+                                <h2 class="mensajeError">Error: <%= errors.message  %></h2>
+                            <% } %>  
+                        </div>
+                              
 
                             <button class="boton1" type="submit">Registrate</button>
                         </div>
