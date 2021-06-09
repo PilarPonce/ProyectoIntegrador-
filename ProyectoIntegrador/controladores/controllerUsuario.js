@@ -47,30 +47,46 @@ let controladorUsuario = {
     },   
       
 
-//REGISTRAR USUARIO
-    registrarUsuario: (req, res) => {
 
-        //console.log("antes de registrar")
+//REGISTRAR USUARIO
+
+    registrarUsuario: (req, res, next) => {
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
+        db.Usuario.create({
+            nombre: req.body.nombre,
+            celular: req.body.celular,
+            mail: req.body.mail,
+            fotoPerfil: req.file.filename,
+            contraseña: contraseñaEncriptada,
+            nacimiento: req.body.nacimiento
+        }).then(usuario => {
+            res.redirect('/login');
+        })
+            .catch((error) => {
+                console.log("Error de conexion: " + error.message);
+
+                res.render('error', { error: "Error de conexion: " + error.message });
+            })
+    },
+
+  //VALIDACION REGISTRO 
+    validacionRegistro: (req, res) => {
         let errors = {}
 
-        //aunque muestre el error y las validaciones y no se creen los perfiles se suben las fotos de perfil de los usuarios
-        //no funciona el register x las validaciones
-
         if (req.body.nombre == "") {
-            errors.message = "El nombre de usuario es obligatorio"; //lo valida bien
+            errors.message = "El nombre de usuario es obligatorio"; 
             res.locals.errors = errors;
             res.render('register');
         } else if (req.body.mail == "") {
-            errors.message = "El email es obligatorio"; //cuando lo mando vacio dice q no hay fecha de nacimiento
+            errors.message = "El email es obligatorio"; 
             res.locals.errors = errors;
             res.render('register');
         } else if (req.body.nacimiento = null) {
-            errors.message = "La fecha de nacimiento es obligatoria"; //cuando lo mando vacio dice que el email es obligatorio
+            errors.message = "La fecha de nacimiento es obligatoria"; 
             res.locals.errors = errors;
             res.render('register');
         } else if (req.body.contraseña == "") {
-            errors.message = "La contraseña es obligatorio"; //cuando la mando vacia dice que no hay email
+            errors.message = "La contraseña es obligatorio";
             res.locals.errors = errors;
             res.render('register');
         } else {
@@ -90,28 +106,12 @@ let controladorUsuario = {
                             errors.message = "Ya existe un usuario con este nombre";
                             res.locals.errors = errors;
                         } else {
-                            db.Usuario.create({
-                                nombre: req.body.nombre,
-                                celular: req.body.celular,
-                                mail: req.body.mail,
-                                fotoPerfil: req.file.filename,
-                                contraseña: contraseñaEncriptada,
-                                nacimiento: req.body.nacimiento
-                            }).then(usuario => {
-                                res.redirect('/login');
-                            })
-                            .catch((error) => {
-                                console.log("Error de conexion: " + error.message);
-                    
-                                res.render('error', {error: "Error de conexion: " + error.message});
-                            });
+                            
                 }    })   }
             })
         }        
-       
     },
-
-
+    
 //LOG IN
     loginUsuario: (req, res) => {
         let filtro = {  
@@ -120,12 +120,7 @@ let controladorUsuario = {
             }
         }  
         db.Usuario.findOne(filtro).then(usuario => {
-            //console.log(usuario.nombre);
-            //console.log(req.body.contraseña);
-            //console.log(usuario.contraseña);
-            //console.log(usuario.id);
-
-          
+    
             if(bcrypt.compareSync(req.body.contraseña, usuario.contraseña)){
                 req.session.usuario = usuario.nombre;
                 req.session.idUsuario = usuario.id;
@@ -147,6 +142,13 @@ let controladorUsuario = {
             res.render('error', {error: "Error de conexion: " + error.message});
         });
     },
+
+//VALIDACION LOGIN
+
+validacionLogin : (req,res,next) => {
+    let errors = {}
+}
+
 
 //LOG OUT
     logout: (req, res, next) => {
