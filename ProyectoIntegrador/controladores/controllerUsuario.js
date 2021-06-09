@@ -36,7 +36,9 @@ let controladorUsuario = {
         }
  //cuando lo hago me dice que no hay una association con ese alias en Usuario, pero si hay
 
-     db.Usuario.findByPk(req.params.id, filtro).then(resultado => {
+
+ //despues del req.params.id falta el filtro 
+     db.Usuario.findByPk(req.params.id).then(resultado => {
         res.render('profile', {usuario: resultado});
     })
     .catch((error) => {
@@ -47,30 +49,9 @@ let controladorUsuario = {
     },   
       
 
-
-//REGISTRAR USUARIO
-
-    registrarUsuario: (req, res, next) => {
+  //REGISTRAR  
+    registrarUsuario: (req, res) => {
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
-        db.Usuario.create({
-            nombre: req.body.nombre,
-            celular: req.body.celular,
-            mail: req.body.mail,
-            fotoPerfil: req.file.filename,
-            contraseña: contraseñaEncriptada,
-            nacimiento: req.body.nacimiento
-        }).then(usuario => {
-            res.redirect('/login');
-        })
-            .catch((error) => {
-                console.log("Error de conexion: " + error.message);
-
-                res.render('error', { error: "Error de conexion: " + error.message });
-            })
-    },
-
-  //VALIDACION REGISTRO 
-    validacionRegistro: (req, res) => {
         let errors = {}
 
         if (req.body.nombre == "") {
@@ -81,7 +62,16 @@ let controladorUsuario = {
             errors.message = "El email es obligatorio"; 
             res.locals.errors = errors;
             res.render('register');
-        } else if (req.body.nacimiento = null) {
+        } else if (req.body.fotoPerfil == null) {
+            errors.message = "La foto es obligatoria";
+            res.locals.errors = errors; //La foto es lo que nos causa problemas, sin esto carga sinfin y con no la toma, pone como si no tuviesemos foto aunque si. 
+            res.render('register');
+        } else if (req.body.celular == "") {
+            errors.message = "El celular es obligatorio";
+            res.locals.errors = errors;
+            res.render('register');
+        }
+            else if (req.body.nacimiento = null) {
             errors.message = "La fecha de nacimiento es obligatoria"; 
             res.locals.errors = errors;
             res.render('register');
@@ -106,7 +96,21 @@ let controladorUsuario = {
                             errors.message = "Ya existe un usuario con este nombre";
                             res.locals.errors = errors;
                         } else {
-                            
+                            db.Usuario.create({
+                                nombre: req.body.nombre,
+                                celular: req.body.celular,
+                                mail: req.body.mail,
+                                fotoPerfil: req.file.filename,
+                                contraseña: contraseñaEncriptada,
+                                nacimiento: req.body.nacimiento
+                            }).then(usuario => {
+                                res.redirect('/login');
+                            })
+                                .catch((error) => {
+                                    console.log("Error de conexion: " + error.message);
+
+                                    res.render('error', { error: "Error de conexion: " + error.message });
+                                })
                 }    })   }
             })
         }        

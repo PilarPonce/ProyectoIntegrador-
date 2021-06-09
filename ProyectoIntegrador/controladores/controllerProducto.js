@@ -4,10 +4,6 @@ const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 let controladorProducto = {
-        /*home1: (req,res,next)=> {
-            res.render('home', {libros: libros });
-        },*/
-
         home: (req,res,next)=> {
             
             let filtro = { 
