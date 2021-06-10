@@ -30,18 +30,15 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.DATE,
             field:"nacimiento"
         }
-    },
+    },  
         {   tableName: "usuarios",
         });
 
         Usuario.associate = (db) => {
             Usuario.hasMany(db.Producto, {
                 as: 'productos',
-                foreignKey: 'usuario_id'
+                foreignKey: 'usuarios_id'
             });
-        };
-
-        Usuario.associate = (db) => {
             Usuario.hasMany(db.Comentario, {
                 as: 'comentarios',
                 foreignKey: 'usuarios_id'

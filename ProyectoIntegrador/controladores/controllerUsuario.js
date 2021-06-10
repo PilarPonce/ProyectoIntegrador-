@@ -62,7 +62,7 @@ let controladorUsuario = {
             errors.message = "El email es obligatorio"; 
             res.locals.errors = errors;
             res.render('register');
-        } else if (req.body.fotoPerfil == null) {
+        } else if (req.file == null) {
             errors.message = "La foto es obligatoria";
             res.locals.errors = errors; //La foto es lo que nos causa problemas, sin esto carga sinfin y con no la toma, pone como si no tuviesemos foto aunque si. 
             res.render('register');
@@ -71,7 +71,7 @@ let controladorUsuario = {
             res.locals.errors = errors;
             res.render('register');
         }
-            else if (req.body.nacimiento = null) {
+            else if (req.body.nacimiento == null) {
             errors.message = "La fecha de nacimiento es obligatoria"; 
             res.locals.errors = errors;
             res.render('register');
@@ -96,7 +96,9 @@ let controladorUsuario = {
                             errors.message = "Ya existe un usuario con este nombre";
                             res.locals.errors = errors;
                         } else {
+                            console.log(req.body.nacimiento);
                             db.Usuario.create({
+                                
                                 nombre: req.body.nombre,
                                 celular: req.body.celular,
                                 mail: req.body.mail,

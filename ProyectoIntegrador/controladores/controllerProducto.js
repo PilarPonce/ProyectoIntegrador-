@@ -3,18 +3,25 @@ let libros = require(`../libros/libros`);
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
-let controladorProducto = {
+let controladorProducto = { 
         home: (req,res,next)=> {
             
             let filtro = { 
+                include: [
+                    { association: 'usuario' }
+                ],
                 order: [ 
-                        ['createdAt', 'DESC'],
+                        ['createdAt', 'DESC']
                       ],
                 limit: 4,
                 }
+
             db.Producto.findAll(filtro).then(resultado => {
                 
                 filtro ={
+                    include: [
+                        { association: 'usuario' }
+                    ],
                     where: {
                         genero:'Terror'
                     },
@@ -24,6 +31,9 @@ let controladorProducto = {
             db.Producto.findAll(filtro).then(resultado2 => { 
                     
                 filtro ={
+                    include: [
+                        { association: 'usuario' }
+                    ],
                     where: {
                         genero:'Romance'
                     },
@@ -33,6 +43,9 @@ let controladorProducto = {
             db.Producto.findAll(filtro).then(resultado3 => {
 
                 filtro ={
+                    include: [
+                        { association: 'usuario' }
+                    ],
                     where: {
                         genero:'Thriller'
                     },  
@@ -42,6 +55,9 @@ let controladorProducto = {
             db.Producto.findAll(filtro).then(resultado4 => {
 
                 filtro ={
+                    include: [
+                        { association: 'usuario' }
+                    ],
                     where: {
                         genero:'Fantasía'
                     },
@@ -63,7 +79,8 @@ let controladorProducto = {
         porId: (req,res,next)=> {
             let filtro = {    
                 include: [
-                    {association: 'comentarios', include: 'usuario'},    
+                    {association: 'comentarios', include: 'usuario'}, 
+                    {association: 'usuario'}   
                 ],
                 order: [ 
                     ['createdAt', 'DESC'],
@@ -71,6 +88,7 @@ let controladorProducto = {
             }
         
          db.Producto.findByPk(req.params.id, filtro).then(resultado => {
+             console.log(resultado.usuario);
             res.render('product', {libro: resultado});
         })
         .catch((error) => {
@@ -84,12 +102,18 @@ let controladorProducto = {
     
         buscador: (req, res) => {
         let filtro = {
+            include: [
+                { association: 'usuario' }
+            ],
             where: {
                 nombre: { [Op.like]: '%' + req.query.search + '%' }, 
             }
         }  
         db.Producto.findAll(filtro).then(resultado => {
             let filtro = {
+                include: [
+                    { association: 'usuario' }
+                ],
                 where: {
                     resumen: { [Op.like]: '%' + req.query.search + '%' },
                 }
@@ -172,6 +196,9 @@ let controladorProducto = {
         todos: (req, res)=> {
 
             let filtro = { 
+                include: [
+                    { association: 'usuario' }
+                ],
                 order: [ 
                         ['nombre', 'ASC'],
                       ]
