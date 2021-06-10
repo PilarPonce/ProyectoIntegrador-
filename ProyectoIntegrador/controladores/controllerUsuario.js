@@ -176,42 +176,46 @@ let controladorUsuario = {
         });
     },
 
+/* 
 //VALIDACION LOGIN
 
-validacionLogin: (req,res) => {
-    let filtro = {
-        where: {
-            nombre: req.body.nombre,
-            mail: req.body.mail,
-            usuario: req.body.usuario,
-            foto: req.body.foto,
-            idUsuario: req.body.id
-        }
-    }
-    console.log("estoy en la validacion del login");
-
-    db.Usuario.findOne(filtro).then(usuario => {
-
-        if (bcrypt.compareSync(req.body.contraseña, usuario.contraseña)) {
-            req.session.usuario = usuario.nombre;
-            req.session.idUsuario = usuario.id
-
-            if (req.body.recordarme) {
-                res.cookie('idUsuario', usuario.id, {maxAge: 1000 * 60 * 5});
-                console.log("probando la cookie");               
-            } else {
-                console.log("probando else");
+    //LOG IN
+    loginUsuario: (req, res) => {
+        let errors = {}
+        let filtro = {
+            where: {
+                nombre: req.body.nombre
             }
-        } else {
-            console.log("probando else2");
         }
+        db.Usuario.findOne(filtro).then(usuario => {
+            if (usuario != undefined) {
+                errors.message = "Nombre de usuario incorrecto";
+                res.locals.errors = errors;
+            } else if (bcrypt.compareSync(req.body.contraseña != usuario.contraseña)) {
+                errors.message = "Contraseña incorrecta";
+                res.locals.errors = errors;
+            }
+            else {
+                req.session.usuario = usuario.nombre;
+                req.session.idUsuario = usuario.id;
+                req.session.foto = usuario.fotoPerfil;
 
-        res.redirect('/profile')
-    })
-    .catch (error => console.log(error))
-},
+                if (req.body.recordarme) {
+                    res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });
+                }
+            }
+            res.redirect('/');
+        })
+            .catch((error) => {
+                console.log("Error de conexion: " + error.message);
+
+                res.render('error', { error: "Error de conexion: " + error.message });
+            });
 
 
+    }, 
+
+    */
 //LOG OUT
     logout: (req, res, next) => {
         req.session.destroy();
