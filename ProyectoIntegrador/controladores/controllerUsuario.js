@@ -19,11 +19,7 @@ let controladorUsuario = {
     register: (req, res, next) => {
         res.render('register', { });
     },
-    editarPerfil: (req, res) => {
-        db.Usuario.findByPk(req.params.id).then(resultado => {
-            res.render('editarPerfil', { usuario: resultado });
-        })
-    },
+   
     searchresults: (req, res, next) => {
         res.render(`search-results`)
     },
@@ -76,11 +72,16 @@ let controladorUsuario = {
             errors.message = "La fecha de nacimiento es obligatoria"; 
             res.locals.errors = errors;
             res.render('register');
-        } else if (req.body.contraseña == "") {
-            errors.message = "La contraseña es obligatorio";
+        } else if (req.body.contraseña == "" ) {
+            errors.message = "La contraseña es obligatoria";
             res.locals.errors = errors;
             res.render('register');
-        } else {
+        }                                                           /*else if (req.body.contraseña <3 ){
+                                                                    errors.message = "La contraseña es muy corta";
+                                                                    res.locals.errors = errors;
+                                                                    res.render('register');
+                                                                } */
+        else {
             db.Usuario.findOne({
                 where: [{mail: req.body.mail}]
             })
@@ -120,6 +121,17 @@ let controladorUsuario = {
     },
 
     //EDITAR PERFIL 
+    editarPerfil: (req, res) => {
+        db.Usuario.findByPk(req.params.id).then(resultado => {
+            res.render('editarPerfil', { usuario: resultado });
+        })
+       /* if (req.file.filename != undefined) {
+            let imagen = req.file.filename
+        } else {
+            let imagen = fotoPerfil
+        }*/
+    },
+
     editar: (req, res) => {
         db.Usuario.update({
             nombre: req.body.nombre,

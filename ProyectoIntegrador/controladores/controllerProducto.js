@@ -4,13 +4,6 @@ const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 let controladorProducto = { 
-    editarProducto: (req, res, next) => {
-        db.Producto.findByPk(req.params.id).then(resultado => {
-            res.render('editarProducto', {libro: resultado});
-        })
-    },
-
-   
         home: (req,res,next)=> {
             
             let filtro = { 
@@ -180,7 +173,17 @@ let controladorProducto = {
             });
         },   
 //EDITAR PRODUCTO 
-
+    editarProducto: (req, res, next) => {
+        db.Producto.findByPk(req.params.id).then(resultado => {
+            res.render('editarProducto', { libro: resultado });
+        })
+      /*
+      if (req.file.filename != undefined) {
+            let imagen = req.file.filename
+        } else {
+            let imagen = foto
+        }*/
+    },
     editar: (req,res) => {
         db.Producto.update({
             nombre: req.body.nombre,
@@ -190,7 +193,6 @@ let controladorProducto = {
             resumen: req.body.resumen,
             anio: req.body.anio,
             usuarios_id: req.session.idUsuario
-
         }, {
             where: {
                 id: req.params.id 
