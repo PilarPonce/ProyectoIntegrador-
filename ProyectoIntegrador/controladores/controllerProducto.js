@@ -4,6 +4,10 @@ const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
 let controladorProducto = { 
+    editarProducto: (req, res, next) => {
+        res.render('editarProducto', {});
+    },
+
         home: (req,res,next)=> {
             
             let filtro = { 
@@ -132,7 +136,7 @@ let controladorProducto = {
         },
 
 //AGREGAR PRODUCTO
-    productadd: (req, res, next) => {
+    productadd: (req, res) => {
         res.render('product-add');
     },
 
@@ -172,9 +176,42 @@ let controladorProducto = {
                 res.render('error', {error: "Error de conexion: " + error.message});
             });
         },   
+//EDITAR PRODUCTO 
+
+    editar: (req,res) => {
+
+        db.Producto.findByPk(req.params.id).then(resultado => {
+            res.render('editarProducto', { libro: resultado });
+        })
+        db.Producto.update({
+            nombre: req.body.nombre,
+            autor: req.body.autor,
+            genero: req.body.genero,
+            resumen: req.body.resumen,
+            anio: req.body.anio,
+            usuarios_id: req.session.idUsuario
+
+        }, {
+            where: {
+                id: req.params.id 
+            } 
+        }
+        )
+
+            .then(() => {
+                res.redirect('/');
+            })
+            .catch((error) => {
+                console.log("Error de conexion: " + error.message);
+
+                res.render('error', { error: "Error de conexion: " + error.message });
+            });
+    
+    
+    },
 
 //AGREGAR COMENTARIO
-        /*crearcoment:  (req, res)=> {
+        /*crearComentario:  (req, res)=> {
             db.Comentario.create({ 
                 texto: req.body.texto,
                 usuarios_id: req.session.idUsuario,
