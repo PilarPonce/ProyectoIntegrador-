@@ -16,11 +16,15 @@
 
                     <section class="editarProducto">
                         <form class="forms" action="/productadd" method="post" id="form" enctype='multipart/form-data'>
-                            <label class="palabra"> Nombre: <input class="inputs" type="text" name="nombre"> </label>
-                            <label class="palabra"> Autor: <input class="inputs" type="text" name="autor"></label>
-                            <label class="palabra"> Género: <input class="inputs" type="text" name="genero"></label>
-                            <label class="palabra"> Resumen: <input class="inputs" type="text" name="resumen"></label>
-                            <label class="palabra"> Año de publicación: <input class="inputs" type="number" name="anio"></label>
+                            <label class="palabra"> Nombre: <input class="inputs" type="text" name="nombre" value= "<%= libro.nombre%>"> </label>
+                            <label class="palabra"> Autor: <input class="inputs" type="text" name="autor" value= "<%= libro.autor%>"></label>
+                            <label class="palabra"> Género: <input class="inputs" type="text" name="genero" value= "<%= libro.genero%>"></label>
+                            <div class="completa">
+                                <label class="palabra" for="foto">Foto:</label>
+                                <input class="inputs" type="file" name="foto" id="foto" value= "<%= libro.foto%>">
+                            </div>
+                            <label class="palabra"> Resumen: <input class="inputs" type="text" name="resumen" value= "<%= libro.resumen%>"></label>
+                            <label class="palabra"> Año de publicación: <input class="inputs" type="number" name="anio" value= "<%= libro.anio%>"></label>
                             <input type="hidden" name="id" value="<%= idUsuario %>">
                             <label class="palabra"> <button class="botonAgregarProducto" type="submit">Editar producto</button>
                         </form>

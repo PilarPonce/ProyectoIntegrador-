@@ -89,12 +89,15 @@
 }
 
 .editar {
-  display: flex;
+  display: grid;
+  
+  
 }
 .botoneditar{
   margin-left: 15px;
   margin-top: 15px;
   color: grey;
+  font-size: 18px;
 }
 
 /*====== Variables ======*/
@@ -365,7 +368,7 @@ hr {
 }
 
 .informacion{
-  display: grid;
+  display: flex;
   
 }
 
@@ -375,11 +378,12 @@ hr {
   color: var(--gray);
 }
 
-.products-autor{
-  font-size: 20px;
+.autorLibro{
+  font-size: 19px;
   font-weight: 400;
   color: var(--gray);
 }
+
 
 .product-box {
   background-color: #ffffff;
@@ -449,6 +453,12 @@ hr {
   align-items: center;
   transition: 300ms;
   
+}
+
+.tituloLibro{
+  color: black;
+  font-size: 45px;
+  font-family: 'PT Serif', serif;
 }
 
 .noproducts {

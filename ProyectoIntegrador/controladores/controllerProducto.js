@@ -5,9 +5,10 @@ const Op = db.Sequelize.Op;
 
 let controladorProducto = { 
     editarProducto: (req, res, next) => {
-        res.render('editarProducto', {});
+        db.Producto.findByPk(req.params.id).then(resultado => {
+            res.render('editarProducto', {libro: resultado});
+        })
     },
-
         home: (req,res,next)=> {
             
             let filtro = { 
@@ -179,14 +180,11 @@ let controladorProducto = {
 //EDITAR PRODUCTO 
 
     editar: (req,res) => {
-
-        db.Producto.findByPk(req.params.id).then(resultado => {
-            res.render('editarProducto', { libro: resultado });
-        })
         db.Producto.update({
             nombre: req.body.nombre,
             autor: req.body.autor,
             genero: req.body.genero,
+            foto: req.file.filename,
             resumen: req.body.resumen,
             anio: req.body.anio,
             usuarios_id: req.session.idUsuario
@@ -197,7 +195,6 @@ let controladorProducto = {
             } 
         }
         )
-
             .then(() => {
                 res.redirect('/');
             })
