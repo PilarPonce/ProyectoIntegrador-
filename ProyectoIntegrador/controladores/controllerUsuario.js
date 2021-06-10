@@ -120,44 +120,7 @@ let controladorUsuario = {
         }        
     },
 
-    //EDITAR PERFIL 
-    editarPerfil: (req, res) => {
-        db.Usuario.findByPk(req.params.id).then(resultado => {
-            res.render('editarPerfil', { usuario: resultado });
-        })
-       /* if (req.file.filename != undefined) {
-            let imagen = req.file.filename
-        } else {
-            let imagen = fotoPerfil
-        }*/
-    },
-
-    editar: (req, res) => {
-        db.Usuario.update({
-            nombre: req.body.nombre,
-            celular: req.body.celular,
-            mail: req.body.mail,
-            fotoPerfil: req.file.filename,
-            contraseña: contraseñaEncriptada,
-            nacimiento: req.body.nacimiento
-
-        }, {
-            where: {
-                id: req.params.id
-            }
-        }
-        )
-            .then(() => {
-                res.redirect('/');
-            })
-            .catch((error) => {
-                console.log("Error de conexion: " + error.message);
-
-                res.render('error', { error: "Error de conexion: " + error.message });
-            });
-    },
-    
-//LOG IN
+    //LOG IN
     loginUsuario: (req, res) => {
         let filtro = {  
             where: {
@@ -187,6 +150,99 @@ let controladorUsuario = {
             res.render('error', {error: "Error de conexion: " + error.message});
         });
     },
+
+    //EDITAR PERFIL 
+    editarPerfil: (req, res) => {
+        db.Usuario.findByPk(req.params.id).then(resultado => {
+            res.render('editarPerfil', { usuario: resultado });
+        })
+       
+    },
+
+    editar: (req, res) => {
+        let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
+        if (req.file.filename != undefined) {
+            let imagen = req.file.filename;
+            db.Usuario.update({
+                nombre: req.body.nombre,
+                celular: req.body.celular,
+                mail: req.body.mail,
+                fotoPerfil: imagen,
+                contraseña: contraseñaEncriptada,
+                nacimiento: req.body.nacimiento
+    
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            }
+            )
+                .then(() => {
+                    res.redirect('/');
+                })
+                .catch((error) => {
+                    console.log("Error de conexion: " + error.message);
+    
+                    res.render('error', { error: "Error de conexion: " + error.message });
+                });
+        } else {
+            let imagen = req.session.foto;
+            db.Usuario.update({
+                nombre: req.body.nombre,
+                celular: req.body.celular,
+                mail: req.body.mail,
+                fotoPerfil: imagen,
+                contraseña: contraseñaEncriptada,
+                nacimiento: req.body.nacimiento
+    
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            }
+            )
+                .then(() => {
+                    res.redirect('/');
+                })
+                .catch((error) => {
+                    console.log("Error de conexion: " + error.message);
+    
+                    res.render('error', { error: "Error de conexion: " + error.message });
+                });
+        }
+
+        
+    },
+
+    /*editar
+    
+    db.Usuario.update({
+                nombre: req.body.nombre,
+                celular: req.body.celular,
+                mail: req.body.mail,
+                fotoPerfil: req.file.filename,
+                contraseña: contraseñaEncriptada,
+                nacimiento: req.body.nacimiento
+    
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            }
+            )
+                .then(() => {
+                    res.redirect('/');
+                })
+                .catch((error) => {
+                    console.log("Error de conexion: " + error.message);
+    
+                    res.render('error', { error: "Error de conexion: " + error.message });
+                });
+        }
+    
+    */
+    
+
 
 /* 
 //VALIDACION LOGIN
