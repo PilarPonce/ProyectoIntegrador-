@@ -9,6 +9,8 @@ let controladorProducto = {
             res.render('editarProducto', {libro: resultado});
         })
     },
+
+   
         home: (req,res,next)=> {
             
             let filtro = { 
@@ -165,7 +167,7 @@ let controladorProducto = {
         borrar: (req, res)=> {
             db.Producto.destroy({
                 where:{
-                    id: req.body.id
+                    id: req.params.id
                 }
             })
             .then(()=>{
@@ -206,6 +208,8 @@ let controladorProducto = {
     
     
     },
+
+
 
 //AGREGAR COMENTARIO
         /*crearComentario:  (req, res)=> {

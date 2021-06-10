@@ -36,7 +36,7 @@ router.get('/searchresults', controladorProducto.buscador);
  
 router.post('/productadd', upload.single('foto'), controladorProducto.crear);
  
-router.post('/borrar', controladorProducto.borrar);
+router.post('/borrar/:id', controladorProducto.borrar);
  
 router.get('/todos', controladorProducto.todos); 
  

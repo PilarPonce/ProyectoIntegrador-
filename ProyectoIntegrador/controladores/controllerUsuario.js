@@ -19,8 +19,10 @@ let controladorUsuario = {
     register: (req, res, next) => {
         res.render('register', { });
     },
-    profileedit: (req, res, next) => {
-        res.render('profile-edit');
+    editarPerfil: (req, res) => {
+        db.Usuario.findByPk(req.params.id).then(resultado => {
+            res.render('editarPerfil', { usuario: resultado });
+        })
     },
     searchresults: (req, res, next) => {
         res.render(`search-results`)
@@ -45,6 +47,8 @@ let controladorUsuario = {
         res.render('error', { error: "Error de conexion: " + error.message });
     })
     },   
+
+    
       
   //REGISTRAR  
     registrarUsuario: (req, res) => {
@@ -113,6 +117,32 @@ let controladorUsuario = {
                 }    })   }
             })
         }        
+    },
+
+    //EDITAR PERFIL 
+    editar: (req, res) => {
+        db.Usuario.update({
+            nombre: req.body.nombre,
+            celular: req.body.celular,
+            mail: req.body.mail,
+            fotoPerfil: req.file.filename,
+            contraseña: contraseñaEncriptada,
+            nacimiento: req.body.nacimiento
+
+        }, {
+            where: {
+                id: req.params.id
+            }
+        }
+        )
+            .then(() => {
+                res.redirect('/');
+            })
+            .catch((error) => {
+                console.log("Error de conexion: " + error.message);
+
+                res.render('error', { error: "Error de conexion: " + error.message });
+            });
     },
     
 //LOG IN

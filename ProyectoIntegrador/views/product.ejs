@@ -22,10 +22,10 @@
             <div class="editar">  
                  <a href="/editarProducto/<%= libro.id %>"> <h3 class=" botoneditar tipografia2"> Editar</h3> </a>
             </div>   
-            
-            <div class="editar">
-                <a href="/borrar/<%= libro.id %>"><h3 class=" botoneditar tipografia2"> Eliminar</h3> </a>
-            </div>
+
+            <form action="/borrar/<%= libro.id %>" method="POST" class="editar">     
+                <input class=" botoneditar tipografia2" type="submit" value="Borrar" name="borrar">
+            </form>
             <% }%>  
 
            

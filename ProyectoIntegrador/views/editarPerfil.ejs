@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Head -->
+<%- include('./partials/head')%>
+    <!-- Head -->
+
+    <body>
+        <!-- Header -->
+        <%- include('./partials/header')%>
+            <!-- /Header -->
+
+            <!-- Registrarse -->
+            <div class="container products-wrapper">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="registrate">Editar Perfil</h2>
+                    </div>
+                    <!-- form de registro -->
+                    <section class="formulario1">
+                        <form class="form" action="/editarPerfil" method="POST" id="form" enctype="multipart/form-data">
+                            <div class="forms">
+                                <div class="completa">
+                                    <label class="palabra" for="nombre">Nombre de usuario</label>
+                                    <input class="inputs" type="text" name="nombre" id="name"  value= "<%= usuario.nombre%>">
+                                    <hr>
+                                    </hr>
+                                </div>
+
+                                <div class="completa">
+                                    <label class="palabra" for="celular">Celular</label>
+                                    <input class="inputs" type="number" name="celular" id="celular" value= "<%= usuario.celular%>">
+                                    <hr>
+                                    </hr>
+                                </div>
+
+                                <div class="completa">
+                                    <label class="palabra" for="mail">Email</label>
+                                    <input class="inputs" type="mail" name="mail" id="mail" value= "<%= usuario.mail%>">
+                                    <hr>
+                                    </hr>
+                                </div>
+
+                                <div class="completa">
+                                    <label class="palabra" for="fotoPerfil">Foto de perfil</label>
+                                    <input class="inputs" type="file" name="fotoPerfil" id="fotoPerfil" value= "<%= usuario.fotoPerfil%>">
+                                    <hr>
+                                    </hr>
+                                </div>
+
+                                <div class="completa">
+                                    <label class="palabra" for="nacimiento">Fecha de nacimiento</label>
+                                    <input class="inputs" type="date" name="nacimiento" id="nacimiento" value= "<%= usuario.nacimiento%>">
+                                    <hr>
+                                    </hr>
+                                </div>
+
+                                <div class="completa">
+                                    <label class="palabra" for="contraseña">Contraseña</label>
+                                    <input class="inputs" type="password" name="contraseña" id="contraseña" value= "<%= usuario.contraseña%>">
+                                    <hr>
+                                    </hr>
+                                </div>
+
+                                <div class="error">
+                                    <% if(locals.errors){ %>
+                                        <h2 class="mensajeError">Error: <%= errors.message %>
+                                        </h2>
+                                        <% } %>
+                                </div>
+                                <button class="boton1" type="submit">Registrate</button>
+                            </div>
+
+                        </form>
+                    </section>
+
+
+                    <!-- footer -->
+                    <%- include('./partials/footer')%>
+                        <!-- /footer -->
+    </body>
+
+</html>

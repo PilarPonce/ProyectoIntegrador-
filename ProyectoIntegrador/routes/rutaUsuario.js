@@ -30,12 +30,13 @@ router.get('/register', controladorUsuario.register);
 
 router.post('/register', upload.single('fotoPerfil'), controladorUsuario.registrarUsuario);
 
-router.get('/profileedit', controladorUsuario.profileedit);
-
 router.get('/logout', controladorUsuario.logout);
 
 router.get('/profile/:id', controladorUsuario.perfil);
 
+router.get('/editarPerfil/:id', controladorUsuario.editarPerfil);
+
+router.post('/editarPerfil', controladorUsuario.editar); 
 
 
 module.exports = router;

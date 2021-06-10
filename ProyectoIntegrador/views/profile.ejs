@@ -21,17 +21,23 @@
                             <i class="fas fa-cog"></i>
                         </a>
                     </h1>
-                <div class="editar">
-                    <a class="btn mt-3 ml-4" href="https://www.instagram.com/kimkardashian/">SEGUIR</a>
+                    <% if (usuario.id == idUsuario){%>
+                        <div class="editar">
+                            <a href="/editarPerfil/<%= usuario.id %>">
+                                <h3 class=" botoneditar tipografia2"> Editar</h3>
+                            </a>
+                        </div>
+                        <% }%>
+
+            <!--
+                fijarse si seguir al usuario es un requisito 
+                    <div class="editar">
+                    <a class="btn mt-3 ml-4" href="">SEGUIR</a>
                     <a href="/profileedit">
                         <h3 class=" botoneditar tipografia2"> Editar</h3>
                     </a>
                 </div>    
-                </div>
-                <div>
-                    <ul class="">
-                        
-                    </ul>
+            -->    
                 </div>
             </div>
         </div>
