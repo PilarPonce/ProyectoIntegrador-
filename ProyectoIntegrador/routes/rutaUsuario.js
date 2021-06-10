@@ -36,7 +36,7 @@ router.get('/profile/:id', controladorUsuario.perfil);
 
 router.get('/editarPerfil/:id', controladorUsuario.editarPerfil);
 
-router.post('/editarPerfil', upload.single('fotoPerfil'), controladorUsuario.editar); 
+router.post('/editarPerfil/:id', upload.single('fotoPerfil'), controladorUsuario.editar); 
 
 
 module.exports = router;

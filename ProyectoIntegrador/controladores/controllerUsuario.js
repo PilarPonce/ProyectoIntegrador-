@@ -161,7 +161,7 @@ let controladorUsuario = {
 
     editar: (req, res) => {
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
-        if (req.file.filename != undefined) {
+        if (req.file != undefined) {
             let imagen = req.file.filename;
             db.Usuario.update({
                 nombre: req.body.nombre,
