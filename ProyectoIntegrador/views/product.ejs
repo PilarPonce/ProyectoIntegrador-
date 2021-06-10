@@ -19,12 +19,16 @@
                 </h3>
             </div>
             <% if (libro.usuario.id == idUsuario){%>
-            <div class="editar">  
-                 <a href="/editarProducto/<%= libro.id %>"> <h3 class=" botoneditar tipografia2"> Editar</h3> </a>
-            </div>   
+            
+            <button class="botonEditar">
+                <div class="editar">  
+                    <a href="/editarProducto/<%= libro.id %>"> <h3 class=" botonEditar tipografia2"> Editar</h3> </a>
+                </div>
+            </button>
 
-            <form action="/borrar/<%= libro.id %>" method="POST" class="editar">     
-                <input class=" botoneditar tipografia2" type="submit" value="Borrar" name="borrar">
+
+            <form action="/borrar/<%= libro.id %>" method="POST" class="borrar botonBorrar">     
+                <input class=" botonBorrar tipografia2" type="submit" value="Borrar" name="borrar">
             </form>
             <% }%>  
 

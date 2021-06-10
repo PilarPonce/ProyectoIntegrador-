@@ -89,16 +89,36 @@
 }
 
 .editar {
-  display: grid;
-  
-  
+  display: flex;
 }
-.botoneditar{
-  margin-left: 15px;
-  margin-top: 15px;
+
+.borrar {
+  display: flex;
+}
+
+.botonBorrar{
+  display: flex;
   color: grey;
-  font-size: 18px;
+  font-size: 15px;
+  height: 40px;
+  width: 80px;
+  margin-left: 10px;
+  justify-content: center;
+  margin-top: 10px;
+
 }
+.botonEditar{
+  display: flex;
+  color: grey;
+  font-size: 15px;
+  height: 40px;
+  width: 80px;
+  justify-content: center;
+  align-items: center;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
 
 /*====== Variables ======*/
 :root {
