@@ -214,34 +214,121 @@ let controladorUsuario = {
         
     },
 
-    /*editar
-    
-    db.Usuario.update({
-                nombre: req.body.nombre,
-                celular: req.body.celular,
-                mail: req.body.mail,
-                fotoPerfil: req.file.filename,
-                contraseña: contraseñaEncriptada,
-                nacimiento: req.body.nacimiento
-    
-            }, {
-                where: {
-                    id: req.params.id
+   //EDITAR COMPARANDO TB LA CONTRASENIA
+   /* editar: (req, res) => {
+        
+        if (req.file != undefined) {
+            
+            if (req.body.contraseña != undefined) {
+                let imagen = req.file.filename;
+                let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
+                db.Usuario.update({
+                    nombre: req.body.nombre,
+                    celular: req.body.celular,
+                    mail: req.body.mail,
+                    fotoPerfil: imagen,
+                    contraseña: contraseñaEncriptada,
+                    nacimiento: req.body.nacimiento
+        
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
                 }
+                )
+                    .then(() => {
+                        res.redirect('/');
+                    })
+                    .catch((error) => {
+                        console.log("Error de conexion: " + error.message);
+        
+                        res.render('error', { error: "Error de conexion: " + error.message });
+                    });
+            } else{
+                let imagen = req.file.filename;
+                
+                db.Usuario.update({
+                    nombre: req.body.nombre,
+                    celular: req.body.celular,
+                    mail: req.body.mail,
+                    fotoPerfil: imagen,
+                    contraseña: req.session.contraseña,
+                    nacimiento: req.body.nacimiento
+        
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
+                }
+                )
+                    .then(() => {
+                        res.redirect('/');
+                    })
+                    .catch((error) => {
+                        console.log("Error de conexion: " + error.message);
+        
+                        res.render('error', { error: "Error de conexion: " + error.message });
+                    });
             }
-            )
-                .then(() => {
-                    res.redirect('/');
-                })
-                .catch((error) => {
-                    console.log("Error de conexion: " + error.message);
-    
-                    res.render('error', { error: "Error de conexion: " + error.message });
-                });
-        }
-    
-    */
-    
+
+        } else{
+            if (req.body.contraseña != undefined) {
+                let imagen = req.session.foto;
+                let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
+                db.Usuario.update({
+                    nombre: req.body.nombre,
+                    celular: req.body.celular,
+                    mail: req.body.mail,
+                    fotoPerfil: imagen,
+                    contraseña: contraseñaEncriptada,
+                    nacimiento: req.body.nacimiento
+        
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
+                }
+                )
+                    .then(() => {
+                        res.redirect('/');
+                    })
+                    .catch((error) => {
+                        console.log("Error de conexion: " + error.message);
+        
+                        res.render('error', { error: "Error de conexion: " + error.message });
+                    });
+            } else{
+                let imagen = req.session.foto;
+                
+                db.Usuario.update({
+                    nombre: req.body.nombre,
+                    celular: req.body.celular,
+                    mail: req.body.mail,
+                    fotoPerfil: imagen,
+                    contraseña: req.session.contraseña,
+                    nacimiento: req.body.nacimiento
+        
+                }, {
+                    where: {
+                        id: req.params.id
+                    }
+                }
+                )
+                    .then(() => {
+                        res.redirect('/');
+                    })
+                    .catch((error) => {
+                        console.log("Error de conexion: " + error.message);
+        
+                        res.render('error', { error: "Error de conexion: " + error.message });
+                    });
+            }
+
+
+
+        }        
+    },
+ */
 
 
 /* 
