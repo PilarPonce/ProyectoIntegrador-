@@ -31,14 +31,12 @@ let controladorUsuario = {
     perfil: (req,res,next)=> {
         let filtro = {
             include: [
-                {association: 'productos'}, 
+                {association: 'productos', include: 'usuario'}, 
             ]
         }
- //cuando lo hago me dice que no hay una association con ese alias en Usuario, pero si hay
-
 
  //despues del req.params.id falta el filtro 
-     db.Usuario.findByPk(req.params.id).then(resultado => {
+     db.Usuario.findByPk(req.params.id, filtro).then(resultado => {
         res.render('profile', {usuario: resultado});
     })
     .catch((error) => {
@@ -48,7 +46,6 @@ let controladorUsuario = {
     })
     },   
       
-
   //REGISTRAR  
     registrarUsuario: (req, res) => {
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);

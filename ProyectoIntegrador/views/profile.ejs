@@ -30,8 +30,7 @@
                 </div>
                 <div>
                     <ul class="">
-                        <li>8 libros</li>
-                        <li>300 comentarios</li>
+                        
                     </ul>
                 </div>
             </div>
@@ -45,7 +44,29 @@
             <div class="col-12">
                 <h2 class="products-title tipografia2">Mis libros</h2>
             </div>
-            
+            <% usuario.productos.forEach(element=> { %>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <section class="product-box">
+                        <a href="/product/<%= element.id %>">
+                            <figure class="product-box_image">
+                                <img src='/images/productos/<%= element.foto %>' alt="portada libro">
+                            </figure>
+                            <article class="product-box_data">
+                                <h2 class="tipografia1"><%= element.nombre %> </h2>
+                                <p class="tipografia1"> Autor: <%= element.autor %></p>
+                                <p class="tipografia1"> Creador: <%= element.usuario.nombre %></p>
+                                <style type="text/css">
+                                    a:link,
+                                    a:visited,
+                                    a:active {
+                                        text-decoration: none;
+                                    }
+                                </style>
+                            </article>
+                        </a>
+                    </section>
+                </div>
+                <% }) %>
         </div>
 
     </div>
