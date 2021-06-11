@@ -142,7 +142,8 @@ let controladorUsuario = {
                 }
             }
             else {
-                console.log(`contraseñaErronea`);
+                errors.message = "Contraseña incorrecta";
+                res.locals.errors = errors;
 
             }
             res.redirect('/');
