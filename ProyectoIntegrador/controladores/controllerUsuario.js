@@ -120,36 +120,6 @@ let controladorUsuario = {
         }        
     },
 
-    //LOG IN
-    loginUsuario: (req, res) => {
-        let filtro = {  
-            where: {
-                nombre: req.body.nombre
-            }
-        }  
-        db.Usuario.findOne(filtro).then(usuario => {
-    
-            if(bcrypt.compareSync(req.body.contraseña, usuario.contraseña)){
-                req.session.usuario = usuario.nombre;
-                req.session.idUsuario = usuario.id;
-                req.session.foto = usuario.fotoPerfil; 
-
-                if(req.body.recordarme){
-                    res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });
-                }
-            }
-            else {
-                console.log(`contraseñaErronea`);
-
-            }
-            res.redirect('/');
-        })
-        .catch((error) => {
-            console.log("Error de conexion: " + error.message);
-
-            res.render('error', {error: "Error de conexion: " + error.message});
-        });
-    },
 
     //EDITAR PERFIL 
     editarPerfil: (req, res) => {
@@ -214,124 +184,7 @@ let controladorUsuario = {
         
     },
 
-   //EDITAR COMPARANDO TB LA CONTRASENIA
-   /* editar: (req, res) => {
-        
-        if (req.file != undefined) {
-            
-            if (req.body.contraseña != undefined) {
-                let imagen = req.file.filename;
-                let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
-                db.Usuario.update({
-                    nombre: req.body.nombre,
-                    celular: req.body.celular,
-                    mail: req.body.mail,
-                    fotoPerfil: imagen,
-                    contraseña: contraseñaEncriptada,
-                    nacimiento: req.body.nacimiento
-        
-                }, {
-                    where: {
-                        id: req.params.id
-                    }
-                }
-                )
-                    .then(() => {
-                        res.redirect('/');
-                    })
-                    .catch((error) => {
-                        console.log("Error de conexion: " + error.message);
-        
-                        res.render('error', { error: "Error de conexion: " + error.message });
-                    });
-            } else{
-                let imagen = req.file.filename;
-                
-                db.Usuario.update({
-                    nombre: req.body.nombre,
-                    celular: req.body.celular,
-                    mail: req.body.mail,
-                    fotoPerfil: imagen,
-                    contraseña: req.session.contraseña,
-                    nacimiento: req.body.nacimiento
-        
-                }, {
-                    where: {
-                        id: req.params.id
-                    }
-                }
-                )
-                    .then(() => {
-                        res.redirect('/');
-                    })
-                    .catch((error) => {
-                        console.log("Error de conexion: " + error.message);
-        
-                        res.render('error', { error: "Error de conexion: " + error.message });
-                    });
-            }
 
-        } else{
-            if (req.body.contraseña != undefined) {
-                let imagen = req.session.foto;
-                let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
-                db.Usuario.update({
-                    nombre: req.body.nombre,
-                    celular: req.body.celular,
-                    mail: req.body.mail,
-                    fotoPerfil: imagen,
-                    contraseña: contraseñaEncriptada,
-                    nacimiento: req.body.nacimiento
-        
-                }, {
-                    where: {
-                        id: req.params.id
-                    }
-                }
-                )
-                    .then(() => {
-                        res.redirect('/');
-                    })
-                    .catch((error) => {
-                        console.log("Error de conexion: " + error.message);
-        
-                        res.render('error', { error: "Error de conexion: " + error.message });
-                    });
-            } else{
-                let imagen = req.session.foto;
-                
-                db.Usuario.update({
-                    nombre: req.body.nombre,
-                    celular: req.body.celular,
-                    mail: req.body.mail,
-                    fotoPerfil: imagen,
-                    contraseña: req.session.contraseña,
-                    nacimiento: req.body.nacimiento
-        
-                }, {
-                    where: {
-                        id: req.params.id
-                    }
-                }
-                )
-                    .then(() => {
-                        res.redirect('/');
-                    })
-                    .catch((error) => {
-                        console.log("Error de conexion: " + error.message);
-        
-                        res.render('error', { error: "Error de conexion: " + error.message });
-                    });
-            }
-
-
-
-        }        
-    },
- */
-
-
-/* 
 //VALIDACION LOGIN
 
     //LOG IN
@@ -346,11 +199,7 @@ let controladorUsuario = {
             if (usuario != undefined) {
                 errors.message = "Nombre de usuario incorrecto";
                 res.locals.errors = errors;
-            } else if (bcrypt.compareSync(req.body.contraseña != usuario.contraseña)) {
-                errors.message = "Contraseña incorrecta";
-                res.locals.errors = errors;
-            }
-            else {
+            } else if (bcrypt.compareSync(req.body.contraseña, usuario.contraseña)) {
                 req.session.usuario = usuario.nombre;
                 req.session.idUsuario = usuario.id;
                 req.session.foto = usuario.fotoPerfil;
@@ -358,6 +207,10 @@ let controladorUsuario = {
                 if (req.body.recordarme) {
                     res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });
                 }
+            }
+            else {
+                errors.message = "Contraseña incorrecta";
+                res.locals.errors = errors;
             }
             res.redirect('/');
         })
@@ -370,7 +223,6 @@ let controladorUsuario = {
 
     }, 
 
-    */
 //LOG OUT
     logout: (req, res, next) => {
         req.session.destroy();
@@ -379,6 +231,39 @@ let controladorUsuario = {
     }
 }
 
+
+/*
+    //LOG IN
+    loginUsuario: (req, res) => {
+        let filtro = {
+            where: {
+                nombre: req.body.nombre
+            }
+        }
+        db.Usuario.findOne(filtro).then(usuario => {
+
+            if(bcrypt.compareSync(req.body.contraseña, usuario.contraseña)){
+                req.session.usuario = usuario.nombre;
+                req.session.idUsuario = usuario.id;
+                req.session.foto = usuario.fotoPerfil;
+
+                if(req.body.recordarme){
+                    res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });
+                }
+            }
+            else {
+                console.log(`contraseñaErronea`);
+
+            }
+            res.redirect('/');
+        })
+        .catch((error) => {
+            console.log("Error de conexion: " + error.message);
+
+            res.render('error', {error: "Error de conexion: " + error.message});
+        });
+    },
+    */
 module.exports = controladorUsuario;
 
 

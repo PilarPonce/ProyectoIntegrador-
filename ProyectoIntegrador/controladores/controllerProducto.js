@@ -172,33 +172,40 @@ let controladorProducto = {
                 res.render('error', {error: "Error de conexion: " + error.message});
             });
         },   
+
+
 //EDITAR PRODUCTO 
     editarProducto: (req, res, next) => {
-        db.Producto.findByPk(req.params.id).then(resultado => {
+        db.Producto.findByPk(req.params.id)
+        .then(resultado => {
             res.render('editarProducto', { libro: resultado });
-        })
-      /*
-      if (req.file.filename != undefined) {
-            let imagen = req.file.filename
-        } else {
-            let imagen = foto
-        }*/
+        })        
     },
     editar: (req,res) => {
-        db.Producto.update({
-            nombre: req.body.nombre,
-            autor: req.body.autor,
-            genero: req.body.genero,
-            foto: req.file.filename,
-            resumen: req.body.resumen,
-            anio: req.body.anio,
-            usuarios_id: req.session.idUsuario
-        }, {
-            where: {
-                id: req.params.id 
-            } 
-        }
-        )
+        db.Producto.findByPk(req.params.id)
+        .then(resultado => { 
+          
+            let productoAGuardar = {
+                nombre: req.body.nombre,
+                autor: req.body.autor,
+                genero: req.body.genero,
+                foto: "",
+                resumen: req.body.resumen,
+                anio: req.body.anio,
+                usuarios_id: req.session.idUsuario
+            }
+            if (req.file == undefined) {
+                productoAGuardar.foto = resultado.foto
+            } else {
+                productoAGuardar.foto = req.file.filename
+            }
+
+
+            db.Producto.update(productoAGuardar, {
+                where: {
+                 id: req.params.id
+                }
+            })
             .then(() => {
                 res.redirect('/');
             })
@@ -207,8 +214,8 @@ let controladorProducto = {
 
                 res.render('error', { error: "Error de conexion: " + error.message });
             });
-    
-    
+        });
+        
     },
 
 

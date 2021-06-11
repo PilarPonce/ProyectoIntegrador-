@@ -15,7 +15,7 @@
                     </div>
 
                     <section class="editarProducto">
-                        <form class="forms" action="/productadd" method="post" id="form" enctype='multipart/form-data'>
+                        <form class="forms" action="/editarProducto/<%= libro.id%>" method="post" id="form" enctype='multipart/form-data'>
                             <label class="palabra"> Nombre: <input class="inputs" type="text" name="nombre" value= "<%= libro.nombre%>"> </label>
                             <label class="palabra"> Autor: <input class="inputs" type="text" name="autor" value= "<%= libro.autor%>"></label>
                             <label class="palabra"> Género: <input class="inputs" type="text" name="genero" value= "<%= libro.genero%>"></label>

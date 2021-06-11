@@ -28,15 +28,15 @@ router.get('/product/:id', controladorProducto.porId);
  
 router.get('/productadd', controladorProducto.productadd);
 
-router.get('/editarProducto/:id', controladorProducto.editarProducto);
-
-router.post('/editarProducto', controladorProducto.editar);
-
 router.get('/searchresults', controladorProducto.buscador);
  
 router.post('/productadd', upload.single('foto'), controladorProducto.crear);
  
 router.post('/borrar/:id', controladorProducto.borrar);
+
+router.get('/editarProducto/:id', controladorProducto.editarProducto);
+
+router.post('/editarProducto/:id', upload.single('foto'), controladorProducto.editar);
  
 router.get('/todos', controladorProducto.todos); 
  
