@@ -211,6 +211,7 @@ let controladorUsuario = {
                     id: req.params.id
                 }
             }
+
             )
                 .then(() => {
                     res.redirect('/');
@@ -220,6 +221,11 @@ let controladorUsuario = {
     
                     res.render('error', { error: "Error de conexion: " + error.message });
                 });
+        }
+
+        if (req.body.nombre) {
+            req.session.usuario = req.body.nombre
+
         }
         
         
