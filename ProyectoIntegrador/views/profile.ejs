@@ -17,14 +17,12 @@
             <div class="data-container col-6"> 
                 <div class="d-flex align-items-center ">
                     <div class="edito">
-                    <div><h1 class="main-title"> <%=  usuario.nombre %></div>
-                        
-                    </h1>
+                        <div>
+                            <h1 class="main-title"> <%=  usuario.nombre %> </h1>
+                        </div>
+            
                     <% if (usuario.id == idUsuario){%>
                         <div>
-                        <a href="/editarPerfil/<%= usuario.id %>">
-                            <i class="fas fa-cog"></i>
-                        </a>
                             <a href="/editarPerfil/<%= usuario.id %>">
                                 <h3 class=" botonEditar tipografia2"> Editar</h3>
                             </a>
