@@ -16,29 +16,22 @@
             </div>
             <div class="data-container col-6"> 
                 <div class="d-flex align-items-center ">
-                    <h1 class="main-title"> <%=  usuario.nombre %>
+                    <div class="edito">
+                    <div><h1 class="main-title"> <%=  usuario.nombre %></div>
                         
                     </h1>
                     <% if (usuario.id == idUsuario){%>
+                        <div>
                         <a href="/editarPerfil/<%= usuario.id %>">
                             <i class="fas fa-cog"></i>
                         </a>
-                        <div class="editar">
                             <a href="/editarPerfil/<%= usuario.id %>">
-                                <h3 class=" botoneditar tipografia2"> Editar</h3>
+                                <h3 class=" botonEditar tipografia2"> Editar</h3>
                             </a>
                         </div>
                         <% }%>
-
-            <!--
-                fijarse si seguir al usuario es un requisito 
-                    <div class="editar">
-                    <a class="btn mt-3 ml-4" href="">SEGUIR</a>
-                    <a href="/profileedit">
-                        <h3 class=" botoneditar tipografia2"> Editar</h3>
-                    </a>
-                </div>    
-            -->    
+                    </div>
+ 
                 </div>
             </div>
         </div>
