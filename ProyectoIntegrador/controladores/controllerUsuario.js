@@ -137,6 +137,7 @@ let controladorUsuario = {
                 req.session.usuario = usuario.nombre;
                 req.session.idUsuario = usuario.id;
                 req.session.foto = usuario.fotoPerfil;
+                req.session.contraseña = usuario.contraseña;
 
                 if (req.body.recordarme) {
                     res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });
@@ -165,17 +166,20 @@ let controladorUsuario = {
     },
 
     editar: (req, res) => {
-        let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
+        if (req.body.contraseña == ""){
+            req.body.contraseña = req.session.contraseña
+        } else {
+            req.body.contraseña = bcrypt.hashSync(req.body.contraseña);
+        }
 
         if (req.file != undefined) {
             let imagen = req.file.filename;
-
             db.Usuario.update({
                 nombre: req.body.nombre,
                 celular: req.body.celular,
                 mail: req.body.mail,
                 fotoPerfil: imagen,
-                contraseña: contraseñaEncriptada,
+                contraseña: req.body.contraseña,
                 nacimiento: req.body.nacimiento
     
             }, {
@@ -199,7 +203,7 @@ let controladorUsuario = {
                 celular: req.body.celular,
                 mail: req.body.mail,
                 fotoPerfil: imagen,
-                contraseña: contraseñaEncriptada,
+                contraseña: req.body.contraseña,
                 nacimiento: req.body.nacimiento
     
             }, {
@@ -217,7 +221,7 @@ let controladorUsuario = {
                     res.render('error', { error: "Error de conexion: " + error.message });
                 });
         }
-
+        
         
     },
 
