@@ -3,77 +3,82 @@ let libros = require(`../libros/libros`);
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
+//HOME, FIND ALL X GENEROS
 let controladorProducto = { 
-        home: (req,res,next)=> {
-            
-            let filtro = { 
+    home: (req,res,next)=> {    
+        let filtro = { 
+            include: [
+                { association: 'usuario' }
+            ],
+            order: [ 
+                ['createdAt', 'DESC']
+                ],
+            limit: 4,
+            }
+
+        db.Producto.findAll(filtro)
+        .then(resultado => {
+            filtro = {
                 include: [
                     { association: 'usuario' }
                 ],
-                order: [ 
-                        ['createdAt', 'DESC']
-                      ],
+                where: {
+                    genero: 'Terror'
+                },
+
                 limit: 4,
-                }
+            }
+            
+        db.Producto.findAll(filtro)
+        .then(resultado2 => { 
+            filtro = {
+                include: [
+                    { association: 'usuario' }
+                ],
+                where: {
+                    genero: 'Romance'
+                },
 
-            db.Producto.findAll(filtro).then(resultado => {
+                limit: 4,
+            }
+                  
+        db.Producto.findAll(filtro)
+        .then(resultado3 => {
+            filtro = {
+                include: [
+                    { association: 'usuario' }
+                ],
+                where: {
+                    genero: 'Thriller'
+                },
+
+                limit: 4,
+            }
+
+        db.Producto.findAll(filtro)
+        .then(resultado4 => {
+            filtro = {
+                include: [
+                    { association: 'usuario' }
+                ],
+                where: {
+                    genero: 'Fantasía'
+                },
+
+                limit: 4,
+            }
                 
-                filtro ={
-                    include: [
-                        { association: 'usuario' }
-                    ],
-                    where: {
-                        genero:'Terror'
-                    },
+        db.Producto.findAll(filtro).then(resultado5 => {
         
-                    limit: 4,
-                }
-            db.Producto.findAll(filtro).then(resultado2 => { 
-                    
-                filtro ={
-                    include: [
-                        { association: 'usuario' }
-                    ],
-                    where: {
-                        genero:'Romance'
-                    },
-        
-                    limit: 4,
-                }  
-            db.Producto.findAll(filtro).then(resultado3 => {
-
-                filtro ={
-                    include: [
-                        { association: 'usuario' }
-                    ],
-                    where: {
-                        genero:'Thriller'
-                    },  
+            res.render('home', {libros: resultado, libros2: resultado2, libros3: resultado3, libros4: resultado4, libros5: resultado5 });
+        });
+        });
+        });
+        });
+        });
+           
             
-                    limit: 4,  
-                }        
-            db.Producto.findAll(filtro).then(resultado4 => {
-
-                filtro ={
-                    include: [
-                        { association: 'usuario' }
-                    ],
-                    where: {
-                        genero:'Fantasía'
-                    },
-                           
-                    limit: 4,
-                }
-            db.Producto.findAll(filtro).then(resultado5 => {
-
-        res.render('home', {libros: resultado, libros2: resultado2, libros3: resultado3, libros4: resultado4, libros5: resultado5 });
-            });
-            });
-            });
-            });
-            });
-            
-           },
+    },
 
 //DETALLE 
         porId: (req,res,next)=> {
@@ -99,7 +104,6 @@ let controladorProducto = {
         },   
 
 //BUSCADOR
-    
         buscador: (req, res) => {
         let filtro = {
             include: [
@@ -109,7 +113,8 @@ let controladorProducto = {
                 nombre: { [Op.like]: '%' + req.query.search + '%' }, 
             }
         }  
-        db.Producto.findAll(filtro).then(resultado => {
+        db.Producto.findAll(filtro)
+        .then(resultado => {
             let filtro = {
                 include: [
                     { association: 'usuario' }
@@ -118,14 +123,16 @@ let controladorProducto = {
                     resumen: { [Op.like]: '%' + req.query.search + '%' },
                 }
             }
-            db.Producto.findAll(filtro).then(resultado2 => {
-            res.render('searchresults', { libro: resultado, libro2:resultado2 });
+
+            db.Producto.findAll(filtro)
+            .then(resultado2 => {
+            
+                res.render('searchresults', { libro: resultado, libro2:resultado2 });
             
         })
     
         .catch((error) => {
             console.log("Error de conexion: " + error.message);
-
             res.render('error', {error: "Error de conexion: " + error.message});
         });
         });
@@ -145,7 +152,8 @@ let controladorProducto = {
             resumen: req.body.resumen,
             anio: req.body.anio,
             usuarios_id: req.session.idUsuario //se ve mientra el usuario este logueado
-        }).then(libroCreado => {
+        })
+            .then(libroCreado => {
             res.redirect('/product/' + libroCreado.id);   
         })
         .catch((error) => {
@@ -241,18 +249,17 @@ let controladorProducto = {
 
 //PAGINA DE TODOS
         todos: (req, res)=> {
-
-            let filtro = { 
+            let filtro = {
                 include: [
                     { association: 'usuario' }
                 ],
-                order: [ 
-                        ['nombre', 'ASC'],
-                      ]
-                }
+                order: [
+                    ['nombre', 'ASC'],
+                ]
+            }
 
-            db.Producto.findAll(filtro).then(resultado => {
-            
+            db.Producto.findAll(filtro)
+            .then(resultado => {
                 res.render('todos', {libros: resultado});
 
             }); 

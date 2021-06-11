@@ -34,7 +34,8 @@ let controladorUsuario = {
         }
 
  //despues del req.params.id falta el filtro 
-     db.Usuario.findByPk(req.params.id, filtro).then(resultado => {
+     db.Usuario.findByPk(req.params.id, filtro)
+     .then(resultado => {
         res.render('profile', {usuario: resultado});
     })
     .catch((error) => {
@@ -107,7 +108,8 @@ let controladorUsuario = {
                                 fotoPerfil: req.file.filename,
                                 contraseña: contraseñaEncriptada,
                                 nacimiento: req.body.nacimiento
-                            }).then(usuario => {
+                            })
+                            .then(usuario => {
                                 res.redirect('/login');
                             })
                                 .catch((error) => {
@@ -119,11 +121,44 @@ let controladorUsuario = {
             })
         }        
     },
+    
+//VALIDACION LOGIN
+ //LOG IN
+    loginUsuario: (req, res) => {
+        let filtro = {
+            where: {
+                nombre: req.body.nombre
+            }
+        }
+        db.Usuario.findOne(filtro)
+        .then(usuario => {
 
+            if (bcrypt.compareSync(req.body.contraseña, usuario.contraseña)) {
+                req.session.usuario = usuario.nombre;
+                req.session.idUsuario = usuario.id;
+                req.session.foto = usuario.fotoPerfil;
+
+                if (req.body.recordarme) {
+                    res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });
+                }
+            }
+            else {
+                console.log(`contraseñaErronea`);
+
+            }
+            res.redirect('/');
+        })
+            .catch((error) => {
+                console.log("Error de conexion: " + error.message);
+
+                res.render('error', { error: "Error de conexion: " + error.message });
+            });
+    },
 
     //EDITAR PERFIL 
     editarPerfil: (req, res) => {
-        db.Usuario.findByPk(req.params.id).then(resultado => {
+        db.Usuario.findByPk(req.params.id)
+        .then(resultado => {
             res.render('editarPerfil', { usuario: resultado });
         })
        
@@ -131,8 +166,10 @@ let controladorUsuario = {
 
     editar: (req, res) => {
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
+
         if (req.file != undefined) {
             let imagen = req.file.filename;
+
             db.Usuario.update({
                 nombre: req.body.nombre,
                 celular: req.body.celular,
@@ -185,43 +222,7 @@ let controladorUsuario = {
     },
 
 
-//VALIDACION LOGIN
 
-    //LOG IN
-    loginUsuario: (req, res) => {
-        let errors = {}
-        let filtro = {
-            where: {
-                nombre: req.body.nombre
-            }
-        }
-        db.Usuario.findOne(filtro).then(usuario => {
-            if (usuario != undefined) {
-                errors.message = "Nombre de usuario incorrecto";
-                res.locals.errors = errors;
-            } else if (bcrypt.compareSync(req.body.contraseña, usuario.contraseña)) {
-                req.session.usuario = usuario.nombre;
-                req.session.idUsuario = usuario.id;
-                req.session.foto = usuario.fotoPerfil;
-
-                if (req.body.recordarme) {
-                    res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });
-                }
-            }
-            else {
-                errors.message = "Contraseña incorrecta";
-                res.locals.errors = errors;
-            }
-            res.redirect('/');
-        })
-            .catch((error) => {
-                console.log("Error de conexion: " + error.message);
-
-                res.render('error', { error: "Error de conexion: " + error.message });
-            });
-
-
-    }, 
 
 //LOG OUT
     logout: (req, res, next) => {
@@ -230,40 +231,6 @@ let controladorUsuario = {
         res.redirect('/');
     }
 }
-
-
-/*
-    //LOG IN
-    loginUsuario: (req, res) => {
-        let filtro = {
-            where: {
-                nombre: req.body.nombre
-            }
-        }
-        db.Usuario.findOne(filtro).then(usuario => {
-
-            if(bcrypt.compareSync(req.body.contraseña, usuario.contraseña)){
-                req.session.usuario = usuario.nombre;
-                req.session.idUsuario = usuario.id;
-                req.session.foto = usuario.fotoPerfil;
-
-                if(req.body.recordarme){
-                    res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });
-                }
-            }
-            else {
-                console.log(`contraseñaErronea`);
-
-            }
-            res.redirect('/');
-        })
-        .catch((error) => {
-            console.log("Error de conexion: " + error.message);
-
-            res.render('error', {error: "Error de conexion: " + error.message});
-        });
-    },
-    */
 module.exports = controladorUsuario;
 
 
