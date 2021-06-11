@@ -120,7 +120,7 @@ let controladorProducto = {
                     { association: 'usuario' }
                 ],
                 where: {
-                    resumen: { [Op.like]: '%' + req.query.search + '%' },
+                    autor: { [Op.like]: '%' + req.query.search + '%' },
                 }
             }
 
