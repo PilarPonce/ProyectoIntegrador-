@@ -31,7 +31,6 @@ let controladorUsuario = {
             ]
         }
 
- //despues del req.params.id falta el filtro 
      db.Usuario.findByPk(req.params.id, filtro)
      .then(resultado => {
         res.render('profile', {usuario: resultado});
@@ -97,7 +96,6 @@ let controladorUsuario = {
                             errors.message = "Ya existe un usuario con este nombre";
                             res.locals.errors = errors;
                         } else {
-                            console.log(req.body.nacimiento);
                             db.Usuario.create({
                                 
                                 nombre: req.body.nombre,
@@ -121,7 +119,7 @@ let controladorUsuario = {
     },
     
 //VALIDACION LOGIN
- //LOG IN
+//LOG IN
     loginUsuario: (req, res) => {
         let filtro = {
             where: {
@@ -132,62 +130,34 @@ let controladorUsuario = {
         db.Usuario.findOne(filtro)
             .then(usuario => {
                 if (usuario == null) {
-                    erroresLogin.nombre = "Usted no tiene una cuenta con este nombre"
-                    res.locals.erroresLogin = erroresLogin
-                    return res.render('login')
+                    erroresLogin.message = "Usted no tiene una cuenta con este nombre";
+                    res.locals.erroresLogin = erroresLogin;
+                    res.render('login');
                 } else {
                     if (bcrypt.compareSync(req.body.contraseña, usuario.contraseña)) {
-                        req.session.usuarioIngresado = usuario
+                        req.session.usuario = usuario.nombre;
+                       // req.session.contraseña = usuario.contraseña;
+                       // req.session.idUsuario = usuario.id;
+
                         if (req.body.recordarme) {
                             res.cookie("usuarios_id", usuario.id, {
                                 maxAge: 1000 * 60 * 60 * 24
                             })
-                            return res.redirect("/")
-                        } else {
-                            erroresLogin.contraseña = "Contraseña incorrecta"
-                            res.locals.erroresLogin = erroresLogin
-                            return res.render('login')
-                        }
+                            res.redirect("/")
+                        } 
+                    } else {
+                        erroresLogin.message = "Contraseña incorrecta";
+                        res.locals.erroresLogin = erroresLogin;
+                        res.render('login');
                     }
                 }
-
             })
-    },
-/* este login es el que teniamos antes, cree uno nuevo arriba que no loguea ni valida correctamente
-pero siento que esta mejor planteado. La que entre fijese!!!
-le debe faltar algo. soy pili!!! 
-
-(comento el antiguo asi ven primero el nuevo)
-loginUsuario: (req, res) => {
-        let filtro = {
-            where: {
-                nombre: req.body.nombre
-            }
-        }
-        db.Usuario.findOne(filtro)
-        .then(usuario => {
-            if (bcrypt.compareSync(req.body.contraseña, usuario.contraseña)) {
-                req.session.usuario = usuario.nombre;
-                req.session.idUsuario = usuario.id;
-                req.session.foto = usuario.fotoPerfil;
-                req.session.contraseña = usuario.contraseña;
-                if (req.body.recordarme) {
-                    res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });
-                 }
-             }
-             else {
-                 console.log(`contraseñaErronea`);
-                 errors.message = "Contraseña incorrecta";
-                 res.locals.errors = errors;
-
-             }
-             res.redirect('/');
-        })
             .catch((error) => {
                 console.log("Error de conexion: " + error.message);
                 res.render('error', { error: "Error de conexion: " + error.message });
             });
-    }, */
+    },
+
     //EDITAR PERFIL 
     editarPerfil: (req, res) => {
         db.Usuario.findByPk(req.params.id)
@@ -258,12 +228,8 @@ loginUsuario: (req, res) => {
         if (req.body.nombre) {
             req.session.usuario = req.body.nombre
 
-        }
-        
-        
+        }        
     },
-
-
 
 
 //LOG OUT

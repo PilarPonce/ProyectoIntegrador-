@@ -37,6 +37,13 @@
                             Recordarme <input type="checkbox" name="recordarme" id=""><br>
                         </div>
 
+                        <div class="error">
+                            <% if(locals.erroresLogin){ %>
+                                <h2 class="mensajeError">Error: <%= erroresLogin.message %>
+                                </h2>
+                                <% } %>
+                        </div>
+
                             <button class="boton1" type="submit">Iniciar sesión</button>
                     </div>
         
