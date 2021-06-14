@@ -160,23 +160,21 @@ let controladorProducto = {
     },
 
 //BORRAR PRODUCTO     
-
-        borrar: (req, res)=> {
-            db.Producto.destroy({
-                where:{
-                    id: req.params.id
-                }
-            })
-            .then(()=>{
+    borrar: (req, res) => {
+        db.Producto.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(() => {
                 res.redirect('/');
             })
             .catch((error) => {
                 console.log("Error de conexion: " + error.message);
-    
-                res.render('error', {error: "Error de conexion: " + error.message});
-            });
-        },   
 
+                res.render('error', { error: "Error de conexion: " + error.message });
+            });
+    },
 
 //EDITAR PRODUCTO 
     editarProducto: (req, res, next) => {
@@ -223,21 +221,37 @@ let controladorProducto = {
     },
 
 //AGREGAR COMENTARIO
-        crearComentario:  (req, res)=> {
-            db.Comentario.create({ 
-                texto: req.body.texto,
-                usuarios_id: req.session.idUsuario, 
-                productos_id: req.params.id
-            }).then(comentarioNuevo => {
-                res.redirect('/product/' + req.params.id);   
+    crearComentario: (req, res) => {
+        db.Comentario.create({
+            texto: req.body.texto,
+            usuarios_id: req.session.idUsuario,
+            productos_id: req.params.id
+        }).then(comentarioNuevo => {
+            res.redirect('/product/' + req.params.id);
+        })
+            .catch((error) => {
+                console.log("Error de conexion: " + error.message);
+
+                res.render('error', { error: "Error de conexion: " + error.message });
+            });
+    },
+
+//ELIMINAR COMENTARIO
+    borrarComentario: (req, res) => {
+        db.Comentario.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(() => {
+                res.redirect('/');
             })
             .catch((error) => {
                 console.log("Error de conexion: " + error.message);
-    
-                res.render('error', {error: "Error de conexion: " + error.message});
-            });
-        },
 
+                res.render('error', { error: "Error de conexion: " + error.message });
+            });
+    },
 //PAGINA DE TODOS
         todos: (req, res)=> {
             let filtro = {

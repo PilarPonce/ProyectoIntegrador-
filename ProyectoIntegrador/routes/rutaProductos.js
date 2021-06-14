@@ -27,6 +27,8 @@ router.get('/', controladorProducto.home);
 router.get('/product/:id', controladorProducto.porId);
 
 router.post ('/product/:id', controladorProducto.crearComentario);
+
+router.post ('/comentario/:id', controladorProducto.borrarComentario)
  
 router.get('/productadd', controladorProducto.productadd);
 

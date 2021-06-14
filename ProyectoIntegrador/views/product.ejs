@@ -28,8 +28,6 @@
                     <input class=" botonBorrar tipografia2" type="submit" value="Borrar" name="borrar">
                 </form>
                 <% }%>
-      
-
         </div>
         <div>
             <h3 class="autorLibro tipografia3"> Autor: <%= libro.autor %> </h3>
@@ -78,6 +76,21 @@
                                         <strong> 
                                             <a href="/profile/ <%= element.usuario.id %>" class="tipografia3"><%= element.usuario.nombre %></a>
                                         </strong>
+                                    <% if (element.usuario.id == idUsuario){%>
+                                    <!--
+                                        ELIMINAR COMENTARIO
+                                    -->
+                                    <form action="/comentario/<%= element.id %>" method="POST" class="borrar">
+
+                                        <input type="submit" value="Eliminar" name="borrar">
+                                        <label for="borrar">
+                                            <ion-icon name="trash-outline"></ion-icon>
+                                        </label>
+                                      
+                                    </form>
+                                  
+                                    
+                                    <% }%>
                                     <p class="tipografia3">
                                         <%= element.texto%>
                                     </p>
@@ -107,7 +120,7 @@
             </div>
         </div>
     </div>
-    <!-- detalle del producto -->
+  
 
     <!-- footer -->
     <%- include('./partials/footer')%>
