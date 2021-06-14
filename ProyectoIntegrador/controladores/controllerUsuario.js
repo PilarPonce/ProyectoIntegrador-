@@ -41,13 +41,12 @@ let controladorUsuario = {
         res.render('error', { error: "Error de conexion: " + error.message });
     })
     },   
-
-    
       
   //REGISTRAR  
     registrarUsuario: (req, res) => {
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
         let errors = {}
+
 
         if (req.body.nombre == "") {
             errors.message = "El nombre de usuario es obligatorio"; 
@@ -59,7 +58,7 @@ let controladorUsuario = {
             res.render('register');
         } else if (req.file == null) {
             errors.message = "La foto es obligatoria";
-            res.locals.errors = errors; //La foto es lo que nos causa problemas, sin esto carga sinfin y con no la toma, pone como si no tuviesemos foto aunque si. 
+            res.locals.errors = errors; 
             res.render('register');
         } else if (req.body.celular == "") {
             errors.message = "El celular es obligatorio";
@@ -74,11 +73,11 @@ let controladorUsuario = {
             errors.message = "La contraseña es obligatoria";
             res.locals.errors = errors;
             res.render('register');
-        }                                                           /*else if (req.body.contraseña <3 ){
-                                                                    errors.message = "La contraseña es muy corta";
-                                                                    res.locals.errors = errors;
-                                                                    res.render('register');
-                                                                } */
+        } else if (req.body.contraseña.length < 3) {
+            errors.message = "La contraseña es muy corta";
+            res.locals.errors = errors;
+            res.render('register');
+        }
         else {
             db.Usuario.findOne({
                 where: [{mail: req.body.mail}]
@@ -136,15 +135,16 @@ let controladorUsuario = {
                 } else {
                     if (bcrypt.compareSync(req.body.contraseña, usuario.contraseña)) {
                         req.session.usuario = usuario.nombre;
-                       // req.session.contraseña = usuario.contraseña;
-                       // req.session.idUsuario = usuario.id;
+                        req.session.contraseña = usuario.contraseña;
+                        req.session.idUsuario = usuario.id;
+                        console.log("contraseña???");
 
                         if (req.body.recordarme) {
                             res.cookie("usuarios_id", usuario.id, {
                                 maxAge: 1000 * 60 * 60 * 24
                             })
-                            res.redirect("/")
-                        } 
+                        }   
+                        res.redirect("/")
                     } else {
                         erroresLogin.message = "Contraseña incorrecta";
                         res.locals.erroresLogin = erroresLogin;

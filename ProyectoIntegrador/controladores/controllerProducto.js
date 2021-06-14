@@ -227,23 +227,20 @@ let controladorProducto = {
 
 
 //AGREGAR COMENTARIO
-        /*crearComentario:  (req, res)=> {
+        crearComentario:  (req, res)=> {
             db.Comentario.create({ 
                 texto: req.body.texto,
                 usuarios_id: req.session.idUsuario,
-                productos_id: res.session.libro
+                productos_id: req.params.id
             }).then(comentarioNuevo => {
-                res.redirect();   
+                res.redirect(' /product/' + req.params.id);   
             })
             .catch((error) => {
                 console.log("Error de conexion: " + error.message);
     
                 res.render('error', {error: "Error de conexion: " + error.message});
             });
-        },*/
-
-        //Hay que hacer un associate con el libro al que le estoy creando el comentario, pero no se como hacerlo con un create
-
+        },
 
 //PAGINA DE TODOS
         todos: (req, res)=> {

@@ -71,14 +71,14 @@
                             <% }) %>
                     </section>
 
-                    <% if(! logueado) { %>
+                    <% if(! logueado) { %> <!-- Este if significa que si no estas logueado, no podes agregar comentario y te redirecciona al login-->
                         <form class="form" action="/login" method="GET">
                             <input class="form-input" type="text" name="texto" placeholder="Agregar comentario">
                             <input type="hidden" name="libro" value="<%= libro.id %>">
                             <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
                         </form>
                     <% } else { %>
-                        <form class="form" action="/register" method="GET">
+                        <form class="form" action="/product/<%= libro.id %> " method="POST">
                             <input class="form-input" type="text" name="texto" placeholder="Agregar comentario">
                             <input type="hidden" name="libro" value="<%= libro.id %>">
                             <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
