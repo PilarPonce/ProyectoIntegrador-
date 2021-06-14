@@ -1,5 +1,3 @@
-let libros = require(`../libros/libros`);
-
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
@@ -33,7 +31,6 @@ let controladorUsuario = {
             ]
         }
 
- //despues del req.params.id falta el filtro 
      db.Usuario.findByPk(req.params.id, filtro)
      .then(resultado => {
         res.render('profile', {usuario: resultado});
@@ -99,7 +96,6 @@ let controladorUsuario = {
                             errors.message = "Ya existe un usuario con este nombre";
                             res.locals.errors = errors;
                         } else {
-                            console.log(req.body.nacimiento);
                             db.Usuario.create({
                                 
                                 nombre: req.body.nombre,
@@ -123,34 +119,41 @@ let controladorUsuario = {
     },
     
 //VALIDACION LOGIN
- //LOG IN
+//LOG IN
     loginUsuario: (req, res) => {
         let filtro = {
             where: {
                 nombre: req.body.nombre
-            }
+            }   
         }
+        let erroresLogin = {}
         db.Usuario.findOne(filtro)
-        .then(usuario => {
+            .then(usuario => {
+                if (usuario == null) {
+                    erroresLogin.message = "Usted no tiene una cuenta con este nombre";
+                    res.locals.erroresLogin = erroresLogin;
+                    res.render('login');
+                } else {
+                    if (bcrypt.compareSync(req.body.contraseña, usuario.contraseña)) {
+                        req.session.usuario = usuario.nombre;
+                       // req.session.contraseña = usuario.contraseña;
+                       // req.session.idUsuario = usuario.id;
 
-            if (bcrypt.compareSync(req.body.contraseña, usuario.contraseña)) {
-                req.session.usuario = usuario.nombre;
-                req.session.idUsuario = usuario.id;
-                req.session.foto = usuario.fotoPerfil;
-
-                if (req.body.recordarme) {
-                    res.cookie('usuarios_id', usuario.id, { maxAge: 1000 * 60 * 5 });
+                        if (req.body.recordarme) {
+                            res.cookie("usuarios_id", usuario.id, {
+                                maxAge: 1000 * 60 * 60 * 24
+                            })
+                            res.redirect("/")
+                        } 
+                    } else {
+                        erroresLogin.message = "Contraseña incorrecta";
+                        res.locals.erroresLogin = erroresLogin;
+                        res.render('login');
+                    }
                 }
-            }
-            else {
-                console.log(`contraseñaErronea`);
-
-            }
-            res.redirect('/');
-        })
+            })
             .catch((error) => {
                 console.log("Error de conexion: " + error.message);
-
                 res.render('error', { error: "Error de conexion: " + error.message });
             });
     },
@@ -165,17 +168,20 @@ let controladorUsuario = {
     },
 
     editar: (req, res) => {
-        let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
+        if (req.body.contraseña == ""){
+            req.body.contraseña = req.session.contraseña
+        } else {
+            req.body.contraseña = bcrypt.hashSync(req.body.contraseña);
+        }
 
         if (req.file != undefined) {
             let imagen = req.file.filename;
-
             db.Usuario.update({
                 nombre: req.body.nombre,
                 celular: req.body.celular,
                 mail: req.body.mail,
                 fotoPerfil: imagen,
-                contraseña: contraseñaEncriptada,
+                contraseña: req.body.contraseña,
                 nacimiento: req.body.nacimiento
     
             }, {
@@ -199,7 +205,7 @@ let controladorUsuario = {
                 celular: req.body.celular,
                 mail: req.body.mail,
                 fotoPerfil: imagen,
-                contraseña: contraseñaEncriptada,
+                contraseña: req.body.contraseña,
                 nacimiento: req.body.nacimiento
     
             }, {
@@ -207,6 +213,7 @@ let controladorUsuario = {
                     id: req.params.id
                 }
             }
+
             )
                 .then(() => {
                     res.redirect('/');
@@ -218,10 +225,11 @@ let controladorUsuario = {
                 });
         }
 
-        
+        if (req.body.nombre) {
+            req.session.usuario = req.body.nombre
+
+        }        
     },
-
-
 
 
 //LOG OUT

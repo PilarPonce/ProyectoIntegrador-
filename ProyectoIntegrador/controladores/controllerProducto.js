@@ -1,5 +1,3 @@
-let libros = require(`../libros/libros`);
-
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
@@ -120,7 +118,7 @@ let controladorProducto = {
                     { association: 'usuario' }
                 ],
                 where: {
-                    resumen: { [Op.like]: '%' + req.query.search + '%' },
+                    autor: { [Op.like]: '%' + req.query.search + '%' },
                 }
             }
 

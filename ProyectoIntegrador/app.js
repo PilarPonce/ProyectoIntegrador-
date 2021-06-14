@@ -42,6 +42,7 @@ app.use(function(req, res, next) {
 app.use(function (req, res, next) {
   console.log(req.session.usuario);
   console.log(req.session.idUsuario);
+  
   if (req.session.usuario) {
     res.locals = {
       logueado: true,

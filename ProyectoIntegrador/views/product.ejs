@@ -38,7 +38,7 @@
             <h3 class="autorLibro tipografia3"> Autor: <%= libro.autor %> </h3>
         </div>
         <div>
-            <h3 class="autorLibro tipografia3"> Creador: <%= libro.usuario.nombre %> </h3>
+            <a href="/profile/<%= libro.usuario.id%>"><h3 class="autorLibro tipografia3"> Creador: <%= libro.usuario.nombre %> </h3></a>
         </div>
         
         <div class="product-detail">
