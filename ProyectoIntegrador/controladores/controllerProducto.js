@@ -121,11 +121,22 @@ let controladorProducto = {
             }
 
             db.Producto.findAll(filtro)
-            .then(resultado2 => {
+            .then(resultado2=> {
+                let filtro = {
+                    include: [
+                        { association: 'usuario' }
+                    ],
+                    where: {
+                        genero: { [Op.like]: '%' + req.query.search + '%' },
+                    }
+                }
+                db.Producto.findAll(filtro)
+                    .then(resultado3 => {
             
-                res.render('searchresults', { libro: resultado, libro2:resultado2 });
+                res.render('searchresults', { libro: resultado, libro2:resultado2, libro3:resultado3 });
             
-        })
+                    })
+            })
     
         .catch((error) => {
             console.log("Error de conexion: " + error.message);
