@@ -92,7 +92,7 @@
 }
 
 .edito{
-  display: grid;
+  display: flex;
 }
 
 .borrar {
@@ -133,6 +133,7 @@
   margin-top: 10px;
   text-align: center;
 }
+
 .botonEditar h3{
   display: flex;
   color: grey;
@@ -570,6 +571,8 @@ hr {
   height: 500px;
 }
 
+
+
 .agregarProducto{
   background-color: var(--yellow);
   text-align: center;
@@ -598,6 +601,7 @@ hr {
   height: 65rem ;
 }
 
+
 .forms{
   width: 30rem;
   text-align: center;
@@ -609,12 +613,72 @@ hr {
   margin: 25px;
 }
 
+
+/*EDITAR PERFIL*/
+.formularioEditarPerfil{
+  background-color: var(--yellow);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-left: 300px;
+  height: 1000px;
+}
+.formsEditarPerfil{
+  width: 30rem;
+  text-align: center;
+  height: 850px;
+  background: white;
+  padding: 40px 0;
+  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  margin: 25px;
+}
+.formEditarPerfil{
+   height: 65rem ;
+}
+
+.botonEditarPerfil{
+  display: flex;
+  color: grey;
+  font-size: 18px;
+  height: 30px;
+  width: 60px;
+  margin-left: 10px;
+  justify-content: center;
+  margin-top: 10px;
+  text-align: center;
+}
+
+
+
 .forms .completa{
   position: relative;
   margin: 0px ;
   
 }
+.formularioRegister {
+  background-color: var(--yellow);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-left: 300px;
+  height: 1050px;
+}
 
+.formRegister{
+  height: 900px ;
+}
+
+.formsRegister{
+  width: 30rem;
+  text-align: center;
+  height: 1000px;
+  background: white;
+  padding: 40px 0;
+  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  margin: 25px;
+}
 
 .inputs{
   background: none;
@@ -640,11 +704,20 @@ hr {
 
 
 /*login*/
-.form2{
+.formularioLogin {
+  background-color: var(--yellow);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-left: 300px;
+  height: 500px;
+}
+
+.formLogin{
   height: 28rem ;
 }
 
-.forms2{
+.formsLogin{
   width: 30rem;
   text-align: center;
   height: 20rem;
@@ -664,6 +737,17 @@ hr {
 }
 
 /*productadd*/
+
+.formsAgregarProducto{
+  width: 30rem;
+  text-align: center;
+  height: 660px;
+  background: white;
+  padding: 40px 0;
+  box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  margin: 25px;
+}
 
 .formulario3{
   background-color: var(--yellow);
