@@ -28,11 +28,13 @@ let controladorUsuario = {
         let filtro = {
             include: [
                 {association: 'productos', include: 'usuario'}, 
+                {association: 'comentarios'}
             ]
         }
 
      db.Usuario.findByPk(req.params.id, filtro)
      .then(resultado => {
+         console.log(resultado);
         res.render('profile', {usuario: resultado});
     })
     .catch((error) => {
@@ -64,8 +66,7 @@ let controladorUsuario = {
             errors.message = "El celular es obligatorio";
             res.locals.errors = errors;
             res.render('register');
-        }
-            else if (req.body.nacimiento == null) {
+        } else if (req.body.nacimiento == null) {
             errors.message = "La fecha de nacimiento es obligatoria"; 
             res.locals.errors = errors;
             res.render('register');
@@ -96,7 +97,7 @@ let controladorUsuario = {
                             res.locals.errors = errors;
                         } else {
                             db.Usuario.create({
-                                
+                            
                                 nombre: req.body.nombre,
                                 celular: req.body.celular,
                                 mail: req.body.mail,
@@ -164,7 +165,6 @@ let controladorUsuario = {
         .then(resultado => {
             res.render('editarPerfil', { usuario: resultado });
         })
-       
     },
 
     editar: (req, res) => {
@@ -212,9 +212,7 @@ let controladorUsuario = {
                 where: {
                     id: req.params.id
                 }
-            }
-
-            )
+            })
                 .then(() => {
                     res.redirect('/');
                 })

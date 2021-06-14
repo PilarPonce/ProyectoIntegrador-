@@ -99,7 +99,41 @@
   display: flex;
 }
 
+
+.comentariosUsuario {
+  font-size: 18px;
+}
+
+.preguntaLogin {
+  font-size: 15px;
+}
+
+.subrayado {
+  text-decoration: underline blue;
+}
 .botonBorrar{
+  display: flex;
+  color: grey;
+  font-size: 13px;
+  height: 30px;
+  width: 60px;
+  margin-left: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.botonEditar {
+  display: flex;
+  color: grey;
+  font-size: 13px;
+  height: 30px;
+  width: 60px;
+  margin-left: 10px;
+  justify-content: center;
+  margin-top: 10px;
+  text-align: center;
+}
+.botonEditar h3{
   display: flex;
   color: grey;
   font-size: 15px;
@@ -108,18 +142,9 @@
   margin-left: 10px;
   justify-content: center;
   margin-top: 10px;
-
-}
-.botonEditar{
-  display: flex;
- 
-  color: grey;
-  font-size: 20px;
-  height: 40px;
-  width: 80px;
+  text-decoration: none;
   
 }
-
 
 /*====== Variables ======*/
 :root {
@@ -390,6 +415,7 @@ hr {
 
 .informacion{
   display: flex;
+
   
 }
 
@@ -541,6 +567,7 @@ hr {
   display: flex;
   justify-content: center;
   margin-left: 300px;
+  height: 500px;
 }
 
 .agregarProducto{
@@ -550,6 +577,7 @@ hr {
   justify-content: center;
   margin-left: 300px;
   margin-top: 40px;
+
  
 }
 
@@ -573,7 +601,7 @@ hr {
 .forms{
   width: 30rem;
   text-align: center;
-  height: 55rem;
+  height: 650px;
   background: white;
   padding: 40px 0;
   box-shadow: 0 0 12px 0 rgba(255, 255, 255, 0.8);

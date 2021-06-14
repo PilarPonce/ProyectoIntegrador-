@@ -13,26 +13,23 @@
     <div class="container products-wrapper">
 
         <div class="informacion">
-            <div>
-                <h3 class="tituloLibro">
-                    <%= libro.nombre %>
-                </h3>
-            </div>
-            <% if (libro.usuario.id == idUsuario){%>
-            
-            <button class="botonEditar">
-                <div class="editar">  
-                    <a href="/editarProducto/<%= libro.id %>"> <h3 class=" botonEditar tipografia2"> Editar</h3> </a>
-                </div>
-            </button>
+        
+            <h3 class="tituloLibro">
+                <%= libro.nombre %>
+            </h3>
 
+            <% if (libro.usuario.id==idUsuario){%>
+                <form action="/editarProducto/<%= libro.id %>" method="GET" class="editar">
+                    <input class="botonEditar tipografia2" type="submit" name="editar" value="Editar">
+                </form>
+        
+        
+                <form action="/borrar/<%= libro.id %>" method="POST" class="borrar">
+                    <input class=" botonBorrar tipografia2" type="submit" value="Borrar" name="borrar">
+                </form>
+                <% }%>
+      
 
-            <form action="/borrar/<%= libro.id %>" method="POST" class="borrar botonBorrar">     
-                <input class=" botonBorrar tipografia2" type="submit" value="Borrar" name="borrar">
-            </form>
-            <% }%>  
-
-           
         </div>
         <div>
             <h3 class="autorLibro tipografia3"> Autor: <%= libro.autor %> </h3>
@@ -50,7 +47,26 @@
                     <p class="product-detail-description tipografia3" id="resumenes"> <%= libro.resumen %> </p>
                 </article>
                 <% if (libro.comentarios == undefined || libro.comentarios == 0 ) { %>
-                    <h2 class="tipografia2" >No hay comentarios aún</h2>
+                    <div class="col-12 col-lg-4">
+                        <section class="comments">
+                            <h2 class="tipografia2">No hay comentarios aún</h2>
+                        </section>
+                    
+                        <% if(! logueado) { %>
+                            <!-- Este if significa que si no estas logueado, no podes agregar comentario y te redirecciona al login-->
+                            <form class="form" action="/login" method="GET">
+                                <input class="form-input" type="text" name="texto" placeholder="Agregar comentario">
+                                <input type="hidden" name="libro" value="<%= libro.id %>">
+                                <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+                            </form>
+                            <% } else { %>
+                                <form class="form" action="/product/<%= libro.id %> " method="POST">
+                                    <input class="form-input" type="text" name="texto" placeholder="Agregar comentario">
+                                    <input type="hidden" name="libro" value="<%= libro.id %>">
+                                    <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+                                </form>
+                                <% } %>
+                    </div>                
                 <% }else{ %>
                 <div class="col-12 col-lg-4">
                     <section class="comments">
@@ -68,6 +84,7 @@
                                     </p>
                                 </div>
                             </article>
+
                             <% }) %>
                     </section>
 

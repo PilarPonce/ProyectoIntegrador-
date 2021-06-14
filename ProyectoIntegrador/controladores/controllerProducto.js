@@ -73,9 +73,7 @@ let controladorProducto = {
         });
         });
         });
-        });
-           
-            
+        }); 
     },
 
 //DETALLE 
@@ -224,16 +222,14 @@ let controladorProducto = {
         
     },
 
-
-
 //AGREGAR COMENTARIO
         crearComentario:  (req, res)=> {
             db.Comentario.create({ 
                 texto: req.body.texto,
-                usuarios_id: req.session.idUsuario,
+                usuarios_id: req.session.idUsuario, 
                 productos_id: req.params.id
             }).then(comentarioNuevo => {
-                res.redirect(' /product/' + req.params.id);   
+                res.redirect('/product/' + req.params.id);   
             })
             .catch((error) => {
                 console.log("Error de conexion: " + error.message);
