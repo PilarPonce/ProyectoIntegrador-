@@ -14,7 +14,7 @@
                 <h2 class="tipografia2">Resultados de búsqueda</h2>
             </div>
 
-    <% if (libro == undefined && libro2 == undefined || libro == 0 && libro2 == 0) { %>
+    <% if (libro == undefined && libro2 == undefined && libro3 == undefined|| libro == 0 && libro2 == 0 && libro3 == 0) { %>
         <h2 class="tipografia2" >No se encontraron resultados</h2>
     <% } %>        
 
@@ -23,12 +23,18 @@
         <section class="product-box">
             <a href="/product/<%= element.id %>">
                 <figure class="product-box_image">
-                  <img src="/images/productos/<%= element.foto %>" alt="">
+                    <img src='/images/productos/<%= element.foto %>' alt="portada libro">
                 </figure>
                 <article class="product-box_data">
-                    <h2 class="tipografia1"><%= element.nombre %></h2>
-                    <p class="tipografia1"> Autor: <%= element.autor %></p>
-                    <a href="/profile/<%= element.usuario.id%>"><p class="tipografia1"> Creador: <%= element.usuario.nombre %></p></a>
+                    <h2 class="tipografia1">
+                        <%= element.nombre %>
+                    </h2>
+                    <p class="tipografia1"> Autor: <%= element.autor %> </p>
+                   
+                    <a href="/profile/<%= element.usuario.id%>">
+                        <p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %> </p>
+                    </a>
+                    
                     <style type="text/css">
                         a:link,
                         a:visited,
@@ -47,7 +53,7 @@
             <section class="product-box">
                 <a href="/product/<%= element.id %>">
                     <figure class="product-box_image">
-                        <img src="/images/productos/<%= element.foto %>" alt="">
+                        <img src='/images/productos/<%= element.foto %>' alt="portada libro">
                     </figure>
                     <article class="product-box_data">
                         <h2 class="tipografia1">
@@ -55,13 +61,44 @@
                         </h2>
                         <p class="tipografia1"> Autor: <%= element.autor %>
                         </p>
-                        <a href="/profile/<%= element.usuario.id%>"></a><p class="tipografia1"> Creador: <%= element.usuario.nombre %></a>
-                        </p>
+                        <a href="/profile/<%= element.usuario.id%>">
+                            <p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %> </p>
+                        </a>
+                        
                         <style type="text/css">
                             a:link,
                             a:visited,
                             a:active {
                                 text-decoration: none;
+                            }
+                        </style>
+                    </article>
+                </a>
+            </section>
+        </div>
+        <% }) %>
+        <% libro3.forEach(element=> { %>
+            <div class="col-12 col-sm-6 col-lg-3">
+            <section class="product-box">
+            <a href="/product/<%= element.id %>">
+                    <figure class="product-box_image">
+                        <img src= '/images/productos/<%= element.foto %>' alt="portada libro">
+                    </figure>
+                    <article class="product-box_data">
+                        <h2 class="tipografia1">
+                            <%= element.nombre %>
+                        </h2>
+                        <p class="tipografia1"> Autor: <%= element.autor %>
+                        </p>
+                        <a href="/profile/<%= element.usuario.id%>">
+                            <p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %> </p>
+                        </a>
+                        
+                        <style type="text/css">
+                            a:link,
+                            a:visited,
+                            a:active {
+                            text-decoration: none;
                             }
                         </style>
                     </article>

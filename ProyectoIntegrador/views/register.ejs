@@ -15,9 +15,9 @@
                 <h2 class="registrate">Registrate</h2>
             </div>
             <!-- form de registro -->
-            <section class= "formulario1">
-                <form class="form" action="/register" method="POST" id="form" enctype = "multipart/form-data">     
-                    <div class="forms">
+            <section class= "formularioRegister">
+                <form class="formRegister" action="/register" method="POST" id="form" enctype = "multipart/form-data">     
+                    <div class="formsRegister">
                         <div class="completa">
                             <label class="palabra" for="nombre">Nombre de usuario</label>
                             <input class="inputs" type="text" name="nombre" id="name">
@@ -65,9 +65,8 @@
                                 <h2 class="mensajeError">Error: <%= errors.message  %></h2>
                             <% } %>  
                         </div>
-                              
-
                             <button class="boton1" type="submit">Registrate</button>
+                            <a href="/login" class="preguntaLogin"> ¿Ya tenes una cuenta? Ingresa</a>
                         </div>
         
                 </form>

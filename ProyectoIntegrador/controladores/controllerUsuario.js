@@ -28,11 +28,13 @@ let controladorUsuario = {
         let filtro = {
             include: [
                 {association: 'productos', include: 'usuario'}, 
+                {association: 'comentarios'}
             ]
         }
 
      db.Usuario.findByPk(req.params.id, filtro)
      .then(resultado => {
+         console.log(resultado);
         res.render('profile', {usuario: resultado});
     })
     .catch((error) => {
@@ -41,13 +43,12 @@ let controladorUsuario = {
         res.render('error', { error: "Error de conexion: " + error.message });
     })
     },   
-
-    
       
   //REGISTRAR  
     registrarUsuario: (req, res) => {
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
         let errors = {}
+
 
         if (req.body.nombre == "") {
             errors.message = "El nombre de usuario es obligatorio"; 
@@ -59,14 +60,13 @@ let controladorUsuario = {
             res.render('register');
         } else if (req.file == null) {
             errors.message = "La foto es obligatoria";
-            res.locals.errors = errors; //La foto es lo que nos causa problemas, sin esto carga sinfin y con no la toma, pone como si no tuviesemos foto aunque si. 
+            res.locals.errors = errors; 
             res.render('register');
         } else if (req.body.celular == "") {
             errors.message = "El celular es obligatorio";
             res.locals.errors = errors;
             res.render('register');
-        }
-            else if (req.body.nacimiento == null) {
+        } else if (req.body.nacimiento == null) {
             errors.message = "La fecha de nacimiento es obligatoria"; 
             res.locals.errors = errors;
             res.render('register');
@@ -74,11 +74,11 @@ let controladorUsuario = {
             errors.message = "La contraseña es obligatoria";
             res.locals.errors = errors;
             res.render('register');
-        }                                                           /*else if (req.body.contraseña <3 ){
-                                                                    errors.message = "La contraseña es muy corta";
-                                                                    res.locals.errors = errors;
-                                                                    res.render('register');
-                                                                } */
+        } else if (req.body.contraseña.length < 3) {
+            errors.message = "La contraseña es muy corta";
+            res.locals.errors = errors;
+            res.render('register');
+        }
         else {
             db.Usuario.findOne({
                 where: [{mail: req.body.mail}]
@@ -97,7 +97,7 @@ let controladorUsuario = {
                             res.locals.errors = errors;
                         } else {
                             db.Usuario.create({
-                                
+                            
                                 nombre: req.body.nombre,
                                 celular: req.body.celular,
                                 mail: req.body.mail,
@@ -136,15 +136,16 @@ let controladorUsuario = {
                 } else {
                     if (bcrypt.compareSync(req.body.contraseña, usuario.contraseña)) {
                         req.session.usuario = usuario.nombre;
-                       // req.session.contraseña = usuario.contraseña;
-                       // req.session.idUsuario = usuario.id;
+                        req.session.contraseña = usuario.contraseña;
+                        req.session.idUsuario = usuario.id;
+                        console.log("contraseña???");
 
                         if (req.body.recordarme) {
                             res.cookie("usuarios_id", usuario.id, {
                                 maxAge: 1000 * 60 * 60 * 24
                             })
-                            res.redirect("/")
-                        } 
+                        }   
+                        res.redirect("/")
                     } else {
                         erroresLogin.message = "Contraseña incorrecta";
                         res.locals.erroresLogin = erroresLogin;
@@ -164,7 +165,6 @@ let controladorUsuario = {
         .then(resultado => {
             res.render('editarPerfil', { usuario: resultado });
         })
-       
     },
 
     editar: (req, res) => {
@@ -212,9 +212,7 @@ let controladorUsuario = {
                 where: {
                     id: req.params.id
                 }
-            }
-
-            )
+            })
                 .then(() => {
                     res.redirect('/');
                 })

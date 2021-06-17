@@ -12,33 +12,33 @@
     <section class="info-usuario container products-wrapper">
         <div class="row">
             <div class="img-container offset-3 col-2">
-                <img src= '/images/usuarios/<%= usuario.fotoPerfil %>' alt="" class="foto-perfil" > <!-- hecho -->
+                <img src= '/images/usuarios/<%= usuario.fotoPerfil %>' alt="" class="foto-perfil" > 
             </div>
             <div class="data-container col-6"> 
                 <div class="d-flex align-items-center ">
                     <div class="edito">
-                        <div>
                             <h1 class="main-title"> <%=  usuario.nombre %> </h1>
-                        </div>
-            
+    
                     <% if (usuario.id == idUsuario){%>
-                        <div>
+                        
                             <a href="/editarPerfil/<%= usuario.id %>">
-                                <h3 class=" botonEditar tipografia2"> Editar</h3>
+                                <h3 class=" botonEditarPerfil tipografia2"> Editar</h3>
                             </a>
-                        </div>
                         <% }%>
                     </div>
- 
                 </div>
+               
             </div>
         </div>
+        <h2 class="comentariosUsuario tipografia2">Total de productos cargados: <%= usuario.productos.length%> </h2>
+        <h2 class="comentariosUsuario tipografia2">Total de comentarios realizados: <%= usuario.comentarios.length%></h2>
     </section>
     <!-- /Datos del usuario -->
 
     <!-- Mis productos -->
     <div class="container products-wrapper">
         <div class="row">
+            
             <div class="col-12">
                 <h2 class="products-title tipografia2">Mis libros</h2>
             </div>
@@ -52,7 +52,7 @@
                             <article class="product-box_data">
                                 <h2 class="tipografia1"><%= element.nombre %> </h2>
                                 <p class="tipografia1"> Autor: <%= element.autor %></p>
-                                <a href="/profile/<%=usuario.id%>"><p class="tipografia1"> Creador: <%= element.usuario.nombre %></p></a>
+                                <a href="/profile/<%=usuario.id%>"><p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %></p></a>
                                 <style type="text/css">
                                     a:link,
                                     a:visited,

@@ -25,8 +25,10 @@
                         </h2>
                         <p class="tipografia1"> Autor: <%= element.autor %>
                         </p>
-                        <p class="tipografia1"> Creador: <%= element.usuario.nombre %>
-                        </p>
+                        <a href="/profile/<%= element.usuario.id%>">
+                            <p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %> </p>
+                        </a>
+                      
                         <style type="text/css">
                             a:link,
                             a:visited,

@@ -73,9 +73,7 @@ let controladorProducto = {
         });
         });
         });
-        });
-           
-            
+        }); 
     },
 
 //DETALLE 
@@ -123,11 +121,22 @@ let controladorProducto = {
             }
 
             db.Producto.findAll(filtro)
-            .then(resultado2 => {
+            .then(resultado2=> {
+                let filtro = {
+                    include: [
+                        { association: 'usuario' }
+                    ],
+                    where: {
+                        genero: { [Op.like]: '%' + req.query.search + '%' },
+                    }
+                }
+                db.Producto.findAll(filtro)
+                    .then(resultado3 => {
             
-                res.render('searchresults', { libro: resultado, libro2:resultado2 });
+                res.render('searchresults', { libro: resultado, libro2:resultado2, libro3:resultado3 });
             
-        })
+                    })
+            })
     
         .catch((error) => {
             console.log("Error de conexion: " + error.message);
@@ -162,23 +171,21 @@ let controladorProducto = {
     },
 
 //BORRAR PRODUCTO     
-
-        borrar: (req, res)=> {
-            db.Producto.destroy({
-                where:{
-                    id: req.params.id
-                }
-            })
-            .then(()=>{
+    borrar: (req, res) => {
+        db.Producto.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(() => {
                 res.redirect('/');
             })
             .catch((error) => {
                 console.log("Error de conexion: " + error.message);
-    
-                res.render('error', {error: "Error de conexion: " + error.message});
-            });
-        },   
 
+                res.render('error', { error: "Error de conexion: " + error.message });
+            });
+    },
 
 //EDITAR PRODUCTO 
     editarProducto: (req, res, next) => {
@@ -224,27 +231,38 @@ let controladorProducto = {
         
     },
 
-
-
 //AGREGAR COMENTARIO
-        /*crearComentario:  (req, res)=> {
-            db.Comentario.create({ 
-                texto: req.body.texto,
-                usuarios_id: req.session.idUsuario,
-                productos_id: res.session.libro
-            }).then(comentarioNuevo => {
-                res.redirect();   
+    crearComentario: (req, res) => {
+        db.Comentario.create({
+            texto: req.body.texto,
+            usuarios_id: req.session.idUsuario,
+            productos_id: req.params.id
+        }).then(comentarioNuevo => {
+            res.redirect('/product/' + req.params.id);
+        })
+            .catch((error) => {
+                console.log("Error de conexion: " + error.message);
+
+                res.render('error', { error: "Error de conexion: " + error.message });
+            });
+    },
+
+//ELIMINAR COMENTARIO
+    borrarComentario: (req, res) => {
+        db.Comentario.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(() => {
+                res.redirect('/');
             })
             .catch((error) => {
                 console.log("Error de conexion: " + error.message);
-    
-                res.render('error', {error: "Error de conexion: " + error.message});
+
+                res.render('error', { error: "Error de conexion: " + error.message });
             });
-        },*/
-
-        //Hay que hacer un associate con el libro al que le estoy creando el comentario, pero no se como hacerlo con un create
-
-
+    },
 //PAGINA DE TODOS
         todos: (req, res)=> {
             let filtro = {

@@ -14,9 +14,9 @@
                 <h2 class="iniciarsesion">Ingresar</h2>
             </div>
         
-            <section class= "formulario1">
-                <form class="form2" action="/login" method="POST" id="form">     
-                    <div class="forms2">
+            <section class= "formularioLogin">
+                <form class="formLogin" action="/login" method="POST" id="form">     
+                    <div class="formsLogin">
                         
                         <div class="completa">
                             <label class="palabra" for="name">Nombre</label>
@@ -28,7 +28,7 @@
         
                         <div class="completa">
                             <label class="palabra" for="contraseña">Contraseña</label>
-                            <input class="inputs" type="contraseña" name="contraseña" id="contraseña">
+                            <input class="inputs" type="password" name="contraseña" id="contraseña">
                             <hr>
                             </hr>
                         </div>
@@ -43,8 +43,8 @@
                                 </h2>
                                 <% } %>
                         </div>
-
                             <button class="boton1" type="submit">Iniciar sesión</button>
+                            <a href="/register" class="preguntaLogin"> ¿Todavia no tenes una cuenta? Registrate</a>
                     </div>
         
                 </form>

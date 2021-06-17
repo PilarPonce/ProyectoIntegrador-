@@ -16,9 +16,9 @@
                         <h2 class="registrate">Editar Perfil</h2>
                     </div>
                     <!-- form de registro -->
-                    <section class="formulario1">
-                        <form class="form" action="/editarPerfil/<%= usuario.id%>" method="POST" id="form" enctype="multipart/form-data">
-                            <div class="forms">
+                    <section class="formularioEditarPerfil">
+                        <form class="formEditarPerfil" action="/editarPerfil/<%= usuario.id%>" method="POST" id="form" enctype="multipart/form-data">
+                            <div class="formsEditarPerfil">
                                 <div class="completa">
                                     <label class="palabra" for="nombre">Nombre de usuario</label>
                                     <input class="inputs" type="text" name="nombre" id="name"  value= "<%= usuario.nombre%>">
@@ -69,14 +69,12 @@
                                 </div>
                                 <button class="boton1" type="submit">Registrate</button>
                             </div>
-
                         </form>
                     </section>
 
-
                     <!-- footer -->
                     <%- include('./partials/footer')%>
-                        <!-- /footer -->
+                    <!-- /footer -->
     </body>
 
 </html>
