@@ -109,8 +109,16 @@
 }
 
 .subrayado {
-  text-decoration: underline blue;
+  text-decoration: underline grey;
 }
+
+.fotoCadaLibro{
+  max-height: 386px;
+  min-height: 386px;
+  min-width: 240px;
+  max-height: 240px;
+}
+
 .botonBorrar{
   display: flex;
   color: grey;
@@ -452,10 +460,18 @@ hr {
 .product-box_data {
   padding: 15px;
   position: relative;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
   
+  align-items: center;
+  
+  
+}
+
+.autorCreador{
+  padding: 15px;
+  position: relative;
+  display: grid;
+  align-items: center;
+  grid-template-rows: 1.5fr 1.5fr;
 }
 
 .product-box_data h2 {
@@ -1040,6 +1056,20 @@ hr {
 }
 .comments .user{
   font-size: 1.7em;
+  margin-top: 0;
+  margin-right: 5px;
+}
+
+.todoComentario{
+  display: flex;
+}
+
+.fotoUsuarioComent{
+  margin-top: 20px;
+}
+
+.nombreEliminar{
+  display: flex;
 }
 
 /*====== Formularios ======*/

@@ -69,31 +69,29 @@
                 <div class="col-12 col-lg-4">
                     <section class="comments">
                         <% libro.comentarios.forEach(element=> { %>
-                            <article>
-                                <img src= '/images/usuarios/<%=element.usuario.fotoPerfil %>' alt="">
+                            <article class="todoComentario">
+                                <img src= '/images/usuarios/<%=element.usuario.fotoPerfil %>' alt="" class="fotoUsuarioComent">
                                 <div class="data">
-                                    <p class="user">
-                                        <strong> 
-                                            <a href="/profile/ <%= element.usuario.id %>" class="tipografia3"><%= element.usuario.nombre %></a>
-                                        </strong>
-                                    <% if (element.usuario.id == idUsuario){%>
-                                    <!--
-                                        ELIMINAR COMENTARIO
-                                    -->
-                                    <form action="/comentario/<%= element.id %>" method="POST" class="borrar">
+                                    <p>
+                                        <div class="nombreEliminar">
+                                            <strong> 
+                                                <a href="/profile/ <%= element.usuario.id %>" class="tipografia3 user"><%= element.usuario.nombre %></a>
+                                            </strong>
 
-                                        <input type="submit" value="Eliminar" name="borrar">
-                                        <label for="borrar">
-                                            <ion-icon name="trash-outline"></ion-icon>
-                                        </label>
-                                      
-                                    </form>
-                                  
-                                    
-                                    <% }%>
-                                    <p class="tipografia3">
-                                        <%= element.texto%>
-                                    </p>
+                                            <% if (element.usuario.id == idUsuario){%>
+                                                <!-- ELIMINAR COMENTARIO-->
+                                                <form action="/comentario/<%= element.id %>" method="POST" class="borrar">
+                                                    <input type="submit" value="Eliminar" name="borrar">
+                                                    <!--<label for="borrar">
+                                                        <ion-icon name="trash-outline" class="user"></ion-icon>
+                                                    </label>-->
+                                                </form>
+                                            <% }%>
+                                        </div>
+
+                                        <p class="tipografia3">
+                                            <%= element.texto%>
+                                        </p>
                                     </p>
                                 </div>
                             </article>
