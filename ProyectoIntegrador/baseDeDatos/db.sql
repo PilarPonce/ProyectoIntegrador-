@@ -50,8 +50,6 @@ VALUES (DEFAULT, 'KendallJ',  155876545,  'kendalljenner@gmail.com', 'Kendall.jp
 INSERT INTO usuarios
 VALUES (DEFAULT, 'KrissJ',  155367485,  'krissjenner@gmail.com', 'Kris.jpg', 'libros9876', '1977-07-12' , DEFAULT, DEFAULT);
 
-SELECT id, nombre, celular, mail, fotoPerfil, contraseña, nacimiento
-FROM usuarios;
 
 INSERT INTO productos
 VALUES (DEFAULT, 'La chica de nieve', 'bestseller1.jpg', 2020, 'Javier Castillo', 'Thriller', 'Thriller perfecto que cambia las reglas del género. El desfile de Acción de Gracias más famoso del planeta. Una niña de tres años desaparecida. ¿Dónde está Kiera Templeton? Nueva York, 1998, cabalgata de Acción de Gracias. Kiera Templeton, de tan solo tres años, desaparece entre la multitud. Tras una búsqueda frenética por toda la ciudad, alguien encuentra unos mechones de pelo junto a la ropa que llevaba puesta la pequeña.En 2003, el día que hubiese sido el octavo cumpleaños de Kiera, sus padres, Aaron y Grace Templeton, reciben en casa un extraño paquete con algo inesperado: una cinta de vídeo VHS con una grabación de un minuto de Kiera, jugando en una habitación desconocida.Miren Triggs, una estudiante de periodismo de la Universidad de Columbia, se siente atraída por el caso e inicia una investigación paralela que la lleva a desentrañar aspectos de su pasado que creía olvidados, y es que su historia personal, al igual que la de Kiera, está llena de incógnitas.Después del éxito de El día que se perdió la cordura, El día que se perdió el amor y Todo lo que sucedió con Miranda Huff, con más de 650.000 ejemplares vendidos, Javier Castillo regresa con La chica de nieve, un juego de espejos y un oscuro viaje a las profundidades de la desesperación. Una novela que muestra que lo peor siempre pasa inadvertido.', 3 , DEFAULT, DEFAULT);
@@ -97,11 +95,6 @@ INSERT INTO productos
 VALUES (DEFAULT, 'El psicoanalista', 'thriller1.png', 2002, ' John Katzenbach', 'Thriller', 'El psicoanalista es una novela de suspenso y psicología, la cual cuenta lo que vive el Doctor Frederick Starks después de recibir una carta amenazadora en la que le indican que debe suicidarse, o de lo contrario en quince días matarían poco a poco a todos los miembros de su familia.', 3, DEFAULT, DEFAULT);
 INSERT INTO productos
 VALUES (DEFAULT, 'Harry Potter y la piedra filosofal', 'fantasia1.jpg', 1997, ' J. K. Rowling', 'Fantasía', 'El día de su cumpleaños, Harry Potter descubre que es hijo de dos conocidos hechiceros, de los que ha heredado poderes mágicos. Debe asistir a una famosa escuela de magia y hechicería, donde entabla una amistad con dos jóvenes que se convertirán en sus compañeros de aventura. Durante su primer año en Hogwarts, descubre que un malévolo y poderoso mago llamado Voldemort está en busca de una piedra filosofal que alarga la vida de quien la posee.', 3, DEFAULT, DEFAULT);
-
-
-
-SELECT id, nombre, foto, anio, autor, genero, resumen, usuarios_id
-FROM productos;
 
 
 INSERT INTO comentarios
@@ -353,7 +346,3 @@ INSERT INTO comentarios
 VALUES (DEFAULT, 'Intrigante, fácil de leer y contado de una manera muy cinematográfica, lo cual hace que te enganches muchísimo.', 4, 22, DEFAULT, DEFAULT);
 INSERT INTO comentarios
 VALUES (DEFAULT, 'Este catalogo es buenisimo, me encanta', 5, 22, DEFAULT, DEFAULT);
-
-
-SELECT id, texto, usuarios_id, productos_id
-FROM comentarios;

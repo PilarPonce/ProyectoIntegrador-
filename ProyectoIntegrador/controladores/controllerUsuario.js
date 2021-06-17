@@ -84,18 +84,26 @@ let controladorUsuario = {
                 where: [{mail: req.body.mail}]
             })
             .then(resultado => {
+                console.log(resultado.nombre);
                 if (resultado != undefined) {
+                    //console.log("correo incorrecto");
                     errors.message = "Ya existe un usuario con ese email";
                     res.locals.errors = errors;
+                    res.render('register');
                 } else {
+                    //console.log("correo correcto");
                     db.Usuario.findOne({
                         where: [{nombre: req.body.nombre}]
                     })
-                    .then(resultado => {
-                        if (resultado != undefined) {
+                    .then(resultado2 => {
+                        console.log("encontro usuario");
+                        if (resultado2 != undefined) {
+                            console.log(" ya existe ");
                             errors.message = "Ya existe un usuario con este nombre";
                             res.locals.errors = errors;
+                            res.render('register');
                         } else {
+                            console.log(" no existe ");
                             db.Usuario.create({
                             
                                 nombre: req.body.nombre,
@@ -113,7 +121,9 @@ let controladorUsuario = {
 
                                     res.render('error', { error: "Error de conexion: " + error.message });
                                 })
-                }    })   }
+                }
+            
+            })   }
             })
         }        
     },
@@ -144,7 +154,7 @@ let controladorUsuario = {
                             res.cookie("usuarios_id", usuario.id, {
                                 maxAge: 1000 * 60 * 60 * 24
                             })
-                            
+
                         }   
                         res.redirect("/")
                     } else {
