@@ -29,8 +29,8 @@ app.use(session( {
 const db = require('./database/models');
 
 app.use(function(req, res, next) {
-  if(req.cookies.idUsuario && !req.session.usuario) {
-    db.Usuario.findByPk(req.cookies.idUsuario).then(resultado => {
+  if(req.cookies.usuarios_id && !req.session.usuario) {
+    db.Usuario.findByPk(req.cookies.usuarios_id).then(resultado => {
       req.session.usuario = resultado.nombre;
       return next();
     });

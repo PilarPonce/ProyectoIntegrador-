@@ -144,6 +144,7 @@ let controladorUsuario = {
                             res.cookie("usuarios_id", usuario.id, {
                                 maxAge: 1000 * 60 * 60 * 24
                             })
+                            
                         }   
                         res.redirect("/")
                     } else {
