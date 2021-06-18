@@ -15,6 +15,13 @@
   font-family: 'Quicksand', sans-serif;
 }
 
+.tipografiaComentario{
+  font-family: 'PT Serif', serif;
+  font-size: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 
 
 .cerrarSesion form input{
