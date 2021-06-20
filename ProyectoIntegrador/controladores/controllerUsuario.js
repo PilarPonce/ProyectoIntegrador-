@@ -6,7 +6,7 @@ const { resolveInclude } = require('ejs');
 
 let controladorUsuario = {
     
-    login: (req, res, next) => {
+    login: (req, res, next) => { 
         res.render('login', { });
     },
 

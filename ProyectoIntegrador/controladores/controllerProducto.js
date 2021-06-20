@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 let controladorProducto = { 
     home: (req,res,next)=> {    
         let filtro = { 
-            include: [
+            include: [ 
                 { association: 'usuario' }
             ],
             order: [ 
