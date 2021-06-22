@@ -43,7 +43,7 @@
   font-size: 20px;
   cursor: pointer;
   border-radius: 15px;
-  margin-top: 10px;
+  margin-top: 50px;
   font-family: 'PT Serif', serif;
 }
 .botonAgregarProducto{
@@ -59,7 +59,24 @@
   font-size: 20px;
   cursor: pointer;
   border-radius: 15px;
-  margin-top: 42px;
+  margin-top: 70px;
+  font-family: 'PT Serif', serif;
+}
+
+.botonAgregarProducto3{
+  display: flex;
+  justify-content: center;
+  background: rgb(1, 22, 39);
+  border: none;
+  padding-top: 0%;
+  width: 200px;
+  margin: 10px auto;
+  color: #fff;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 15px;
+  margin-top: 50px;
   font-family: 'PT Serif', serif;
 }
 
@@ -603,7 +620,7 @@ hr {
   justify-content: center;
   margin-left: 300px;
   margin-top: 40px;
-
+  
  
 }
 
@@ -613,7 +630,8 @@ hr {
   text-align: center;
   display: flex;
   justify-content: center;
-  margin-left: 300px; 
+  margin-left: 300px;
+  height: 48rem; 
 }
 
 #fecha{
