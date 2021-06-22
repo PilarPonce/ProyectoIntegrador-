@@ -257,7 +257,7 @@ let controladorProducto = {
             }
         })
             .then(() => {
-                res.redirect('/');
+                res.redirect('/product/' + req.body.libro);
             })
             .catch((error) => {
                 console.log("Error de conexion: " + error.message);
