@@ -84,7 +84,7 @@ let controladorProducto = {
                     {association: 'usuario'}   
                 ],
                 order: [ 
-                    ['createdAt', 'DESC'],
+                    ['comentarios', 'createdAt', 'DESC'],
                   ]
             }
         

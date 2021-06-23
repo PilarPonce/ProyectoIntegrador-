@@ -76,7 +76,7 @@
                                             <strong> 
                                                 <a href="/profile/ <%= element.usuario.id %>" class="tipografia3 user"><%= element.usuario.nombre %></a>
                                             </strong>
-<!-- eliminar comentario-->
+<!-- Eliminar comentario-->
                                             <% if (element.usuario.id == idUsuario){%>
                                                 <form action="/comentario/<%= element.id %>" method="POST" class="borrar">
                                                     <input type="submit" value="Eliminar" name="borrar">
