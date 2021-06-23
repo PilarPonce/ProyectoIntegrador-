@@ -106,42 +106,27 @@ let controladorProducto = {
                 { association: 'usuario' }
             ],
             where: {
-                nombre: { [Op.like]: '%' + req.query.search + '%' }, 
+                [Op.or]: [
+                    {
+                        nombre: { [Op.like]: '%' + req.query.search + '%' }
+                    }, 
+                    {
+                        autor: { [Op.like]: '%' + req.query.search + '%' },
+                    }, 
+                    {
+                        genero: { [Op.like]: '%' + req.query.search + '%' },
+                    }
+                ]
             }
         }  
         db.Producto.findAll(filtro)
-        .then(resultado => {
-            let filtro = {
-                include: [
-                    { association: 'usuario' }
-                ],
-                where: {
-                    autor: { [Op.like]: '%' + req.query.search + '%' },
-                }
-            }
-
-            db.Producto.findAll(filtro)
-            .then(resultado2=> {
-                let filtro = {
-                    include: [
-                        { association: 'usuario' }
-                    ],
-                    where: {
-                        genero: { [Op.like]: '%' + req.query.search + '%' },
-                    }
-                }
-                db.Producto.findAll(filtro)
-                    .then(resultado3 => {
-            
-                res.render('searchresults', { libro: resultado, libro2:resultado2, libro3:resultado3 });
-            
-                    })
-            })
-    
+        .then (resultado => {
+            res.render('searchresults', { libro: resultado});
+        })
+        
         .catch((error) => {
             console.log("Error de conexion: " + error.message);
             res.render('error', {error: "Error de conexion: " + error.message});
-        });
         });
         },
 
