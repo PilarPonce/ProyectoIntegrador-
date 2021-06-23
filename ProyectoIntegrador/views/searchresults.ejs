@@ -9,14 +9,13 @@
 <!-- /Header -->
 
     <div class="container products-wrapper">
-        <div class="row">
+    <% if (libro==undefined || libro==0) { %>
+        <h2 class="tipografia2">No se encontraron resultados</h2>
+        <% } else {%>
             <div class="col-12">
                 <h2 class="tipografia2">Resultados de búsqueda</h2>
             </div>
-
-    <% if (libro == undefined && libro2 == undefined && libro3 == undefined|| libro == 0 && libro2 == 0 && libro3 == 0) { %>
-        <h2 class="tipografia2" >No se encontraron resultados</h2>
-    <% } %>        
+            <% } %>
 
     <% libro.forEach(element => { %>
     <div class="col-12 col-sm-6 col-lg-3">
