@@ -6,7 +6,7 @@ const { resolveInclude } = require('ejs');
 
 let controladorUsuario = {
     
-    login: (req, res, next) => {
+    login: (req, res, next) => { 
         res.render('login', { });
     },
 
@@ -84,7 +84,7 @@ let controladorUsuario = {
                 where: [{mail: req.body.mail}]
             })
             .then(resultado => {
-                console.log(resultado.nombre);
+                //console.log(resultado.nombre);
                 if (resultado != undefined) {
                     //console.log("correo incorrecto");
                     errors.message = "Ya existe un usuario con ese email";

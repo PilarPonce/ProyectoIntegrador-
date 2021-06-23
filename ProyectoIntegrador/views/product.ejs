@@ -79,6 +79,7 @@
 <!-- Eliminar comentario-->
                                             <% if (element.usuario.id == idUsuario){%>
                                                 <form action="/comentario/<%= element.id %>" method="POST" class="borrar">
+                                                    <input type="hidden" name="libro" value="<%= libro.id %>">
                                                     <input type="submit" value="Eliminar" name="borrar">
                                                     <!--<label for="borrar">
                                                         <ion-icon name="trash-outline" class="user"></ion-icon>

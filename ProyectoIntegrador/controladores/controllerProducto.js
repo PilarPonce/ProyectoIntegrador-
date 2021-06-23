@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 let controladorProducto = { 
     home: (req,res,next)=> {    
         let filtro = { 
-            include: [
+            include: [ 
                 { association: 'usuario' }
             ],
             order: [ 
@@ -233,11 +233,13 @@ let controladorProducto = {
 
 //AGREGAR COMENTARIO
     crearComentario: (req, res) => {
+    
         db.Comentario.create({
             texto: req.body.texto,
             usuarios_id: req.session.idUsuario,
             productos_id: req.params.id
-        }).then(comentarioNuevo => {
+        })
+        .then(comentarioNuevo => {
             res.redirect('/product/' + req.params.id);
         })
             .catch((error) => {
@@ -255,7 +257,7 @@ let controladorProducto = {
             }
         })
             .then(() => {
-                res.redirect('/');
+                res.redirect('/product/' + req.body.libro);
             })
             .catch((error) => {
                 console.log("Error de conexion: " + error.message);
