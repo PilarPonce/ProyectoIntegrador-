@@ -84,14 +84,13 @@ let controladorUsuario = {
                 where: [{mail: req.body.mail}]
             })
             .then(resultado => {
-                //console.log(resultado.nombre);
+               
                 if (resultado != undefined) {
-                    //console.log("correo incorrecto");
                     errors.message = "Ya existe un usuario con ese email";
                     res.locals.errors = errors;
                     res.render('register');
                 } else {
-                    //console.log("correo correcto");
+
                     db.Usuario.findOne({
                         where: [{nombre: req.body.nombre}]
                     })
@@ -103,7 +102,7 @@ let controladorUsuario = {
                             res.locals.errors = errors;
                             res.render('register');
                         } else {
-                            console.log(" no existe ");
+                         
                             db.Usuario.create({
                             
                                 nombre: req.body.nombre,
@@ -177,8 +176,6 @@ let controladorUsuario = {
 
     editar: (req, res) => {
         
-      
-
         if (req.body.contraseña == ""){
             req.body.contraseña = req.session.contraseña
         } else {
@@ -199,8 +196,7 @@ let controladorUsuario = {
                 where: {
                     id: req.params.id
                 }
-            }
-            )
+            })
                 .then(() => {
                     res.redirect('/');
                 })
@@ -218,10 +214,9 @@ let controladorUsuario = {
                 .then(resultado2 => {
                     
                     if (resultado2 != undefined) {
-                        console.log(" ya existe ");
                         errors.message = "Ya existe un usuario con este nombre";
                         res.locals.errors = errors;
-                        res.render('register');
+                        res.render('editarPerfil');
                     } else {
                         let imagen = req.session.foto;
                         db.Usuario.update({
@@ -245,14 +240,12 @@ let controladorUsuario = {
 
                                 res.render('error', { error: "Error de conexion: " + error.message });
                             });
-                    }
-                            
+                    }         
                 })
         }
 
         if (req.body.nombre) {
             req.session.usuario = req.body.nombre
-
         }        
     },
 
