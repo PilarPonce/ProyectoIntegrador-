@@ -28,6 +28,11 @@
   font-size: large;
   color: white;
 }
+
+.cerrarSesion :hover{
+  color: blue;
+}
+
 .boton1{
   justify-content: center;
   display: flex;
@@ -162,20 +167,9 @@
   justify-content: center;
   margin-top: 10px;
   text-align: center;
+
 }
 
-.botonEditar h3{
-  display: flex;
-  color: grey;
-  font-size: 15px;
-  height: 40px;
-  width: 80px;
-  margin-left: 10px;
-  justify-content: center;
-  margin-top: 10px;
-  text-decoration: none;
-  
-}
 
 /*====== Variables ======*/
 :root {
@@ -688,6 +682,10 @@ hr {
   text-align: center;
 }
 
+.botonEditarPerfil1 :hover {
+  color: blue;
+  text-decoration: underline;
+}
 
 
 .forms .completa{

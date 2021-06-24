@@ -20,10 +20,11 @@
                             <h1 class="main-title"> <%=  usuario.nombre %> </h1>
     
                     <% if (usuario.id == idUsuario){%>
-                        
-                            <a href="/editarPerfil/<%= usuario.id %>">
+                        <div class="editarperfil">
+                            <a href="/editarPerfil/<%= usuario.id %>" class="botonEditarPerfil1">
                                 <h3 class=" botonEditarPerfil tipografia2"> Editar</h3>
                             </a>
+                            </div>
                         <% }%>
                     </div>
                 </div>
