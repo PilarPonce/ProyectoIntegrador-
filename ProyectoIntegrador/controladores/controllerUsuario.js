@@ -128,7 +128,6 @@ let controladorUsuario = {
         }        
     },
     
-//VALIDACION LOGIN
 //LOG IN
     loginUsuario: (req, res) => {
         let filtro = {
@@ -148,13 +147,11 @@ let controladorUsuario = {
                         req.session.usuario = usuario.nombre;
                         req.session.contraseña = usuario.contraseña;
                         req.session.idUsuario = usuario.id;
-                        console.log("contraseña???");
 
                         if (req.body.recordarme) {
                             res.cookie("usuarios_id", usuario.id, {
                                 maxAge: 1000 * 60 * 60 * 24
                             })
-
                         }   
                         res.redirect("/")
                     } else {
