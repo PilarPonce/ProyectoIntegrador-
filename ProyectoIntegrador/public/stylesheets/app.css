@@ -30,7 +30,7 @@
 }
 
 .cerrarSesion :hover{
-  color: blue;
+  color:  #1259c3;;
 }
 
 .boton1{
@@ -682,11 +682,16 @@ hr {
   text-align: center;
 }
 
+
 .botonEditarPerfil1 :hover {
-  color: blue;
+  color: #1259c3;;
   text-decoration: underline;
 }
 
+.creadorLibros :hover{
+ color:  #1259c3;;
+ text-decoration: underline;
+}
 
 .forms .completa{
   position: relative;
@@ -716,6 +721,8 @@ hr {
   border-radius: 30px;
   margin: 25px;
 }
+
+.creadorLibros{}
 
 .inputs{
   background: none;

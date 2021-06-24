@@ -59,7 +59,7 @@
                         <article class="product-box_data">
                             <h2 class="tipografia1"><%= element.nombre %></h2>
                             <p class="tipografia1"> Autor: <%= element.autor %> </p>
-                            <a href="/profile/<%= element.usuario.id%>"><p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %></p></a>
+                            <a href="/profile/<%= element.usuario.id%>" class="creadorLibros"><p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %></p></a>
                             
                             <style type="text/css">
                                 a:link,
@@ -91,7 +91,7 @@
                         <article class="product-box_data">
                             <h2 class="tipografia1"><%= element.nombre %></h2>
                             <p class="tipografia1"> Autor: <%= element.autor %></p>
-                            <a href="/profile/<%= element.usuario.id%>"> <p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %> </p></a>
+                            <a href="/profile/<%= element.usuario.id%>" class="creadorLibros"> <p class="tipografia1 subrayado" class="creadorLibros"> Creador: <%= element.usuario.nombre %> </p></a>
                         </article>
                     </a>
                 </section>
@@ -119,8 +119,8 @@
                             </h2>
                             <p class="tipografia1"> Autor: <%= element.autor %>
                             </p>
-                        <a href="/profile/<%= element.usuario.id%>">
-                            <p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %> </p>
+                        <a href="/profile/<%= element.usuario.id%>" class="creadorLibros">
+                            <p class="tipografia1 subrayado" > Creador: <%= element.usuario.nombre %> </p>
                         </a>
                         </article>
                     </a>
@@ -151,7 +151,7 @@
                             </h2>
                             <p class="tipografia1"> Autor: <%= element.autor %>
                             </p>
-                            <a href="/profile/<%= element.usuario.id%>">
+                            <a href="/profile/<%= element.usuario.id%>" class="creadorLibros">
                                 <p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %></p>
                             </a>
                         </article>
@@ -181,7 +181,7 @@
                         </h2>
                         <p class="tipografia1"> Autor: <%= element.autor %>
                         </p>
-                        <a href="/profile/<%= element.usuario.id%>">
+                        <a href="/profile/<%= element.usuario.id%>" class="creadorLibros">
                             <p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %> </p>
                         </a>
                     </article>
