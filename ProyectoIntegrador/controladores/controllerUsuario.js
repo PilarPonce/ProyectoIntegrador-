@@ -176,6 +176,9 @@ let controladorUsuario = {
     },
 
     editar: (req, res) => {
+        
+      
+
         if (req.body.contraseña == ""){
             req.body.contraseña = req.session.contraseña
         } else {
@@ -207,28 +210,44 @@ let controladorUsuario = {
                     res.render('error', { error: "Error de conexion: " + error.message });
                 });
         } else {
-            let imagen = req.session.foto;
-            db.Usuario.update({
-                nombre: req.body.nombre,
-                celular: req.body.celular,
-                mail: req.body.mail,
-                fotoPerfil: imagen,
-                contraseña: req.body.contraseña,
-                nacimiento: req.body.nacimiento
-    
-            }, {
-                where: {
-                    id: req.params.id
-                }
+            let errors = { }
+
+            db.Usuario.findOne({
+                where: [{ nombre: req.body.nombre }]
             })
-                .then(() => {
-                    res.redirect('/');
+                .then(resultado2 => {
+                    
+                    if (resultado2 != undefined) {
+                        console.log(" ya existe ");
+                        errors.message = "Ya existe un usuario con este nombre";
+                        res.locals.errors = errors;
+                        res.render('register');
+                    } else {
+                        let imagen = req.session.foto;
+                        db.Usuario.update({
+                            nombre: req.body.nombre,
+                            celular: req.body.celular,
+                            mail: req.body.mail,
+                            fotoPerfil: imagen,
+                            contraseña: req.body.contraseña,
+                            nacimiento: req.body.nacimiento
+
+                        }, {
+                            where: {
+                                id: req.params.id
+                            }
+                        })
+                            .then(() => {
+                                res.redirect('/');
+                            })
+                            .catch((error) => {
+                                console.log("Error de conexion: " + error.message);
+
+                                res.render('error', { error: "Error de conexion: " + error.message });
+                            });
+                    }
+                            
                 })
-                .catch((error) => {
-                    console.log("Error de conexion: " + error.message);
-    
-                    res.render('error', { error: "Error de conexion: " + error.message });
-                });
         }
 
         if (req.body.nombre) {
