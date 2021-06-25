@@ -1,76 +1,66 @@
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
-
 const bcrypt = require('bcryptjs');
 const { resolveInclude } = require('ejs');
-
 let controladorUsuario = {
-    
-    login: (req, res, next) => { 
-        res.render('login', { });
-    },
 
+    login: (req, res, next) => {
+        res.render('login', {});
+    },
     product: (req, res, next) => {
         res.render('product');
     },
-
     register: (req, res, next) => {
-        res.render('register', { });
+        res.render('register', {});
     },
-   
+
     searchresults: (req, res, next) => {
         res.render(`search-results`)
     },
-
-
-//PERFIL 
-    perfil: (req,res,next)=> {
+    //PERFIL 
+    perfil: (req, res, next) => {
         let filtro = {
             include: [
-                {association: 'productos', include: 'usuario'}, 
-                {association: 'comentarios'}
+                { association: 'productos', include: 'usuario' },
+                { association: 'comentarios' }
             ]
         }
+        db.Usuario.findByPk(req.params.id, filtro)
+            .then(resultado => {
+                console.log(resultado);
+                res.render('profile', { usuario: resultado });
+            })
+            .catch((error) => {
+                console.log("Error de conexion: " + error.message);
+                res.render('error', { error: "Error de conexion: " + error.message });
+            })
+    },
 
-     db.Usuario.findByPk(req.params.id, filtro)
-     .then(resultado => {
-         console.log(resultado);
-        res.render('profile', {usuario: resultado});
-    })
-    .catch((error) => {
-        console.log("Error de conexion: " + error.message);
-
-        res.render('error', { error: "Error de conexion: " + error.message });
-    })
-    },   
-      
-  //REGISTRAR  
+    //REGISTRAR  
     registrarUsuario: (req, res) => {
         let contraseñaEncriptada = bcrypt.hashSync(req.body.contraseña);
         let errors = {}
-
-
         if (req.body.nombre == "") {
-            errors.message = "El nombre de usuario es obligatorio"; 
+            errors.message = "El nombre de usuario es obligatorio";
             res.locals.errors = errors;
             res.render('register');
         } else if (req.body.mail == "") {
-            errors.message = "El email es obligatorio"; 
+            errors.message = "El email es obligatorio";
             res.locals.errors = errors;
             res.render('register');
         } else if (req.file == null) {
             errors.message = "La foto es obligatoria";
-            res.locals.errors = errors; 
+            res.locals.errors = errors;
             res.render('register');
         } else if (req.body.celular == "") {
             errors.message = "El celular es obligatorio";
             res.locals.errors = errors;
             res.render('register');
         } else if (req.body.nacimiento == null) {
-            errors.message = "La fecha de nacimiento es obligatoria"; 
+            errors.message = "La fecha de nacimiento es obligatoria";
             res.locals.errors = errors;
             res.render('register');
-        } else if (req.body.contraseña == "" ) {
+        } else if (req.body.contraseña == "") {
             errors.message = "La contraseña es obligatoria";
             res.locals.errors = errors;
             res.render('register');
@@ -81,58 +71,60 @@ let controladorUsuario = {
         }
         else {
             db.Usuario.findOne({
-                where: [{mail: req.body.mail}]
+                where: [{ mail: req.body.mail }]
             })
-            .then(resultado => {
-               
-                if (resultado != undefined) {
-                    errors.message = "Ya existe un usuario con ese email";
-                    res.locals.errors = errors;
-                    res.render('register');
-                } else {
+                .then(resultado => {
+                    //console.log(resultado.nombre);
+                    if (resultado != undefined) {
+                        //console.log("correo incorrecto");
+                        errors.message = "Ya existe un usuario con ese email";
+                        res.locals.errors = errors;
+                        res.render('register');
+                    } else {
+                        //console.log("correo correcto");
+                        db.Usuario.findOne({
+                            where: [{ nombre: req.body.nombre }]
+                        })
+                            .then(resultado2 => {
+                                console.log("encontro usuario");
+                                if (resultado2 != undefined) {
+                                    console.log(" ya existe ");
+                                    errors.message = "Ya existe un usuario con este nombre";
+                                    res.locals.errors = errors;
+                                    res.render('register');
+                                } else {
+                                    console.log(" no existe ");
+                                    db.Usuario.create({
 
-                    db.Usuario.findOne({
-                        where: [{nombre: req.body.nombre}]
-                    })
-                    .then(resultado2 => {
-                        console.log("encontro usuario");
-                        if (resultado2 != undefined) {
-                            console.log(" ya existe ");
-                            errors.message = "Ya existe un usuario con este nombre";
-                            res.locals.errors = errors;
-                            res.render('register');
-                        } else {
-                         
-                            db.Usuario.create({
-                            
-                                nombre: req.body.nombre,
-                                celular: req.body.celular,
-                                mail: req.body.mail,
-                                fotoPerfil: req.file.filename,
-                                contraseña: contraseñaEncriptada,
-                                nacimiento: req.body.nacimiento
-                            })
-                            .then(usuario => {
-                                res.redirect('/login');
-                            })
-                                .catch((error) => {
-                                    console.log("Error de conexion: " + error.message);
+                                        nombre: req.body.nombre,
+                                        celular: req.body.celular,
+                                        mail: req.body.mail,
+                                        fotoPerfil: req.file.filename,
+                                        contraseña: contraseñaEncriptada,
+                                        nacimiento: req.body.nacimiento
+                                    })
+                                        .then(usuario => {
+                                            res.redirect('/login');
+                                        })
+                                        .catch((error) => {
+                                            console.log("Error de conexion: " + error.message);
+                                            res.render('error', { error: "Error de conexion: " + error.message });
+                                        })
+                                }
 
-                                    res.render('error', { error: "Error de conexion: " + error.message });
-                                })
-                }
-            
-            })   }
-            })
-        }        
+                            })
+                    }
+                })
+        }
     },
-    
-//LOG IN
+
+    //VALIDACION LOGIN
+    //LOG IN
     loginUsuario: (req, res) => {
         let filtro = {
             where: {
                 nombre: req.body.nombre
-            }   
+            }
         }
         let erroresLogin = {}
         db.Usuario.findOne(filtro)
@@ -146,12 +138,14 @@ let controladorUsuario = {
                         req.session.usuario = usuario.nombre;
                         req.session.contraseña = usuario.contraseña;
                         req.session.idUsuario = usuario.id;
+                        console.log("contraseña???");
 
                         if (req.body.recordarme) {
                             res.cookie("usuarios_id", usuario.id, {
                                 maxAge: 1000 * 60 * 60 * 24
                             })
-                        }   
+
+                        }
                         res.redirect("/")
                     } else {
                         erroresLogin.message = "Contraseña incorrecta";
@@ -166,22 +160,21 @@ let controladorUsuario = {
             });
     },
 
+
+
     //EDITAR PERFIL 
     editarPerfil: (req, res) => {
         db.Usuario.findByPk(req.params.id)
-        .then(resultado => {
-            res.render('editarPerfil', { usuario: resultado });
-        })
+            .then(resultado => {
+                res.render('editarPerfil', { usuario: resultado });
+            })
     },
-
     editar: (req, res) => {
-        
-        if (req.body.contraseña == ""){
+        if (req.body.contraseña == "") {
             req.body.contraseña = req.session.contraseña
         } else {
             req.body.contraseña = bcrypt.hashSync(req.body.contraseña);
         }
-
         if (req.file != undefined) {
             let imagen = req.file.filename;
             db.Usuario.update({
@@ -191,66 +184,79 @@ let controladorUsuario = {
                 fotoPerfil: imagen,
                 contraseña: req.body.contraseña,
                 nacimiento: req.body.nacimiento
-    
+
             }, {
                 where: {
                     id: req.params.id
                 }
-            })
+            }
+            )
                 .then(() => {
                     res.redirect('/');
                 })
                 .catch((error) => {
                     console.log("Error de conexion: " + error.message);
-    
+
                     res.render('error', { error: "Error de conexion: " + error.message });
                 });
         } else {
-            let errors = { }
-
+            let errors = {};
             db.Usuario.findOne({
-                where: [{ nombre: req.body.nombre }]
+                where: [{ mail: req.body.mail }]
             })
-                .then(resultado2 => {
-                    
-                    if (resultado2 != undefined) {
-                        errors.message = "Ya existe un usuario con este nombre";
+                .then(resultado => {
+                    //console.log(resultado.nombre);
+                    if (resultado != undefined) {
+                        //console.log("correo incorrecto");
+                        errors.message = "Ya existe un usuario con ese email";
                         res.locals.errors = errors;
                         res.render('editarPerfil');
                     } else {
-                        let imagen = req.session.foto;
-                        db.Usuario.update({
-                            nombre: req.body.nombre,
-                            celular: req.body.celular,
-                            mail: req.body.mail,
-                            fotoPerfil: imagen,
-                            contraseña: req.body.contraseña,
-                            nacimiento: req.body.nacimiento
-
-                        }, {
-                            where: {
-                                id: req.params.id
-                            }
+                        //console.log("correo correcto");
+                        db.Usuario.findOne({
+                            where: [{ nombre: req.body.nombre }]
                         })
-                            .then(() => {
-                                res.redirect('/');
-                            })
-                            .catch((error) => {
-                                console.log("Error de conexion: " + error.message);
+                            .then(resultado2 => {
+                                console.log("encontro usuario");
+                                if (resultado2 != undefined) {
+                                    console.log(" ya existe ");
+                                    errors.message = "Ya existe un usuario con este nombre";
+                                    res.locals.errors = errors;
+                                    res.render('editarPerfil');
+                                } else {
 
-                                res.render('error', { error: "Error de conexion: " + error.message });
-                            });
-                    }         
+                                    let imagen = req.session.foto;
+                                    db.Usuario.update({
+                                        nombre: req.body.nombre,
+                                        celular: req.body.celular,
+                                        mail: req.body.mail,
+                                        fotoPerfil: imagen,
+                                        contraseña: req.body.contraseña,
+                                        nacimiento: req.body.nacimiento
+
+                                    }, {
+                                        where: {
+                                            id: req.params.id
+                                        }
+                                    })
+                                        .then(usuario => {
+                                            res.redirect('/login');
+                                        })
+                                        .catch((error) => {
+                                            console.log("Error de conexion: " + error.message);
+                                            res.render('error', { error: "Error de conexion: " + error.message });
+                                        })
+                                    if (req.body.nombre) {
+                                        req.session.usuario = req.body.nombre
+                                    }
+                                }
+                            })
+                    }
                 })
         }
-
-        if (req.body.nombre) {
-            req.session.usuario = req.body.nombre
-        }        
+        
     },
-
-
-//LOG OUT
+    //LOG OUT
     logout: (req, res, next) => {
         req.session.destroy();
         res.clearCookie('usuarios_id');
@@ -258,5 +264,3 @@ let controladorUsuario = {
     }
 }
 module.exports = controladorUsuario;
-
-
