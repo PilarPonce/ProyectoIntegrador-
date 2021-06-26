@@ -30,7 +30,7 @@ const db = require('./database/models');
 
 app.use(function(req, res, next) {
   if(req.cookies.usuarios_id && !req.session.usuario) {
-    console.log("cookiess?? ");
+    
     db.Usuario.findByPk(req.cookies.usuarios_id).then(resultado => {
       req.session.usuario = resultado.nombre;
       req.session.idUsuario = resultado.id;
@@ -59,7 +59,7 @@ app.use(function (req, res, next) {
       idUsuario: 'no id'
     }
   }
-  console.log("funciona locals?" + res.locals);
+
   return next();
 });
 

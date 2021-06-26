@@ -74,26 +74,26 @@ let controladorUsuario = {
                 where: [{ mail: req.body.mail }]
             })
                 .then(resultado => {
-                    //console.log(resultado.nombre);
+                    
                     if (resultado != undefined) {
-                        //console.log("correo incorrecto");
+                    
                         errors.message = "Ya existe un usuario con ese email";
                         res.locals.errors = errors;
                         res.render('register');
                     } else {
-                        //console.log("correo correcto");
+                       
                         db.Usuario.findOne({
                             where: [{ nombre: req.body.nombre }]
                         })
                             .then(resultado2 => {
-                                console.log("encontro usuario");
+                               
                                 if (resultado2 != undefined) {
-                                    console.log(" ya existe ");
+                                   
                                     errors.message = "Ya existe un usuario con este nombre";
                                     res.locals.errors = errors;
                                     res.render('register');
                                 } else {
-                                    console.log(" no existe ");
+                         
                                     db.Usuario.create({
 
                                         nombre: req.body.nombre,
@@ -169,12 +169,57 @@ let controladorUsuario = {
                 res.render('editarPerfil', { usuario: resultado });
             })
     },
-    editar: (req, res) => {
+
+    editar: (req,res) => {
+
+        //FIND BY PK
+        db.Usuario.findByPk(req.params.id)
+            .then(resultado => {
+                res.render('editarPerfil', { usuario: resultado });
+        })
+
+        //PARA QUE NO SE ENCRIPTE DOS VECES LA CONTRASEÑA
         if (req.body.contraseña == "") {
             req.body.contraseña = req.session.contraseña
         } else {
             req.body.contraseña = bcrypt.hashSync(req.body.contraseña);
         }
+
+        //VALIDACION NOMBRE
+        if (req.body.nombre) {
+            let errors = {}
+            //para que el nombre de usuario cambie tb en el header 
+            req.session.usuario = req.body.nombre
+            db.Usuario.findOne({
+                where: [{ nombre: req.body.nombre }]
+            })
+
+            .then (resultado2 => {
+                if (resultado2 != undefined) {
+                    errors.message = "Ya existe un usuario con este nombre";
+                    res.locals.errors = errors;
+                    res.render('editarPerfil');
+                }          
+            })
+        }
+
+        //VALIDACION MAIL
+        if (req.body.mail) {
+            let errors = {}
+            db.Usuario.findOne({
+                where: [{ mail: req.body.mail }]
+            })
+            
+            .then (resultado3 =>{
+                if (resultado3 != undefined) {
+                    errors.message = "Ya existe un usuario con ese email";
+                    res.locals.errors = errors;
+                    res.render('editarPerfil');
+                } 
+            })
+        }
+
+        //IMAGEN
         if (req.file != undefined) {
             let imagen = req.file.filename;
             db.Usuario.update({
@@ -196,66 +241,32 @@ let controladorUsuario = {
                 })
                 .catch((error) => {
                     console.log("Error de conexion: " + error.message);
-
-                    res.render('error', { error: "Error de conexion: " + error.message });
                 });
         } else {
-            let errors = {};
-            db.Usuario.findOne({
-                where: [{ mail: req.body.mail }]
+            let imagen = req.session.foto;
+            db.Usuario.update({
+                nombre: req.body.nombre,
+                celular: req.body.celular,  
+                mail: req.body.mail,
+                fotoPerfil: imagen,
+                contraseña: req.body.contraseña,
+                nacimiento: req.body.nacimiento
+
+            }, {
+                where: {
+                    id: req.params.id
+                }
             })
-                .then(resultado => {
-                    //console.log(resultado.nombre);
-                    if (resultado != undefined) {
-                        //console.log("correo incorrecto");
-                        errors.message = "Ya existe un usuario con ese email";
-                        res.locals.errors = errors;
-                        res.render('editarPerfil');
-                    } else {
-                        //console.log("correo correcto");
-                        db.Usuario.findOne({
-                            where: [{ nombre: req.body.nombre }]
-                        })
-                            .then(resultado2 => {
-                                console.log("encontro usuario");
-                                if (resultado2 != undefined) {
-                                    console.log(" ya existe ");
-                                    errors.message = "Ya existe un usuario con este nombre";
-                                    res.locals.errors = errors;
-                                    res.render('editarPerfil');
-                                } else {
-
-                                    let imagen = req.session.foto;
-                                    db.Usuario.update({
-                                        nombre: req.body.nombre,
-                                        celular: req.body.celular,
-                                        mail: req.body.mail,
-                                        fotoPerfil: imagen,
-                                        contraseña: req.body.contraseña,
-                                        nacimiento: req.body.nacimiento
-
-                                    }, {
-                                        where: {
-                                            id: req.params.id
-                                        }
-                                    })
-                                        .then(usuario => {
-                                            res.redirect('/login');
-                                        })
-                                        .catch((error) => {
-                                            console.log("Error de conexion: " + error.message);
-                                            res.render('error', { error: "Error de conexion: " + error.message });
-                                        })
-                                    if (req.body.nombre) {
-                                        req.session.usuario = req.body.nombre
-                                    }
-                                }
-                            })
-                    }
+                .then(() => {
+                    res.redirect('/');
                 })
+                .catch((error) => {
+                    console.log("Error de conexion: " + error.message);
+                });
         }
-        
     },
+
+    
     //LOG OUT
     logout: (req, res, next) => {
         req.session.destroy();

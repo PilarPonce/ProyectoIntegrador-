@@ -53,15 +53,14 @@
                             <h2 class="tipografiaComentario">No hay comentarios aún</h2>
                         </section>
                     
-                        <% if(! logueado) { %>
-                    
-                            <% } else { %>
-                                <form class="form" action="/product/<%= libro.id %> " method="POST">
-                                    <input class="form-input" type="text" name="texto" placeholder="Agregar comentario">
-                                    <input type="hidden" name="libro" value="<%= libro.id %>">
-                                    <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
-                                </form>
-                                <% } %>
+                        <% if(logueado) { %>
+                            <form class="form" action="/product/<%= libro.id %> " method="POST">
+                                <input class="form-input" type="text" name="texto" placeholder="Agregar comentario">
+                                <input type="hidden" name="libro" value="<%= libro.id %>">
+                                <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
+                            </form>
+                        <% }  %>
+                        
                     </div>                
                 <% }else{ %>
 <!-- Si hay comentarios:-->
@@ -94,16 +93,13 @@
                         <% }) %>
                     </section>
 
-                    <% if(! logueado) { %> 
-                        
-                    <% } else { %>
+                    <% if (logueado) { %> 
                         <form class="form" action="/product/<%= libro.id %> " method="POST">
                             <input class="form-input" type="text" name="texto" placeholder="Agregar comentario">
                             <input type="hidden" name="libro" value="<%= libro.id %>">
                             <button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
                         </form>
-                    <% } %>
-
+                    <% }  %>
                 </div>
                 <% } %>
             </div>
