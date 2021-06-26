@@ -7,6 +7,7 @@ let controladorUsuario = {
     login: (req, res, next) => {
         res.render('login', {});
     },
+    
     product: (req, res, next) => {
         res.render('product');
     },
@@ -118,8 +119,7 @@ let controladorUsuario = {
         }
     },
 
-    //VALIDACION LOGIN
-    //LOG IN
+    
     loginUsuario: (req, res) => {
         let filtro = {
             where: {
@@ -138,7 +138,6 @@ let controladorUsuario = {
                         req.session.usuario = usuario.nombre;
                         req.session.contraseña = usuario.contraseña;
                         req.session.idUsuario = usuario.id;
-                        console.log("contraseña???");
 
                         if (req.body.recordarme) {
                             res.cookie("usuarios_id", usuario.id, {
@@ -146,7 +145,8 @@ let controladorUsuario = {
                             })
 
                         }
-                        res.redirect("/")
+
+                    res.redirect("/")
                     } else {
                         erroresLogin.message = "Contraseña incorrecta";
                         res.locals.erroresLogin = erroresLogin;
@@ -171,6 +171,7 @@ let controladorUsuario = {
     },
 
     editar: (req,res) => {
+        let errors = {}
 
         //FIND BY PK
         db.Usuario.findByPk(req.params.id)
@@ -185,87 +186,69 @@ let controladorUsuario = {
             req.body.contraseña = bcrypt.hashSync(req.body.contraseña);
         }
 
-        //VALIDACION NOMBRE
-        if (req.body.nombre) {
-            let errors = {}
-            //para que el nombre de usuario cambie tb en el header 
-            req.session.usuario = req.body.nombre
+        //para que el nombre de usuario cambie tb en el header 
+        req.session.usuario = req.body.nombre
+
+  //VALIDACION NOMBRE
             db.Usuario.findOne({
                 where: [{ nombre: req.body.nombre }]
             })
-
             .then (resultado2 => {
                 if (resultado2 != undefined) {
                     errors.message = "Ya existe un usuario con este nombre";
                     res.locals.errors = errors;
                     res.render('editarPerfil');
-                }          
+                } else {
+                    let imagen = req.file.filename;
+                    db.Usuario.update ({
+                        nombre: req.body.nombre,
+                        celular: req.body.celular,
+                        mail: req.body.mail,
+                        fotoPerfil: imagen,
+                        contraseña: req.body.contraseña,
+                        nacimiento: req.body.nacimiento
+                    }, {
+                        where: { 
+                            id: req.params.id
+                        }
+                    })
+                }         
             })
-        }
+            .then (resultadoNombre =>{
+                res.redirect ('/login') //no funciona el redirect, puse login para ver si funcionaba al menos.
+            })
 
         //VALIDACION MAIL
-        if (req.body.mail) {
-            let errors = {}
+       
             db.Usuario.findOne({
                 where: [{ mail: req.body.mail }]
             })
             
-            .then (resultado3 =>{
-                if (resultado3 != undefined) {
+            .then (resultado4 =>{
+                if (resultado4 != undefined) {
                     errors.message = "Ya existe un usuario con ese email";
                     res.locals.errors = errors;
                     res.render('editarPerfil');
-                } 
-            })
-        }
-
-        //IMAGEN
-        if (req.file != undefined) {
-            let imagen = req.file.filename;
-            db.Usuario.update({
-                nombre: req.body.nombre,
-                celular: req.body.celular,
-                mail: req.body.mail,
-                fotoPerfil: imagen,
-                contraseña: req.body.contraseña,
-                nacimiento: req.body.nacimiento
-
-            }, {
-                where: {
-                    id: req.params.id
+                } else {
+                    let imagen = req.file.filename;
+                    db.Usuario.update({
+                        nombre: req.body.nombre,
+                        celular: req.body.celular,
+                        mail: req.body.mail,
+                        fotoPerfil: imagen,
+                        contraseña: req.body.contraseña,
+                        nacimiento: req.body.nacimiento
+                    }, {
+                        where: {
+                            id: req.params.id
+                        }
+                    })
                 }
-            }
-            )
-                .then(() => {
-                    res.redirect('/');
-                })
-                .catch((error) => {
-                    console.log("Error de conexion: " + error.message);
-                });
-        } else {
-            let imagen = req.session.foto;
-            db.Usuario.update({
-                nombre: req.body.nombre,
-                celular: req.body.celular,  
-                mail: req.body.mail,
-                fotoPerfil: imagen,
-                contraseña: req.body.contraseña,
-                nacimiento: req.body.nacimiento
-
-            }, {
-                where: {
-                    id: req.params.id
-                }
+            }).then(resultadoMail => {
+                res.redirect('/login')//no funciona el redirect, puse login para ver si funcionaba al menos
             })
-                .then(() => {
-                    res.redirect('/');
-                })
-                .catch((error) => {
-                    console.log("Error de conexion: " + error.message);
-                });
-        }
-    },
-
+        },
+    
     
     //LOG OUT
     logout: (req, res, next) => {
