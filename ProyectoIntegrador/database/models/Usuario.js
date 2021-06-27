@@ -24,7 +24,14 @@ module.exports = (sequelize, dataTypes) => {
         },
         nacimiento: {
             type: dataTypes.DATE,
+        },
+        createdAt: {
+            type: dataTypes.DATE
+        },
+        updatedAt: {
+            type: dataTypes.DATE
         }
+
     },  
         {   tableName: "usuarios",
         });

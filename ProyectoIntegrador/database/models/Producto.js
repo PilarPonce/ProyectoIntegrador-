@@ -27,7 +27,14 @@ module.exports = (sequelize, dataTypes) => {
         },
         usuarios_id: { 
             type: dataTypes.INTEGER,
+        },
+        createdAt: {
+            type: dataTypes.DATE
+        },
+        updatedAt: {
+            type: dataTypes.DATE
         }
+
     },
         {
             tableName: "productos",

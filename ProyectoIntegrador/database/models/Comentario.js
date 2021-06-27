@@ -15,7 +15,14 @@ module.exports = (sequelize, dataTypes) => {
         },
         productos_id:{
             type: dataTypes.INTEGER
+        },
+        createdAt: {
+            type: dataTypes.DATE
+        },
+        updatedAt: {
+            type: dataTypes.DATE
         }
+
     },
         {
             tableName: "comentarios",
