@@ -1,7 +1,10 @@
+//requerimos
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
 const bcrypt = require('bcryptjs');
 const { resolveInclude } = require('ejs');
+
+//controlador
 let controladorUsuario = {
 
     //RENDERIZAMOS LAS VISTAS

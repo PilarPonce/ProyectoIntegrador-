@@ -1,8 +1,11 @@
+//requerimos 
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
 
-//HOME, FIND ALL X GENEROS
+//controlador
 let controladorProducto = { 
+
+//HOME, FIND ALL X GENEROS
     home: (req,res,next)=> {    
         let filtro = { 
             include: [ 

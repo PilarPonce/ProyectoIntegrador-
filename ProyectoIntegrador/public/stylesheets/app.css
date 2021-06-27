@@ -249,6 +249,11 @@ hr {
   
 }
 
+.resultadosBuscador{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .col-71{
   margin-top: 45px;
 }
