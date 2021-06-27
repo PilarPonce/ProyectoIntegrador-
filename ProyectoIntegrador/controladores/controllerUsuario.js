@@ -138,6 +138,7 @@ let controladorUsuario = {
                         req.session.usuario = usuario.nombre;
                         req.session.contraseña = usuario.contraseña;
                         req.session.idUsuario = usuario.id;
+                        req.session.mail = usuario.mail;
 
                         if (req.body.recordarme) {
                             res.cookie("usuarios_id", usuario.id, {
@@ -171,8 +172,6 @@ let controladorUsuario = {
     },
 
     editar: (req,res) => {
-        let errors = {}
-
         //FIND BY PK
         db.Usuario.findByPk(req.params.id)
             .then(resultado => {
@@ -182,54 +181,52 @@ let controladorUsuario = {
         //PARA QUE NO SE ENCRIPTE DOS VECES LA CONTRASEÑA
         if (req.body.contraseña == "") {
             req.body.contraseña = req.session.contraseña
+            console.log("contrasenia vieja");
         } else {
             req.body.contraseña = bcrypt.hashSync(req.body.contraseña);
+            console.log("contrasenia nueva");
         }
 
-        //para que el nombre de usuario cambie tb en el header 
-        req.session.usuario = req.body.nombre
-
-  //VALIDACION NOMBRE
-            db.Usuario.findOne({
-                where: [{ nombre: req.body.nombre }]
-            })
-            .then (resultado2 => {
-                if (resultado2 != undefined) {
-                    errors.message = "Ya existe un usuario con este nombre";
-                    res.locals.errors = errors;
-                    res.render('editarPerfil');
-                } else {
-                    let imagen = req.file.filename;
-                    db.Usuario.update ({
-                        nombre: req.body.nombre,
-                        celular: req.body.celular,
-                        mail: req.body.mail,
-                        fotoPerfil: imagen,
-                        contraseña: req.body.contraseña,
-                        nacimiento: req.body.nacimiento
-                    }, {
-                        where: { 
-                            id: req.params.id
-                        }
-                    })
-                }         
-            })
-            .then (resultadoNombre =>{
-                res.redirect ('/login') //no funciona el redirect, puse login para ver si funcionaba al menos.
-            })
-
-        //VALIDACION MAIL
-       
+        //si viene con un mail nuevo
+        if (req.body.mail) {
             db.Usuario.findOne({
                 where: [{ mail: req.body.mail }]
-            })
-            
-            .then (resultado4 =>{
-                if (resultado4 != undefined) {
-                    errors.message = "Ya existe un usuario con ese email";
-                    res.locals.errors = errors;
+            }).then(resultado =>{
+                if (resultado != undefined) {
+                    console.log("otro con ese mail");
+                    erroresEditar.message = "Ya existe un usuario con ese email";
+                    res.locals.erroresEditar = erroresEditar;
                     res.render('editarPerfil');
-                } else {
+                    console.log("encontro otro con mail");
+                   
+                } 
+            })
+        } else {
+            req.body.mail = req.session.mail
+            console.log("no hay otro con mail");
+        }
+
+        //si viene con nombre nuevo
+        if (req.body.nombre) {
+            db.Usuario.findOne({
+                where: [{ nombre: req.body.nombre }]
+            }).then(resultado2 =>{
+                if (resultado2 != undefined) {
+                    console.log("otro con ese mail");
+                    erroresEditar.message = "Ya existe un usuario con ese nombre";
+                    res.locals.erroresEditar = erroresEditar;
+                    res.render('editarPerfil');
+                    console.log("encontro otro con nombre");
+                   
+                } 
+            })
+        } else {
+            req.body.nombre = req.session.usuario
+            console.log("no hay otro con nombre");
+        }
+
+//validacion foto
+                if (req.file != undefined) {
                     let imagen = req.file.filename;
                     db.Usuario.update({
                         nombre: req.body.nombre,
@@ -238,15 +235,46 @@ let controladorUsuario = {
                         fotoPerfil: imagen,
                         contraseña: req.body.contraseña,
                         nacimiento: req.body.nacimiento
+
+                    }, {
+                        where: {
+                            id: req.params.id
+                        }
+                    }
+                    )
+                        .then(() => {
+                            res.redirect('/');
+                        })
+                        .catch((error) => {
+                            console.log("Error de conexion: " + error.message);
+
+                            res.render('error', { error: "Error de conexion: " + error.message });
+                        });
+                } else {
+                    let imagen = req.session.foto;
+                    db.Usuario.update({
+                        nombre: req.body.nombre,
+                        celular: req.body.celular,
+                        mail: req.body.mail,
+                        fotoPerfil: imagen,
+                        contraseña: req.body.contraseña,
+                        nacimiento: req.body.nacimiento
+
                     }, {
                         where: {
                             id: req.params.id
                         }
                     })
+                        .then(() => {
+                            res.redirect('/');
+                        })
+                        .catch((error) => {
+                            console.log("Error de conexion: " + error.message);
+
+                            res.render('error', { error: "Error de conexion: " + error.message });
+                        });
                 }
-            }).then(resultadoMail => {
-                res.redirect('/login')//no funciona el redirect, puse login para ver si funcionaba al menos
-            })
+
         },
     
     

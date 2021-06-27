@@ -21,7 +21,7 @@
                             <div class="formsEditarPerfil">
                                 <div class="completa">
                                     <label class="palabra" for="nombre">Nombre de usuario</label>
-                                    <input class="inputs" type="text" name="nombre" id="name"  value= "<%= usuario.nombre%>">
+                                    <input class="inputs" type="text" name="nombre" id="name" >
                                     <hr>
                                     </hr>
                                 </div>
@@ -35,7 +35,7 @@
 
                                 <div class="completa">
                                     <label class="palabra" for="mail">Email</label>
-                                    <input class="inputs" type="mail" name="mail" id="mail" value= "<%= usuario.mail%>">
+                                    <input class="inputs" type="mail" name="mail" id="mail">
                                     <hr>
                                     </hr>
                                 </div>
@@ -62,8 +62,8 @@
                                 </div>
 
                                 <div class="error">
-                                    <% if(locals.errors){ %>
-                                        <h2 class="mensajeError">Error: <%= errors.message %>
+                                    <% if(locals.erroresEditar){ %>
+                                        <h2 class="mensajeError">Error: <%= erroresEditar.message %>
                                         </h2>
                                         <% } %>
                                 </div>
