@@ -54,7 +54,7 @@ app.use(function (req, res, next) {
       nombreUsuario: req.session.usuario,
       idUsuario:  req.session.idUsuario, 
       fotoUsuario: req.session.foto,
-      mailUsuario: req.session.mail
+      
     }
   } else {
     res.locals = {

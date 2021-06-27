@@ -2,26 +2,26 @@
 <html lang="es">
 <!-- Head -->
 <%- include('./partials/head')%>
-
+    <!-- Head -->
 
     <body>
         <!-- Header -->
         <%- include('./partials/header')%>
-        
+            <!-- /Header -->
 
-            <!-- Editar perfil -->
+            <!-- Registrarse -->
             <div class="container products-wrapper">
                 <div class="row">
                     <div class="col-12">
                         <h2 class="registrate">Editar Perfil</h2>
                     </div>
-                    <!-- form de edicion de perfil -->
+                    <!-- form de registro -->
                     <section class="formularioEditarPerfil">
                         <form class="formEditarPerfil" action="/editarPerfil/<%= usuario.id%>" method="POST" id="form" enctype="multipart/form-data">
                             <div class="formsEditarPerfil">
                                 <div class="completa">
                                     <label class="palabra" for="nombre">Nombre de usuario</label>
-                                    <input class="inputs" type="text" name="nombre" id="name" >
+                                    <input class="inputs" type="text" name="nombre" id="name"  value= "<%= usuario.nombre%>">
                                     <hr>
                                     </hr>
                                 </div>
@@ -35,7 +35,7 @@
 
                                 <div class="completa">
                                     <label class="palabra" for="mail">Email</label>
-                                    <input class="inputs" type="mail" name="mail" id="mail">
+                                    <input class="inputs" type="mail" name="mail" id="mail" value= "<%= usuario.mail%>">
                                     <hr>
                                     </hr>
                                 </div>
@@ -62,8 +62,8 @@
                                 </div>
 
                                 <div class="error">
-                                    <% if(locals.erroresEditar){ %>
-                                        <h2 class="mensajeError">Error: <%= erroresEditar.message %>
+                                    <% if(locals.errors){ %>
+                                        <h2 class="mensajeError">Error: <%= errors.message %>
                                         </h2>
                                         <% } %>
                                 </div>
@@ -74,7 +74,7 @@
 
                     <!-- footer -->
                     <%- include('./partials/footer')%>
-                    
+                    <!-- /footer -->
     </body>
 
 </html>
