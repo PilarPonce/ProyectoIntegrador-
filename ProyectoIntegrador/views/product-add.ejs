@@ -7,33 +7,35 @@
     <!-- Header -->
     <%- include('./partials/header')%>
     <!-- Header -->
-<div class="container products-wrapper">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="agregar">Agregar Productos</h2>
-        </div>
-   
-    <section class="agregarProducto">
-        <form class="" action="/productadd" method="post" id="form" enctype = 'multipart/form-data'>
-            <label class="palabra" >  Nombre: <input class="inputs" type="text" name="nombre"> </label>
-            <label class="palabra">  Autor: <input class="inputs"type="text" name="autor"></label>
-            <div class="completa">
-                <label class="palabra" for="foto">Foto:</label>
-                <input class="inputs" type="file" name="foto" id="foto">
-            </div> 
-            <label class="palabra">  Género: <input class="inputs" type="text" name="genero"></label> 
-            <label class="palabra">  Resumen: <input class="inputs" type="text" name="resumen"></label>
-            <label class="palabra">  Año de publicación: <input class="inputs" type="number" name="anio"></label>
-            <input type="hidden" name="id" value= "<%= idUsuario %>" > 
-            <label class="palabra"> <button class="botonAgregarProducto" type="submit">Cargar producto</button>
-        </form>
-    </section>
-    </div>
+    <div class="container products-wrapper">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="agregar">Agregar Productos</h2>
+            </div>
     
-</div>
+        <!-- FORMULARIO AGREGAR PRODUCTO -->
+        <section class="agregarProducto">
+            <form class="" action="/productadd" method="post" id="form" enctype = 'multipart/form-data'>
+                <label class="palabra" >  Nombre: <input class="inputs" type="text" name="nombre"> </label>
+                <label class="palabra">  Autor: <input class="inputs"type="text" name="autor"></label>
+                <div class="completa">
+                    <label class="palabra" for="foto">Foto:</label>
+                    <input class="inputs" type="file" name="foto" id="foto">
+                </div> 
+                <label class="palabra">  Género: <input class="inputs" type="text" name="genero"></label> 
+                <label class="palabra">  Resumen: <input class="inputs" type="text" name="resumen"></label>
+                <label class="palabra">  Año de publicación: <input class="inputs" type="number" name="anio"></label>
+                <input type="hidden" name="id" value= "<%= idUsuario %>" > 
+                <label class="palabra"> <button class="botonAgregarProducto" type="submit">Cargar producto</button>
+            </form>
+        </section>
+        </div>
+        
+    </div>
  
-</body>
     <!-- footer -->
     <%- include('./partials/footer')%>
-        <!-- /footer -->
+    <!-- /footer -->
+</body>
+
 </html>

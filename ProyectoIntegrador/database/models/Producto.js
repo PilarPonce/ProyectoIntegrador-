@@ -33,6 +33,7 @@ module.exports = (sequelize, dataTypes) => {
             tableName: "productos",
         });
 
+        //RELACIONES DE LA TABLA PRODUCTOS
         Producto.associate = (db) => {
             Producto.belongsTo(db.Usuario, {
                 as: 'usuario',

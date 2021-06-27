@@ -21,6 +21,8 @@ module.exports = (sequelize, dataTypes) => {
             tableName: "comentarios",
         });
 
+
+        //RELACIONES DE LA TABLA COMENTARIOS
         Comentario.associate = (db) => {
             Comentario.belongsTo(db.Producto, {
                 as: 'producto',

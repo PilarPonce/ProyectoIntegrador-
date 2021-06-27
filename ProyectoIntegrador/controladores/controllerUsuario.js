@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const { resolveInclude } = require('ejs');
 let controladorUsuario = {
 
+    //RENDERIZAMOS LAS VISTAS
     login: (req, res, next) => {
         res.render('login', {});
     },
@@ -120,6 +121,7 @@ let controladorUsuario = {
     },
 
     
+//LOG IN
     loginUsuario: (req, res) => {
         let filtro = {
             where: {
@@ -278,7 +280,7 @@ let controladorUsuario = {
         },
     
     
-    //LOG OUT
+//LOG OUT
     logout: (req, res, next) => {
         req.session.destroy();
         res.clearCookie('usuarios_id');

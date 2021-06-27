@@ -3,10 +3,11 @@ var router = express.Router();
 
 let controladorProducto = require('../controladores/controllerProducto');
 
-
+//MULTER Y PATH
 const multer = require('multer');
 const path = require('path');
  
+//MULTER FOTO PRODUCTO
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
       let rutaDirectorio = 'public/images/productos';
@@ -22,6 +23,7 @@ const storage = multer.diskStorage({
     storage: storage
   });  
  
+//RUTAS RELACIONADAS CON PRODUCTOS
 router.get('/', controladorProducto.home);  
  
 router.get('/product/:id', controladorProducto.porId);

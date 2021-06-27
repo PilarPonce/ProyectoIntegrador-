@@ -2,18 +2,19 @@
 <html lang="es">
 <!-- Head -->
 <%- include('./partials/head')%>
-    <!-- Head -->
+<!-- Head -->
 
     <body>
         <!-- Header -->
         <%- include('./partials/header')%>
-            <!-- Header -->
+        <!-- Header -->
+            
             <div class="container products-wrapper">
                 <div class="row">
                     <div class="col-12">
                         <h2 class="agregar">Editar Producto</h2>
                     </div>
-
+                     <!-- form de editar producto -->
                     <section class="editarProducto">
                         <form class="forms" action="/editarProducto/<%= libro.id%>" method="post" id="form" enctype='multipart/form-data'>
                             <label class="palabra"> Nombre: <input class="inputs" type="text" name="nombre" value= "<%= libro.nombre%>"> </label>

@@ -34,6 +34,7 @@ module.exports = (sequelize, dataTypes) => {
         {   tableName: "usuarios",
         });
 
+        //RELACIONES DE LA TABLA USUARIOS
         Usuario.associate = (db) => {
             Usuario.hasMany(db.Producto, {
                 as: 'productos', 

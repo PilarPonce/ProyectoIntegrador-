@@ -3,9 +3,11 @@ var router = express.Router();
           
 let controladorUsuario = require('../controladores/controllerUsuario');
 
+//MULTER Y PATH
 const multer = require('multer');
 const path = require('path');
 
+//MULTER FOTO PERFIL
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
       console.log("probando")
@@ -22,6 +24,7 @@ const storage = multer.diskStorage({
     storage: storage
   });  
 
+//RUTAS RELACIONADAS CON EL USUARIO
 router.get('/login', controladorUsuario.login); 
 
 router.post('/login', controladorUsuario.loginUsuario);  

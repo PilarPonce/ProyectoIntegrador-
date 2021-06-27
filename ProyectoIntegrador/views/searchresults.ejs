@@ -9,47 +9,49 @@
 <!-- /Header -->
 
     <div class="container products-wrapper">
-    <% if (libro==undefined || libro==0) { %>
-        <h2 class="tipografia2">No se encontraron resultados.</h2>
+        <!-- SI NO ENCUENTRA RESULTADOS -->
+        <% if (libro==undefined || libro==0) { %>
+            <h2 class="tipografia2">No se encontraron resultados.</h2>
         <% } else {%>
             <div class="col-12">
                 <h2 class="tipografia2">Resultados de búsqueda:</h2>
             </div>
-            <% } %>
+        <% } %>
 
-    <% libro.forEach(element => { %>  
-    <div class="col-12 col-sm-6 col-lg-3">
-        <section class="product-box">
-            <a href="/product/<%= element.id %>">
-                <figure class="product-box_image">
-                    <img src='/images/productos/<%= element.foto %>' alt="portada libro" class="fotoCadaLibro">
-                </figure>
-                <article class="product-box_data">
-                    <h2 class="tipografia1">
-                        <%= element.nombre %>
-                    </h2>
-                    <div class="autorCreador">
-                        <p class="tipografia1"> Autor: <%= element.autor %> </p>
-                   
-                        <a href="/profile/<%= element.usuario.id%>">
-                            <p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %> </p>
-                        </a>
+        <!-- SI ENCUENTRA RESULTADOS -->
+        <% libro.forEach(element => { %>  
+            <div class="col-12 col-sm-6 col-lg-3">
+                <section class="product-box">
+                    <a href="/product/<%= element.id %>">
+                        <figure class="product-box_image">
+                            <img src='/images/productos/<%= element.foto %>' alt="portada libro" class="fotoCadaLibro">
+                        </figure>
+                        <article class="product-box_data">
+                            <h2 class="tipografia1">
+                                <%= element.nombre %>
+                            </h2>
+                            <div class="autorCreador">
+                                <p class="tipografia1"> Autor: <%= element.autor %> </p>
                         
-                        <style type="text/css">
-                            a:link,
-                            a:visited,
-                            a:active {
-                                text-decoration: none;
-                            }
-                        </style>
+                                <a href="/profile/<%= element.usuario.id%>">
+                                    <p class="tipografia1 subrayado"> Creador: <%= element.usuario.nombre %> </p>
+                                </a>
+                                
+                                <style type="text/css">
+                                    a:link,
+                                    a:visited,
+                                    a:active {
+                                        text-decoration: none;
+                                    }
+                                </style>
 
-                    </div>
-                    
-                </article>
-            </a>
-        </section>
-    </div>
-    <% }) %>
+                            </div>
+                            
+                        </article>
+                    </a>
+                </section>
+            </div>
+        <% }) %>
     
 <!-- footer -->
 <%- include('./partials/footer')%>

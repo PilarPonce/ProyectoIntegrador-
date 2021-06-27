@@ -14,6 +14,7 @@
                 <h2 class="iniciarsesion">Ingresar</h2>
             </div>
         
+            <!-- FORMULARIO LOG IN -->
             <section class= "formularioLogin">
                 <form class="formLogin" action="/login" method="POST" id="form">     
                     <div class="formsLogin">
@@ -33,10 +34,12 @@
                             </hr>
                         </div>
                         
+                        <!-- RECORDARME -->
                         <div class="recordarme">
                             Recordarme <input type="checkbox" name="recordarme" id=""><br>
                         </div>
 
+                        <!-- ERRORES VALIDACION -->
                         <div class="error">
                             <% if(locals.erroresLogin){ %>
                                 <h2 class="mensajeError">Error: <%= erroresLogin.message %>
