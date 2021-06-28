@@ -10,7 +10,8 @@ const path = require('path');
 //MULTER FOTO PERFIL
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      console.log("probando")
+
+
       let rutaDirectorio = 'public/images/usuarios';
       cb(null, rutaDirectorio);
     },

@@ -32,7 +32,7 @@ let controladorUsuario = {
         }
         db.Usuario.findByPk(req.params.id, filtro)
             .then(resultado => {
-                console.log(resultado);
+           
                 res.render('profile', { usuario: resultado });
             })
             .catch((error) => {
